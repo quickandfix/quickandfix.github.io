@@ -1,138 +1,95 @@
-<!-- Quick Haul & Fix – One-Block Site (Revamp v3 • Pricing Removed • Email+SMS wired) -->
+<!-- Quick Haul & Fix – One-Block Site (Revamp v3.1 • Dual phones/emails • Mobile polish) -->
 <div id="qhf-v3" class="qhf">
   <style>
-    /* =========================
-       Quick Haul & Fix — Revamp v3
-       ========================= */
     #qhf-v3.qhf{
-      /* theme tokens */
-      --bg:#334456;           /* page background (dark gray-blue) */
-      --panel:#0f1f2d;        /* dark panels */
-      --surface:#ffffff;      /* white cards */
-      --ink:#0c2239;          /* dark ink on white */
-      --ink-invert:#eaf2ff;   /* light ink on dark */
-      --muted:#a9b7c6;        /* muted text on dark */
-      --line:#44586e;         /* lines on dark */
-      --line-light:#dee7f2;   /* lines on white */
-      --accent:#2f6ea6;       /* steel blue */
-      --accent-ink:#ffffff;   /* contrast on accent */
+      --bg:#334456; --panel:#0f1f2d; --surface:#ffffff; --ink:#0c2239; --ink-invert:#eaf2ff;
+      --muted:#a9b7c6; --line:#44586e; --line-light:#dee7f2; --accent:#2f6ea6; --accent-ink:#fff;
       --shadow:0 12px 40px rgba(0,0,0,.25);
-
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:var(--bg);
-      color:var(--ink-invert);
-      line-height:1.55;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:var(--bg); color:var(--ink-invert); line-height:1.55;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
-    #qhf-v3 *{box-sizing:border-box}
-    #qhf-v3 a{color:var(--accent); text-decoration:none}
+    #qhf-v3 *{box-sizing:border-box}  #qhf-v3 a{color:var(--accent); text-decoration:none}
     #qhf-v3 .wrap{max-width:1200px; margin:0 auto; padding:0 22px}
 
-    /* Header */
-    #qhf-v3 header{position:sticky; top:0; z-index:20; background:rgba(15,31,45,.9); backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
-    #qhf-v3 .bar{display:flex; align-items:center; gap:18px; padding:12px 0}
-    #qhf-v3 .brand{display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:.2px}
-    #qhf-v3 .logo{width:38px; height:38px; border-radius:10px; background:linear-gradient(180deg,#3a79bd,#2f6ea6); display:inline-grid; place-items:center; color:#fff; font-weight:900; box-shadow:0 6px 18px rgba(47,110,166,.35)}
-    #qhf-v3 .brand span{color:#fff}
+    /* Header + MOBILE MENU */
+    #qhf-v3 header{position:sticky; top:0; z-index:30; background:rgba(15,31,45,.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+    #qhf-v3 .bar{display:flex; align-items:center; gap:16px; padding:12px 0}
+    #qhf-v3 .brand{display:flex; align-items:center; gap:10px; font-weight:900}
+    #qhf-v3 .logo{width:36px; height:36px; border-radius:10px; background:linear-gradient(180deg,#3a79bd,#2f6ea6); display:grid; place-items:center; color:#fff; font-weight:900}
     #qhf-v3 nav{margin-left:auto; display:flex; gap:18px; align-items:center; flex-wrap:wrap}
     #qhf-v3 nav a{color:#eaf2ff; font-weight:700; opacity:.95}
     #qhf-v3 .btn{display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.8rem 1.1rem; border-radius:14px; border:2px solid var(--accent); background:transparent; color:#eaf2ff; font-weight:800; transition:.2s ease; cursor:pointer}
     #qhf-v3 .btn.primary{background:var(--accent); color:var(--accent-ink)}
     #qhf-v3 .btn:hover{transform:translateY(-1px); box-shadow:0 8px 22px rgba(0,0,0,.25)}
 
+    /* Mobile menu button */
+    #qhf-v3 .menu-btn{margin-left:auto; display:none; border:2px solid var(--line); border-radius:12px; padding:.55rem .8rem; color:#eaf2ff; background:transparent; font-weight:800}
+    #qhf-v3 .mnav{display:none; background:#0f1f2d; border-top:1px solid var(--line)}
+    #qhf-v3 .mnav a{display:block; padding:12px 22px; color:#eaf2ff; border-top:1px solid rgba(255,255,255,.05)}
+
     /* Hero */
     #qhf-v3 .hero{
-      position:relative;
+      position:relative; padding:70px 0 44px; isolation:isolate; text-align:center;
       background:
         radial-gradient(1200px 600px at 80% -10%, rgba(47,110,166,.35), transparent 60%),
         radial-gradient(900px 500px at -10% 0%, rgba(15,31,45,.8), transparent 70%),
         linear-gradient(180deg,#2b3c4e 0%, #2a3b4c 40%, #243444 100%);
-      padding:72px 0 46px;
-      overflow:hidden;
-      isolation:isolate;
     }
-    #qhf-v3 .hero .halo{position:absolute; inset:-10% -10% auto -10%; height:220px; background:radial-gradient(60% 120% at 50% 10%, rgba(47,110,166,.35), transparent 70%); filter:blur(30px); opacity:.7; z-index:-1}
     #qhf-v3 .kicker{display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border:1px solid var(--line); border-radius:999px; font-size:12px; color:var(--muted); background:rgba(255,255,255,.04)}
-    #qhf-v3 .hero h1{font-size:clamp(30px,5.5vw,58px); margin:12px 0 10px; letter-spacing:.2px}
+    #qhf-v3 .hero h1{font-size:clamp(30px,5.5vw,58px); margin:12px 0 10px}
     #qhf-v3 .hero p{max-width:820px; margin:0 auto; color:#cbd7e3; font-size:clamp(15px,2.2vw,19px)}
     #qhf-v3 .cta{margin-top:22px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
-    #qhf-v3 .hero .mini{margin-top:10px; color:#a9b7c6; font-size:12px}
+    #qhf-v3 .mini{margin-top:10px; color:#a9b7c6; font-size:12px}
 
-    /* Section shells */
-    #qhf-v3 section{padding:48px 0; position:relative}
-    #qhf-v3 h2{font-size:clamp(22px,3.2vw,30px); margin:0 0 12px; color:#fff}
-    #qhf-v3 .lead{color:#cbd7e3; max-width:780px}
-    #qhf-v3 .split{display:grid; grid-template-columns:1fr; gap:18px}
-    @media(min-width:960px){#qhf-v3 .split{grid-template-columns:1.1fr .9fr}}
-
-    /* Cards */
+    /* Sections / Cards */
+    #qhf-v3 section{padding:48px 0}  #qhf-v3 h2{font-size:clamp(22px,3.2vw,30px); margin:0 0 12px; color:#fff}
+    #qhf-v3 .lead{color:#cbd7e3; max-width:780px}  #qhf-v3 .grid{display:grid; gap:16px}
     #qhf-v3 .card{background:var(--surface); color:var(--ink); border:1px solid var(--line-light); border-radius:18px; padding:20px; box-shadow:var(--shadow)}
-    #qhf-v3 .pill{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius:999px; background:#eef5fd; color:#245b8d; font-weight:700; font-size:12px}
 
-    /* Badges row */
+    /* Grids */
+    #qhf-v3 .services{display:grid; grid-template-columns:1fr; gap:16px}
+    @media(min-width:900px){#qhf-v3 .services{grid-template-columns:repeat(2,1fr)}}
+    #qhf-v3 .process{display:grid; grid-template-columns:1fr; gap:16px}
+    @media(min-width:880px){#qhf-v3 .process{grid-template-columns:repeat(3,1fr)}}
+    #qhf-v3 .kpis{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
+    @media(min-width:740px){#qhf-v3 .kpis{grid-template-columns:repeat(4,1fr)}}
+    #qhf-v3 .kpi{background:#fff; border:1px solid var(--line-light); border-radius:14px; padding:14px; text-align:center; color:#0c2239}
+
+    /* Badges */
     #qhf-v3 .badges{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--panel)}
     #qhf-v3 .badge-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; padding:14px 0}
     #qhf-v3 .badge{border:1px solid var(--line); border-radius:12px; padding:10px 12px; text-align:center; color:#c2d0de; background:#162534}
     @media(min-width:640px){#qhf-v3 .badge-grid{grid-template-columns:repeat(4,1fr)}}
 
-    /* Services */
-    #qhf-v3 .services{display:grid; grid-template-columns:1fr; gap:16px}
-    @media(min-width:900px){#qhf-v3 .services{grid-template-columns:repeat(3,1fr)}}
-    #qhf-v3 .service h3{margin:0 0 6px}
-    #qhf-v3 .service ul{margin:8px 0 0; padding:0 0 0 18px; color:#365b82}
-
-    /* Process */
-    #qhf-v3 .process{display:grid; grid-template-columns:1fr; gap:16px}
-    @media(min-width:880px){#qhf-v3 .process{grid-template-columns:repeat(3,1fr)}}
-    #qhf-v3 .step .num{font:900 12px/1 monospace; background:var(--accent); color:#fff; border-radius:999px; padding:6px 10px; display:inline-block; margin-bottom:6px}
-
     /* Reviews */
     #qhf-v3 .reviews{display:grid; grid-template-columns:1fr; gap:16px}
     @media(min-width:900px){#qhf-v3 .reviews{grid-template-columns:repeat(2,1fr)}}
+    #qhf-v3 .stars{display:inline-flex; gap:2px; vertical-align:middle}  #qhf-v3 .stars svg{width:14px; height:14px; color:#f5a623}
     #qhf-v3 .rev-rotator .meta{font-size:12px; color:#5c6b7b}
-    #qhf-v3 .stars{display:inline-flex; gap:2px; vertical-align:middle}
-    #qhf-v3 .stars svg{width:14px; height:14px; color:#f5a623}
 
-    /* Contact */
+    /* Contact & Form */
     #qhf-v3 .contact{display:grid; grid-template-columns:1fr; gap:16px}
     @media(min-width:1000px){#qhf-v3 .contact{grid-template-columns:1.1fr .9fr}}
-    #qhf-v3 input, #qhf-v3 textarea, #qhf-v3 select{
-      border:1px solid var(--line-light); border-radius:12px; padding:12px 14px; font:inherit; background:#fff; width:100%
-    }
+    #qhf-v3 input, #qhf-v3 textarea, #qhf-v3 select{border:1px solid var(--line-light); border-radius:12px; padding:12px 14px; font:inherit; background:#fff; width:100%}
     #qhf-v3 input:focus, #qhf-v3 textarea:focus, #qhf-v3 select:focus{outline:3px solid rgba(47,110,166,.28); border-color:var(--accent)}
     #qhf-v3 label{font-size:13px; color:#365b82; display:block; margin:6px 0 4px}
 
-    /* Areas cards */
-    #qhf-v3 .kpis{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
-    @media(min-width:740px){#qhf-v3 .kpis{grid-template-columns:repeat(4,1fr)}}
-    #qhf-v3 .kpi{background:#fff; border:1px solid var(--line-light); border-radius:14px; padding:14px; text-align:center; color:#0c2239}
-
-    /* Footer */
+    /* Footer & mobile dock */
     #qhf-v3 footer{background:var(--panel); color:var(--muted); border-top:1px solid var(--line); text-align:center; padding:18px}
-
-    /* Sticky mobile action bar */
-    #qhf-v3 .dock{
-      position:fixed; inset:auto 0 0 0; display:none;
-      background:rgba(15,31,45,.96); border-top:1px solid var(--line); padding:10px; z-index:30;
-      backdrop-filter:blur(6px)
-    }
+    #qhf-v3 .dock{position:fixed; inset:auto 0 0 0; display:none; background:rgba(15,31,45,.96); border-top:1px solid var(--line); padding:10px; z-index:40; backdrop-filter:blur(6px)}
     #qhf-v3 .dock .wrap{display:flex; gap:10px}
     #qhf-v3 .dock .btn{flex:1}
-    @media(max-width:820px){#qhf-v3 .dock{display:block}}
 
-    /* Utilities */
-    #qhf-v3 .muted{color:var(--muted)}
-    #qhf-v3 .center{text-align:center}
-    #qhf-v3 .spaced{margin-top:14px}
-    #qhf-v3 .grid{display:grid; gap:16px}
-
-    /* Small screens */
-    @media (max-width: 768px){
+    /* --- Mobile polish --- */
+    @media (max-width: 820px){
+      #qhf-v3 .menu-btn{display:inline-flex}
       #qhf-v3 nav{display:none}
-      #qhf-v3 .hero{padding:56px 0 34px}
       #qhf-v3 .wrap{padding:0 16px}
+      #qhf-v3 .hero{padding:58px 0 30px}
       #qhf-v3 .btn, #qhf-v3 button{width:100%}
+      #qhf-v3 section{padding:36px 0}
+      #qhf-v3 .dock{display:block}
     }
   </style>
 
@@ -143,6 +100,9 @@
         <div class="logo" aria-hidden="true">QF</div>
         <span>Quick Haul &amp; Fix</span>
       </div>
+
+      <button id="mnavToggle" class="menu-btn" aria-expanded="false" aria-controls="mnav">Menu</button>
+
       <nav aria-label="Primary">
         <a href="#v3-services">Services</a>
         <a href="#v3-areas">Areas</a>
@@ -150,21 +110,28 @@
         <a href="#v3-contact" class="btn">Contact</a>
       </nav>
     </div>
+
+    <!-- Mobile dropdown nav -->
+    <div id="mnav" class="mnav" hidden>
+      <a href="#v3-services">Services</a>
+      <a href="#v3-areas">Areas</a>
+      <a href="#v3-reviews">Reviews</a>
+      <a href="#v3-contact">Contact</a>
+    </div>
   </header>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="halo"></div>
-    <div class="wrap center">
+    <div class="wrap">
       <div class="kicker">Same-Day • Upfront Pricing • Licensed &amp; Insured</div>
-      <h1>Junk Removal, Cleanouts &amp; Light Handyman — Done Right.</h1>
-      <p>Fast, friendly, and affordable. Send a few photos and your zip code for a quick quote. We haul, you relax—houses, apartments, garages, basements, and more.</p>
+      <h1>Junk Removal • Cleanouts • Light Handyman</h1>
+      <p>Fast, friendly, and affordable. Send a few photos and your ZIP for a quick quote. We haul, you relax—houses, apartments, garages, basements, and more.</p>
       <div class="cta">
         <a class="btn primary" href="tel:+12672651426" aria-label="Call 267-265-1426">Call 267-265-1426</a>
+        <a class="btn" href="tel:+16097952599" aria-label="Call 609-795-2599">Call 609-795-2599</a>
         <a class="btn" href="sms:+12672651426?&body=Hi,%20I%20need%20a%20quote%20for%20[items].%20Zip%20[#####].">Text Photos for Quote</a>
-        <a class="btn" href="#v3-contact">Get a Quote</a>
       </div>
-      <p class="mini">Email <a href="mailto:quickhaulandfix02@gmail.com">quickhaulandfix02@gmail.com</a></p>
+      <p class="mini">Email <a href="mailto:quickhaulandfix02@gmail.com">quickhaulandfix02@gmail.com</a> • <a href="mailto:kirkcarter771@gmail.com">kirkcarter771@gmail.com</a></p>
     </div>
   </section>
 
@@ -185,34 +152,16 @@
       <p class="lead">We handle the tough stuff—so you don’t have to.</p>
       <div class="services">
         <div class="card service">
-          <span class="pill">Junk Removal</span>
-          <h3>Household &amp; Furniture</h3>
+          <h3>Household Junk Removal</h3>
           <p class="muted">Sofas, mattresses, appliances, bagged trash, attic/garage/basement cleanouts.</p>
-          <ul>
-            <li>Single items to full truck loads</li>
-            <li>Donation &amp; recycling when possible</li>
-            <li>Careful removal in tight spaces</li>
-          </ul>
         </div>
         <div class="card service">
-          <span class="pill">Cleanouts</span>
-          <h3>Property &amp; Debris</h3>
+          <h3>Cleanouts &amp; Debris</h3>
           <p class="muted">Apartment turns, estate cleanouts, light construction debris, yard waste.</p>
-          <ul>
-            <li>Sweep-clean finish</li>
-            <li>Fair, volume-based pricing</li>
-            <li>Same-day / next-day availability</li>
-          </ul>
         </div>
         <div class="card service">
-          <span class="pill">Light Handyman</span>
-          <h3>Minor Repairs &amp; Installs</h3>
+          <h3>Light Handyman</h3>
           <p class="muted">Patch/paint, shelves, TV mounts, fixtures, locks, minor hardware.</p>
-          <ul>
-            <li>Clear upfront labor rates</li>
-            <li>Materials at cost</li>
-            <li>Friendly, professional service</li>
-          </ul>
         </div>
       </div>
     </div>
@@ -228,7 +177,7 @@
         <div class="kpi"><strong>Camden County</strong><br><span class="muted">Cherry Hill &amp; nearby</span></div>
         <div class="kpi"><strong>Bucks &amp; Montgomery</strong><br><span class="muted">By appointment</span></div>
       </div>
-      <p class="muted spaced">Not sure if we service your area? <a href="#v3-contact">Ask us</a>.</p>
+      <p class="muted" style="margin-top:10px">Not sure if we service your area? <a href="#v3-contact">Ask us</a>.</p>
     </div>
   </section>
 
@@ -238,17 +187,17 @@
       <h2>How It Works</h2>
       <div class="process">
         <div class="card step">
-          <div class="num">1</div>
+          <div class="num" style="font:900 12px/1 monospace; background:var(--accent); color:#fff; border-radius:999px; padding:6px 10px; display:inline-block; margin-bottom:6px">1</div>
           <h3>Text Photos or Call</h3>
-          <p class="muted">Send a few pictures and your zip code. We give a fast estimate and schedule.</p>
+          <p class="muted">Send a few pictures and your ZIP. We give a fast estimate and schedule.</p>
         </div>
         <div class="card step">
-          <div class="num">2</div>
+          <div class="num" style="font:900 12px/1 monospace; background:var(--accent); color:#fff; border-radius:999px; padding:6px 10px; display:inline-block; margin-bottom:6px">2</div>
           <h3>Upfront Price</h3>
           <p class="muted">We confirm final pricing on site before any work begins.</p>
         </div>
         <div class="card step">
-          <div class="num">3</div>
+          <div class="num" style="font:900 12px/1 monospace; background:var(--accent); color:#fff; border-radius:999px; padding:6px 10px; display:inline-block; margin-bottom:6px">3</div>
           <h3>We Haul &amp; Sweep</h3>
           <p class="muted">We load everything, sweep clean, and you’re done.</p>
         </div>
@@ -260,8 +209,6 @@
   <section id="v3-reviews">
     <div class="wrap">
       <h2>Reviews</h2>
-
-      <!-- Rotator -->
       <div class="card rev-rotator" style="max-width:820px;margin:0 auto 12px;">
         <div id="v3-rev-body" class="muted">Loading reviews…</div>
         <div class="meta" id="v3-rev-meta" style="margin-top:6px;"></div>
@@ -270,70 +217,32 @@
           <button id="v3-rev-next" class="btn" type="button">Next ▶</button>
         </div>
       </div>
-
-      <!-- Leave a review -->
       <div class="reviews">
         <div class="card">
           <h3 style="margin:0 0 8px;">Leave a Review</h3>
           <form id="v3-review-form" name="qhf-review" method="POST" data-netlify="true">
             <input type="hidden" name="form-name" value="qhf-review">
-            <div class="grid" style="grid-template-columns:1fr 1fr;">
-              <div>
-                <label for="v3-r-name">Name</label>
-                <input id="v3-r-name" name="name" required placeholder="Your name">
-              </div>
-              <div>
-                <label for="v3-r-rating">Rating</label>
-                <select id="v3-r-rating" name="rating" required>
-                  <option value="">Select…</option>
-                  <option>5 - Excellent</option>
-                  <option>4 - Good</option>
-                  <option>3 - Okay</option>
-                  <option>2 - Poor</option>
-                  <option>1 - Bad</option>
-                </select>
-              </div>
-            </div>
-            <label for="v3-r-service">Service Used</label>
-            <select id="v3-r-service" name="service">
-              <option>Junk Removal</option>
-              <option>Handyman (Light Repair)</option>
-              <option>Cleanout</option>
+            <label for="v3-r-name">Name</label><input id="v3-r-name" name="name" required placeholder="Your name">
+            <label for="v3-r-rating">Rating</label>
+            <select id="v3-r-rating" name="rating" required>
+              <option value="">Select…</option><option>5 - Excellent</option><option>4 - Good</option><option>3 - Okay</option><option>2 - Poor</option><option>1 - Bad</option>
             </select>
-            <label for="v3-r-text">Your Review</label>
-            <textarea id="v3-r-text" name="review" rows="4" required placeholder="What did we do well? What could be better?"></textarea>
+            <label for="v3-r-service">Service Used</label>
+            <select id="v3-r-service" name="service"><option>Junk Removal</option><option>Handyman (Light Repair)</option><option>Cleanout</option></select>
+            <label for="v3-r-text">Your Review</label><textarea id="v3-r-text" name="review" rows="4" required></textarea>
             <div class="spaced" style="display:flex; gap:10px; flex-wrap:wrap;">
               <button type="submit" class="btn primary">Submit Review</button>
               <a class="btn" href="mailto:quickhaulandfix02@gmail.com?subject=New%20Customer%20Review%20-%20Quick%20Haul%20%26%20Fix">Email Instead</a>
             </div>
-            <p class="muted" style="margin-top:8px;">After you submit, your review appears above and rotates with the others.</p>
           </form>
         </div>
-
-        <!-- Example static reviews -->
         <div class="card">
           <div class="stars" aria-hidden="true">
             <!-- 5 stars -->
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
           </div>
           <p style="margin:.4rem 0 0;"><strong>K. Johnson</strong> — “Fast pickup and fair price. Will use again.”</p>
           <p class="muted" style="margin:.2rem 0 0;">Junk Removal • 2 days ago</p>
-        </div>
-        <div class="card">
-          <div class="stars" aria-hidden="true">
-            <!-- 5 stars -->
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
-          </div>
-          <p style="margin:.4rem 0 0;"><strong>M. Rivera</strong> — “They cleared our garage in under an hour. Super polite.”</p>
-          <p class="muted" style="margin:.2rem 0 0;">Cleanout • 4 days ago</p>
         </div>
       </div>
     </div>
@@ -345,12 +254,13 @@
       <h2>Contact</h2>
       <div class="contact">
         <div class="card">
-          <p><strong>Call:</strong> <a href="tel:+12672651426">267-265-1426</a></p>
+          <p><strong>Call:</strong> <a href="tel:+12672651426">267-265-1426</a> • <a href="tel:+16097952599">609-795-2599</a></p>
           <p><strong>Text for fast quote:</strong> <a href="sms:+12672651426?&body=Hi,%20I%20need%20a%20quote%20for%20[items]%20Zip%20[#####].">267-265-1426</a></p>
-          <p><strong>Email:</strong> <a href="mailto:quickhaulandfix02@gmail.com">quickhaulandfix02@gmail.com</a></p>
+          <p><strong>Email:</strong> <a href="mailto:quickhaulandfix02@gmail.com">quickhaulandfix02@gmail.com</a> • <a href="mailto:kirkcarter771@gmail.com">kirkcarter771@gmail.com</a></p>
           <div class="spaced" style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn primary" href="sms:+12672651426?&body=Hi,%20it%E2%80%99s%20[Your%20Name].%20Zip%20[#####].%20I%20need:%20[describe%20items].">Text Photos for Quote</a>
-            <a class="btn" href="tel:+12672651426">Call Now</a>
+            <a class="btn primary" href="sms:+12672651426?&body=Hi,%20it%E2%80%99s%20[Your%20Name].%20Zip%20[#####].%20I%20need:%20[describe%20items].">Text Photos</a>
+            <a class="btn" href="tel:+12672651426">Call 267</a>
+            <a class="btn" href="tel:+16097952599">Call 609</a>
           </div>
           <p class="muted spaced">Payments: Cash App • Apple Pay • Tap Cards • Cash (secure card link on request)</p>
         </div>
@@ -358,214 +268,111 @@
         <div class="card">
           <h3 style="margin:0 0 6px;">Hours &amp; Availability</h3>
           <p class="muted">Mon–Sun • Same-day / next-day in many cases.</p>
-
           <h3 style="margin:14px 0 6px;">Fast Web Form</h3>
-          <!-- Sends emails to quickhaulandfix02@gmail.com via FormSubmit -->
-          <form id="v3-quote-form"
-                action="https://formsubmit.co/ajax/quickhaulandfix02@gmail.com"
-                method="POST">
-            <!-- FormSubmit options -->
+
+          <!-- Sends email to quickhaulandfix02@gmail.com (first submit triggers verification) -->
+          <form id="v3-quote-form" action="https://formsubmit.co/quickhaulandfix02@gmail.com" method="POST">
             <input type="hidden" name="_subject" value="New Quote Request - Quick Haul & Fix">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="#v3-contact">
+            <input type="text" name="_honey" style="display:none">
 
-            <label for="v3-q-name">Name</label>
-            <input id="v3-q-name" name="name" required placeholder="Your name">
-
-            <label for="v3-q-phone">Phone</label>
-            <input id="v3-q-phone" name="phone" required placeholder="Best number">
-
-            <label for="v3-q-zip">ZIP</label>
-            <input id="v3-q-zip" name="zip" required placeholder="e.g., 19143">
-
-            <label for="v3-q-notes">Items / Notes</label>
-            <textarea id="v3-q-notes" name="notes" rows="3" placeholder="List items and any stairs or access notes."></textarea>
+            <label for="v3-q-name">Name</label><input id="v3-q-name" name="name" required placeholder="Your name">
+            <label for="v3-q-phone">Phone</label><input id="v3-q-phone" name="phone" required placeholder="Best number">
+            <label for="v3-q-zip">ZIP</label><input id="v3-q-zip" name="zip" required placeholder="e.g., 19143">
+            <label for="v3-q-notes">Items / Notes</label><textarea id="v3-q-notes" name="notes" rows="3" placeholder="List items and any stairs or access notes."></textarea>
 
             <div class="spaced" style="display:flex; gap:10px; flex-wrap:wrap;">
               <button class="btn primary" type="submit">Request Quote</button>
               <a class="btn" href="mailto:quickhaulandfix02@gmail.com?subject=Quote%20Request%20-%20Quick%20Haul%20%26%20Fix">Email Instead</a>
             </div>
-
-            <p class="muted" style="margin-top:8px;">
-              We’ll reply ASAP. On phone, we’ll also prepare a text to 267-265-1426 after you submit.
-            </p>
+            <p class="muted" style="margin-top:8px;">First submit only: confirm the FormSubmit email to activate direct delivery.</p>
           </form>
         </div>
       </div>
     </div>
   </section>
 
-  <footer>
-    © <span id="v3-year"></span> Quick Haul &amp; Fix • Junk Removal &amp; Handyman • Philadelphia, PA
-  </footer>
+  <footer>© <span id="v3-year"></span> Quick Haul &amp; Fix • Junk Removal &amp; Handyman • Philadelphia, PA</footer>
 
   <!-- Sticky mobile action dock -->
   <div class="dock">
     <div class="wrap">
-      <a class="btn primary" href="tel:+12672651426">Call</a>
-      <a class="btn" href="sms:+12672651426?&body=Hi,%20Zip%20[#####].%20Items:%20[...].">Text Photos</a>
+      <a class="btn primary" href="tel:+12672651426">Call 267</a>
+      <a class="btn" href="tel:+16097952599">Call 609</a>
+      <a class="btn" href="sms:+12672651426?&body=Hi,%20Zip%20[#####].%20Items:%20[...].">Text</a>
       <a class="btn" href="#v3-contact">Contact</a>
     </div>
   </div>
 
   <script>
     (function(){
-      const root = document.getElementById('qhf-v3');
-      if(!root) return;
+      const root = document.getElementById('qhf-v3'); if(!root) return;
+      const y = root.querySelector('#v3-year'); if(y){ y.textContent = new Date().getFullYear(); }
 
-      // Year
-      const y = root.querySelector('#v3-year');
-      if(y){ y.textContent = new Date().getFullYear(); }
+      // Mobile menu toggle
+      const toggle = root.querySelector('#mnavToggle');
+      const mnav = root.querySelector('#mnav');
+      if(toggle && mnav){
+        toggle.addEventListener('click', ()=>{
+          const open = mnav.hasAttribute('hidden') ? false : true;
+          if(open){ mnav.setAttribute('hidden',''); toggle.setAttribute('aria-expanded','false'); }
+          else { mnav.removeAttribute('hidden'); toggle.setAttribute('aria-expanded','true'); }
+        });
+        mnav.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
+          mnav.setAttribute('hidden',''); toggle.setAttribute('aria-expanded','false');
+        }));
+      }
 
-      // -------- Reviews Rotator --------
+      // Reviews rotator (same behavior)
       const ROTATE_MS = 5000;
-      let reviews = [];
-      let idx = 0;
-      let timer;
-
-      const bodyEl = root.querySelector('#v3-rev-body');
-      const metaEl = root.querySelector('#v3-rev-meta');
-      const prev = root.querySelector('#v3-rev-prev');
-      const next = root.querySelector('#v3-rev-next');
-
-      function whenFmt(ts){ try{ return new Date(ts).toLocaleString(); } catch{ return ''; } }
-
-      function seed(){
-        return [
-          {name:'K. Johnson', rating:'5 - Excellent', service:'Junk Removal', review:'Fast pickup and fair price. Will use again.', time: Date.now()-86400000*2},
-          {name:'M. Rivera', rating:'5 - Excellent', service:'Cleanout', review:'Cleared our garage in under an hour. Super polite.', time: Date.now()-86400000*4},
-          {name:'T. Williams', rating:'4 - Good', service:'Handyman', review:'Mounted TV and patched wall. Clean work.', time: Date.now()-86400000*5}
-        ];
-      }
-
-      function load(){
-        const localRaw = localStorage.getItem('qhfReviewsLocal_v3');
-        const localList = localRaw ? JSON.parse(localRaw) : [];
-        reviews = [...localList.reverse(), ...seed()];
-        show(0);
-        start();
-      }
-
+      let reviews = []; let idx = 0; let timer;
+      const bodyEl = root.querySelector('#v3-rev-body'), metaEl = root.querySelector('#v3-rev-meta');
+      function whenFmt(ts){ try{ return new Date(ts).toLocaleString(); }catch{return '';} }
+      function seed(){ return [
+        {name:'K. Johnson', rating:'5 - Excellent', service:'Junk Removal', review:'Fast pickup and fair price. Will use again.', time: Date.now()-86400000*2},
+        {name:'M. Rivera', rating:'5 - Excellent', service:'Cleanout', review:'Cleared our garage in under an hour. Super polite.', time: Date.now()-86400000*4}
+      ]; }
       function show(i){
-        if(!bodyEl || !metaEl) return;
-        if(!reviews.length){
-          bodyEl.textContent = 'No reviews yet — be the first!';
-          metaEl.textContent = '';
-          return;
+        if(!bodyEl||!metaEl){return;}
+        if(!reviews.length){ bodyEl.textContent='No reviews yet — be the first!'; metaEl.textContent=''; return; }
+        idx=(i+reviews.length)%reviews.length; const r=reviews[idx];
+        bodyEl.innerHTML=`<div class="stars" aria-hidden="true" style="margin-bottom:6px;">
+          ${'<svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>'.repeat(5)}
+        </div>
+        <div style="color:#365b82;background:#eef5fd;border:1px solid #d7e1ee;border-radius:12px;padding:12px;">${(r.review||'').replace(/</g,'&lt;')}</div>`;
+        metaEl.innerHTML=`<strong>${(r.name||'Anonymous').replace(/</g,'&lt;')}</strong>${r.rating?' — '+r.rating:''}
+          <div class="muted">${[r.service, whenFmt(r.time||r.created_at)].filter(Boolean).join(' • ')}</div>`;
+      }
+      function start(){ clearInterval(timer); timer=setInterval(()=>show(idx+1), ROTATE_MS); }
+      (function load(){ const raw=localStorage.getItem('qhfReviewsLocal_v3'); const list=raw?JSON.parse(raw):[]; reviews=[...list.reverse(), ...seed()]; show(0); start(); })();
+      const prev=root.querySelector('#v3-rev-prev'), next=root.querySelector('#v3-rev-next');
+      if(prev) prev.addEventListener('click',()=>{show(idx-1); start();});
+      if(next) next.addEventListener('click',()=>{show(idx+1); start();});
+
+      // Review form: store locally + optional POST
+      const rform=root.querySelector('#v3-review-form');
+      function encode(d){ return Object.keys(d).map(k=>encodeURIComponent(k)+'='+encodeURIComponent(d[k])).join('&'); }
+      if(rform){ rform.addEventListener('submit', async (e)=>{ e.preventDefault();
+        const payload={'form-name':'qhf-review', name:root.querySelector('#v3-r-name').value.trim(), rating:root.querySelector('#v3-r-rating').value, service:root.querySelector('#v3-r-service').value, review:root.querySelector('#v3-r-text').value.trim(), time:Date.now()};
+        const raw=localStorage.getItem('qhfReviewsLocal_v3'); const list=raw?JSON.parse(raw):[]; list.push(payload);
+        localStorage.setItem('qhfReviewsLocal_v3', JSON.stringify(list)); reviews.unshift(payload); show(0); start(); rform.reset();
+        try{ await fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:encode(payload)});}catch(e){}
+      });}
+
+      // Quote form: FormSubmit POST + SMS helper on phones
+      const qform=root.querySelector('#v3-quote-form');
+      if(qform){ qform.addEventListener('submit', ()=>{ try{
+        const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if(isMobile){
+          const name=root.querySelector('#v3-q-name')?.value?.trim()||'', phone=root.querySelector('#v3-q-phone')?.value?.trim()||'';
+          const zip=root.querySelector('#v3-q-zip')?.value?.trim()||'', notes=root.querySelector('#v3-q-notes')?.value?.trim()||'';
+          const smsText=`Hi, it’s ${name}. Zip ${zip}. Phone ${phone}. Items: ${notes}`;
+          setTimeout(()=>{ location.href=`sms:+12672651426&body=${encodeURIComponent(smsText)}`; }, 600);
         }
-        idx = (i + reviews.length) % reviews.length;
-        const r = reviews[idx];
-        const metaLine = [r.service, whenFmt(r.time || r.created_at)].filter(Boolean).join(' • ');
-        bodyEl.innerHTML = `
-          <div class="stars" aria-hidden="true" style="margin-bottom:6px;">
-            ${'<svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>'.repeat(5)}
-          </div>
-          <div style="color:#365b82;background:#eef5fd;border:1px solid #d7e1ee;border-radius:12px;padding:12px;">${(r.review||'').replace(/</g,'&lt;')}</div>`;
-        metaEl.innerHTML = `<strong>${(r.name||'Anonymous').replace(/</g,'&lt;')}</strong>${r.rating ? ' — '+r.rating : ''}${metaLine ? '<div class="muted">'+metaLine+'</div>' : ''}`;
-      }
-
-      function start(){
-        clearInterval(timer);
-        timer = setInterval(()=>show(idx+1), ROTATE_MS);
-      }
-
-      if(prev) prev.addEventListener('click',()=>{ show(idx-1); start(); });
-      if(next) next.addEventListener('click',()=>{ show(idx+1); start(); });
-
-      // Review form (local store + optional POST for static hosts)
-      const rform = root.querySelector('#v3-review-form');
-      function encode(data){ return Object.keys(data).map(k=>encodeURIComponent(k)+'='+encodeURIComponent(data[k])).join('&'); }
-      if(rform){
-        rform.addEventListener('submit', async (e)=>{
-          e.preventDefault();
-          const payload = {
-            'form-name':'qhf-review',
-            name: root.querySelector('#v3-r-name').value.trim(),
-            rating: root.querySelector('#v3-r-rating').value,
-            service: root.querySelector('#v3-r-service').value,
-            review: root.querySelector('#v3-r-text').value.trim(),
-            time: Date.now()
-          };
-          const raw = localStorage.getItem('qhfReviewsLocal_v3');
-          const list = raw ? JSON.parse(raw) : [];
-          list.push(payload);
-          localStorage.setItem('qhfReviewsLocal_v3', JSON.stringify(list));
-          reviews.unshift(payload);
-          show(0); start();
-          rform.reset();
-          try{ await fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:encode(payload) }); }catch(e){}
-        });
-      }
-
-      load();
-
-      // --- Quote form: email via FormSubmit + mobile SMS helper ---
-      const qform = root.querySelector('#v3-quote-form');
-      if(qform){
-        qform.addEventListener('submit', async (e)=>{
-          e.preventDefault();
-
-          const name  = root.querySelector('#v3-q-name')?.value?.trim()  || '';
-          const phone = root.querySelector('#v3-q-phone')?.value?.trim() || '';
-          const zip   = root.querySelector('#v3-q-zip')?.value?.trim()   || '';
-          const notes = root.querySelector('#v3-q-notes')?.value?.trim() || '';
-
-          const data = {
-            _subject: 'New Quote Request - Quick Haul & Fix',
-            _captcha: 'false',
-            _template: 'table',
-            name, phone, zip, notes, time: new Date().toISOString()
-          };
-
-          let ok = false;
-          try{
-            const resp = await fetch(qform.action, {
-              method: 'POST',
-              headers: { 'Content-Type':'application/json', 'Accept':'application/json' },
-              body: JSON.stringify(data)
-            });
-            ok = resp.ok;
-          }catch(err){ ok = false; }
-
-          // On phones: prepare a text to 267-265-1426
-          const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-          if(isMobile){
-            const smsText = `Hi, it’s ${name}. Zip ${zip}. Phone ${phone}. Items: ${notes}`;
-            location.href = `sms:+12672651426&body=${encodeURIComponent(smsText)}`;
-          }
-
-          alert(ok
-            ? 'Sent! We emailed your quote details to Quick Haul & Fix. We’ll reach out ASAP.'
-            : 'Submitted locally. If you’re on phone, we opened a text to 267-265-1426.');
-
-          qform.reset();
-        });
-      }
-
-      // Accessibility: allow keyboard focus on buttons-as-links
-      root.querySelectorAll('a.btn').forEach(el=>{
-        el.setAttribute('role','button'); el.setAttribute('tabindex','0');
-      });
+      }catch(e){} });}
 
     })();
-  </script>
-
-  <!-- LocalBusiness JSON-LD for better SEO -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"LocalBusiness",
-    "name":"Quick Haul & Fix",
-    "description":"Junk removal, property cleanouts, and light handyman services in the Philadelphia area with upfront pricing and same-day availability.",
-    "areaServed":[{"@type":"Place","name":"Philadelphia"},{"@type":"Place","name":"Delaware County"},{"@type":"Place","name":"Camden County"},{"@type":"Place","name":"Bucks & Montgomery"}],
-    "telephone":"+1-267-265-1426",
-    "email":"quickhaulandfix02@gmail.com",
-    "url":"https://example.com",
-    "priceRange":"$$",
-    "openingHoursSpecification":[
-      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"20:00"}
-    ],
-    "sameAs":[]
-  }
   </script>
 </div>
