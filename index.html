@@ -14,15 +14,22 @@
     --brand:#3aa0ff; --accent:#cfe8ff; --card:#172532;
     --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.35); --max:1120px;
   }
-  body{font-family: system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;color:var(--text);
-       background:linear-gradient(180deg,var(--bg),#0c1620 60%, var(--panel));line-height:1.55}
+  body{
+    font-family: system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;
+    color:var(--text);
+    background:linear-gradient(180deg,var(--bg),#0c1620 60%, var(--panel));
+    line-height:1.55
+  }
   a{color:var(--accent);text-decoration:none}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 18px}
   .center{text-align:center}
   .center .chips,.center .areas,.center .actions{justify-content:center}
 
-  .topbar{position:sticky;top:0;z-index:50;background:rgba(10,18,26,.85);backdrop-filter:blur(10px);
-          border-bottom:1px solid rgba(255,255,255,.07)}
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,18,26,.85);backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,.07)
+  }
   .topbar .inner{display:flex;align-items:center;gap:14px;padding:14px 18px}
   .brand{display:flex;align-items:center;gap:10px;font-weight:800}
   .badge{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,#2e7df7,#ffd84a)}
@@ -31,16 +38,21 @@
   nav a:hover{background:rgba(255,255,255,.08);color:var(--text)}
   .cta-top{margin-left:8px;padding:8px 12px;border:1px solid rgba(255,255,255,.12);border-radius:999px;color:var(--text)}
 
-  .hero{background:
+  .hero{
+    background:
       radial-gradient(1200px 600px at 80% -20%, rgba(58,160,255,.18), transparent 60%),
       radial-gradient(900px 500px at 10% 110%, rgba(125,211,255,.12), transparent 60%),
       linear-gradient(180deg, var(--panel), transparent);
-    padding:44px 0 24px;border-bottom:1px solid rgba(255,255,255,.06)}
+    padding:44px 0 24px;border-bottom:1px solid rgba(255,255,255,.06)
+  }
   .hero h1{font-size:clamp(28px,6vw,44px);line-height:1.1;margin:6px 0 12px}
   .hero p{color:var(--muted);font-size:clamp(16px,2.6vw,18px);margin:0 0 18px}
   .actions{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
-  .btn{appearance:none;border:0;cursor:pointer;padding:12px 16px;border-radius:12px;font-weight:800;
-       background:var(--brand);color:#08131b;box-shadow:var(--shadow)}
+  .btn{
+    appearance:none;border:0;cursor:pointer;
+    padding:12px 16px;border-radius:12px;font-weight:800;
+    background:var(--brand);color:#08131b;box-shadow:var(--shadow)
+  }
   .btn.alt{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.18)}
   .chips{display:flex;gap:12px;flex-wrap:wrap;padding:18px 0 22px;border-top:1px solid rgba(255,255,255,.06)}
   .chip{padding:8px 12px;border:1px solid rgba(255,255,255,.12);border-radius:999px;color:var(--muted);font-weight:700;font-size:14px;background:rgba(0,0,0,.12)}
@@ -53,37 +65,58 @@
   .grid{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}
   .col-6{grid-column:span 6} .col-4{grid-column:span 4}
   @media (max-width:900px){.col-6,.col-4{grid-column:1/-1}}
-  .card{background:linear-gradient(180deg,var(--card),#0f1c27);border:1px solid rgba(255,255,255,.08);
-        border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+  .card{
+    background:linear-gradient(180deg,var(--card),#0f1c27);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:var(--radius);box-shadow:var(--shadow);padding:18px
+  }
   .card h3{margin:6px 0 8px}
 
   .areas{display:flex;gap:12px;flex-wrap:wrap}
   .pill{background:#0e1a24;border:1px solid rgba(255,255,255,.12);padding:10px 14px;border-radius:12px;font-weight:800}
 
   .step{display:flex;gap:12px;align-items:flex-start;justify-content:center}
-  .num{width:28px;height:28px;display:grid;place-items:center;font-weight:900;border-radius:999px;
-       background:#0b151d;border:1px solid rgba(255,255,255,.18);color:var(--accent)}
+  .num{
+    width:28px;height:28px;display:grid;place-items:center;font-weight:900;border-radius:999px;
+    background:#0b151d;border:1px solid rgba(255,255,255,.18);color:var(--accent)
+  }
 
-  /* Reviews */
-  #reviews .rail{display:flex;gap:16px;overflow:hidden;justify-content:center;
+  /* ===== Reviews (loop) — mobile safe ===== */
+  #reviews .rail{
+    display:flex;gap:16px;overflow:hidden;justify-content:center;
     mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);
-    -webkit-mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent)}
+    -webkit-mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);
+  }
   #reviews .card{min-width:280px;max-width:320px;flex:0 0 auto;text-align:left}
   .stars{color:#ffd84a;font-size:14px;letter-spacing:.7px}
-  .marquee{display:flex;gap:16px;animation:scroll 22s linear infinite}
+  .marquee{
+    display:flex;gap:16px;
+    animation:marquee 22s linear infinite;
+    will-change:transform;
+    min-width:max-content;
+  }
   .marquee:hover{animation-play-state:paused}
-  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  @media (prefers-reduced-motion:reduce){.marquee{animation:none}}
+  @keyframes marquee{
+    from{transform:translate3d(0,0,0)}
+    to{transform:translate3d(-50%,0,0)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .marquee{animation:none}
+  }
 
   /* Contact */
   .contact .row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
   .contact .row > *{flex:1;min-width:240px}
-  .input,textarea{width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.15);
-                  background:#0b151d;color:var(--text);font-size:16px}
+  .input,textarea{
+    width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.15);
+    background:#0b151d;color:var(--text);font-size:16px
+  }
 
-  .callbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:10px;justify-content:center;
-           padding:10px;background:rgba(10,18,26,.9);backdrop-filter:blur(8px);
-           border-top:1px solid rgba(255,255,255,.08)}
+  .callbar{
+    position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:10px;justify-content:center;
+    padding:10px;background:rgba(10,18,26,.9);backdrop-filter:blur(8px);
+    border-top:1px solid rgba(255,255,255,.08)
+  }
   .callbar a{flex:1;text-align:center}
   @media (max-width:760px){.callbar{display:flex} body{padding-bottom:68px}}
 
@@ -97,7 +130,10 @@
 
 <header class="topbar">
   <div class="wrap inner">
-    <div class="brand"><span class="badge" aria-hidden="true"></span><span>Quick Haul & Fix</span></div>
+    <div class="brand">
+      <span class="badge" aria-hidden="true"></span>
+      <span>Quick Haul & Fix</span>
+    </div>
     <nav>
       <a href="#services">Services</a>
       <a href="#areas">Areas</a>
@@ -118,7 +154,8 @@
       <div class="actions">
         <a class="btn" href="tel:+16097952599">Call 609-795-2599</a>
         <a class="btn alt" href="tel:+12672651426">Call 267-265-1426</a>
-        <a class="btn alt" href="#" onclick="requestQuote();return false;">Get a Free Quote</a>
+        <!-- Always SMS 267 for quotes -->
+        <a class="btn alt" href="sms:+12672651426?body=Hi!%20Please%20quote%20my%20junk%20removal/handyman%20job.%20ZIP:%20%0APhotos:%20(attached)">Get a Free Quote</a>
       </div>
 
       <p class="muted">Or email <a href="mailto:kirkcarter771@gmail.com">kirkcarter771@gmail.com</a> • <a href="mailto:quickhaulandfix02@gmail.com">quickhaulandfix02@gmail.com</a></p>
@@ -138,8 +175,18 @@
       <h2>What We Do</h2>
       <p class="sub">Text us photos for a quick estimate and scheduling.</p>
       <div class="grid">
-        <div class="col-6"><div class="card center"><h3>Household Junk Removal</h3><p class="muted">Furniture, appliances, mattresses, bagged trash, garage & basement cleanouts.</p></div></div>
-        <div class="col-6"><div class="card center"><h3>Handyman (Light Repair)</h3><p class="muted">Patch & paint, fixtures, shelves, TV mounts, locks, small installs & maintenance.</p></div></div>
+        <div class="col-6">
+          <div class="card center">
+            <h3>Household Junk Removal</h3>
+            <p class="muted">Furniture, appliances, mattresses, bagged trash, garage & basement cleanouts.</p>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card center">
+            <h3>Handyman (Light Repair)</h3>
+            <p class="muted">Patch & paint, fixtures, shelves, TV mounts, locks, small installs & maintenance.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -163,9 +210,33 @@
     <div class="wrap">
       <h2>How It Works</h2>
       <div class="grid">
-        <div class="col-4"><div class="card step"><span class="num">1</span><div><h3>Text Photos or Call</h3><p class="muted">Send pictures + ZIP. We reply fast with an estimate and time window.</p></div></div></div>
-        <div class="col-4"><div class="card step"><span class="num">2</span><div><h3>Upfront Price</h3><p class="muted">We confirm final pricing on site before work begins.</p></div></div></div>
-        <div class="col-4"><div class="card step"><span class="num">3</span><div><h3>We Haul & Sweep</h3><p class="muted">We load everything, sweep clean, and you’re done.</p></div></div></div>
+        <div class="col-4">
+          <div class="card step">
+            <span class="num">1</span>
+            <div>
+              <h3>Text Photos or Call</h3>
+              <p class="muted">Send pictures + ZIP. We reply fast with an estimate and time window.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card step">
+            <span class="num">2</span>
+            <div>
+              <h3>Upfront Price</h3>
+              <p class="muted">We confirm final pricing on site before work begins.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card step">
+            <span class="num">3</span>
+            <div>
+              <h3>We Haul & Sweep</h3>
+              <p class="muted">We load everything, sweep clean, and you’re done.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -230,8 +301,18 @@
     <div class="wrap">
       <h2>FAQ</h2>
       <div class="grid">
-        <div class="col-6"><details class="card" open><summary><strong>What can you take?</strong></summary><p class="muted">Most household items, furniture, appliances, bagged debris, yard waste. No hazardous materials.</p></details></div>
-        <div class="col-6"><details class="card"><summary><strong>Do you do stairs/basements?</strong></summary><p class="muted">Yes. Let us know access details and we’ll plan the crew and equipment.</p></details></div>
+        <div class="col-6">
+          <details class="card" open>
+            <summary><strong>What can you take?</strong></summary>
+            <p class="muted">Most household items, furniture, appliances, bagged debris, yard waste. No hazardous materials.</p>
+          </details>
+        </div>
+        <div class="col-6">
+          <details class="card">
+            <summary><strong>Do you do stairs/basements?</strong></summary>
+            <p class="muted">Yes. Let us know access details and we’ll plan the crew and equipment.</p>
+          </details>
+        </div>
       </div>
     </div>
   </section>
@@ -279,25 +360,13 @@
 </div>
 
 <footer>
-  © <span id="yr"></span> Quick Haul & Fix. All rights reserved. • <a href="#" onclick="requestQuote();return false;">Get a Free Quote</a>
+  © <span id="yr"></span> Quick Haul & Fix. All rights reserved. •
+  <!-- Footer “Get a Free Quote” also always texts 267 -->
+  <a href="sms:+12672651426?body=Hi!%20Please%20quote%20my%20junk%20removal/handyman%20job.%20ZIP:%20%0APhotos:%20(attached)">Get a Free Quote</a>
 </footer>
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
-
-  // Smart "Get a Free Quote": SMS on phones, email on desktop
-  function requestQuote(){
-    const isMobile = /iPhone|Android|iPad|iPod|Mobile/i.test(navigator.userAgent);
-    const smsBody = encodeURIComponent("Hi! Please quote my junk removal/handyman job. ZIP: \nPhotos: (attached)");
-    if(isMobile){
-      window.location.href = "sms:+12672651426?body=" + smsBody; // goes to 267 number via SMS
-    }else{
-      const to = "kirkcarter771@gmail.com,quickhaulandfix02@gmail.com";
-      const subject = encodeURIComponent("Quote request — Quick Haul & Fix");
-      const body = encodeURIComponent("Name:\nPhone:\nZIP:\nPreferred time:\n\nDescribe the job:\n(attach photos if possible)");
-      window.location.href = "mailto:" + encodeURIComponent(to) + "?subject=" + subject + "&body=" + body;
-    }
-  }
 
   // Email composer (contact form)
   function draftEmail(e){
@@ -345,9 +414,41 @@
     return false;
   }
 
-  function escapeHtml(s){return s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+  function escapeHtml(s){
+    return s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  }
+
+  // Mobile fix for frozen reviews (JS fallback if CSS animation is paused)
+  (function(){
+    const rail = document.getElementById('reviewRail');
+    if(!rail) return;
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const cssAnim = getComputedStyle(rail).animationName !== 'none';
+
+    if (reduce || !cssAnim) {
+      if (!rail.dataset.dupe) {
+        rail.innerHTML += rail.innerHTML;
+        rail.dataset.dupe = '1';
+      }
+      let x = 0;
+      let last = performance.now();
+      const speed = 40; // increase to 60 if you want faster
+      function step(t){
+        const dt = t - last; last = t;
+        x -= (speed * dt) / 1000;
+        const half = rail.scrollWidth / 2;
+        if (-x >= half) x = 0;
+        rail.style.transform = `translate3d(${x}px,0,0)`;
+        requestAnimationFrame(step);
+      }
+      rail.style.animation = "none";
+      requestAnimationFrame(step);
+    }
+  })();
 </script>
 </body>
 </html>
+
 
 
