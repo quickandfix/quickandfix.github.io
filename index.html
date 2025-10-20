@@ -25,6 +25,7 @@
   .center{text-align:center}
   .center .chips,.center .areas,.center .actions{justify-content:center}
 
+  /* Topbar */
   .topbar{
     position:sticky;top:0;z-index:50;
     background:rgba(10,18,26,.85);backdrop-filter:blur(10px);
@@ -32,12 +33,18 @@
   }
   .topbar .inner{display:flex;align-items:center;gap:14px;padding:14px 18px}
   .brand{display:flex;align-items:center;gap:10px;font-weight:800}
-  .badge{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,#2e7df7,#ffd84a)}
+  /* Logo: cooler blue gradient to match theme */
+  .badge{
+    width:26px;height:26px;border-radius:8px;
+    background:linear-gradient(135deg,#1f7ae5,#60a5fa 60%,#9bd4ff);
+    box-shadow:0 6px 16px rgba(28,117,217,.35) inset, 0 0 0 1px rgba(255,255,255,.06)
+  }
   nav{margin-left:auto;display:flex;gap:8px;align-items:center}
   nav a{color:var(--muted);font-weight:700;padding:8px 12px;border-radius:999px;white-space:nowrap}
   nav a:hover{background:rgba(255,255,255,.08);color:var(--text)}
   .cta-top{margin-left:8px;padding:8px 12px;border:1px solid rgba(255,255,255,.12);border-radius:999px;color:var(--text)}
 
+  /* Hero */
   .hero{
     background:
       radial-gradient(1200px 600px at 80% -20%, rgba(58,160,255,.18), transparent 60%),
@@ -57,11 +64,13 @@
   .chips{display:flex;gap:12px;flex-wrap:wrap;padding:18px 0 22px;border-top:1px solid rgba(255,255,255,.06)}
   .chip{padding:8px 12px;border:1px solid rgba(255,255,255,.12);border-radius:999px;color:var(--muted);font-weight:700;font-size:14px;background:rgba(0,0,0,.12)}
 
+  /* Sections */
   section{padding:40px 0}
   h2{font-size:clamp(22px,4.5vw,28px);margin:0 0 14px;text-align:center}
   .sub{color:var(--muted);margin:-6px 0 18px;text-align:center}
   .muted{color:var(--muted)}
 
+  /* Grid & cards */
   .grid{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}
   .col-6{grid-column:span 6} .col-4{grid-column:span 4}
   @media (max-width:900px){.col-6,.col-4{grid-column:1/-1}}
@@ -81,28 +90,26 @@
     background:#0b151d;border:1px solid rgba(255,255,255,.18);color:var(--accent)
   }
 
-  /* ===== Reviews (loop) — mobile safe ===== */
+  /* ===== Reviews (loop) — mobile safe + desktop fixes ===== */
   #reviews .rail{
-    display:flex;gap:16px;overflow:hidden;justify-content:center;
-    mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);
-    -webkit-mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);
+    width:100%;
+    display:flex;gap:16px;overflow:hidden;
+    justify-content:flex-start; /* desktop fix: start so loop aligns */
+    mask-image:linear-gradient(90deg,transparent,black 6%,black 94%,transparent);
+    -webkit-mask-image:linear-gradient(90deg,transparent,black 6%,black 94%,transparent);
   }
   #reviews .card{min-width:280px;max-width:320px;flex:0 0 auto;text-align:left}
   .stars{color:#ffd84a;font-size:14px;letter-spacing:.7px}
   .marquee{
-    display:flex;gap:16px;
+    display:flex;gap:16px;align-items:stretch;
     animation:marquee 22s linear infinite;
     will-change:transform;
     min-width:max-content;
+    padding:6px 0; /* desktop spacing */
   }
   .marquee:hover{animation-play-state:paused}
-  @keyframes marquee{
-    from{transform:translate3d(0,0,0)}
-    to{transform:translate3d(-50%,0,0)}
-  }
-  @media (prefers-reduced-motion:reduce){
-    .marquee{animation:none}
-  }
+  @keyframes marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+  @media (prefers-reduced-motion:reduce){.marquee{animation:none}}
 
   /* Contact */
   .contact .row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
@@ -112,6 +119,7 @@
     background:#0b151d;color:var(--text);font-size:16px
   }
 
+  /* Mobile callbar */
   .callbar{
     position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:10px;justify-content:center;
     padding:10px;background:rgba(10,18,26,.9);backdrop-filter:blur(8px);
@@ -121,9 +129,7 @@
   @media (max-width:760px){.callbar{display:flex} body{padding-bottom:68px}}
 
   footer{padding:26px 18px;color:var(--muted);text-align:center;border-top:1px solid rgba(255,255,255,.06)}
-
-  /* small tweak requested: push this line down a bit */
-  .ask-push{margin-top:16px}  /* <- moved down a little */
+  .ask-push{margin-top:16px}
 </style>
 </head>
 <body>
@@ -264,7 +270,7 @@
         </div>
       </div>
 
-      <!-- Submit review (emails you + injects to the slider) -->
+      <!-- SIMPLIFIED review form -->
       <div class="grid" style="margin-top:20px">
         <div class="col-6" style="grid-column:1/-1">
           <div class="card">
@@ -272,22 +278,18 @@
             <form onsubmit="return submitReview(event)">
               <div class="contact row">
                 <input class="input" name="name" placeholder="Your name" required>
-                <input class="input" name="area" placeholder="Neighborhood (e.g., West Philly)">
-              </div>
-              <div class="contact row">
                 <select class="input" name="stars" aria-label="Rating">
                   <option value="5" selected>5 stars</option>
                   <option value="4">4 stars</option>
                   <option value="3">3 stars</option>
                 </select>
-                <input class="input" name="job" placeholder="Service (e.g., Cleanout, TV mount)">
               </div>
               <textarea class="input" name="text" rows="3" placeholder="Your review…" required></textarea>
               <div class="contact row">
                 <button class="btn" type="submit">Submit Review</button>
-                <a class="btn alt" href="sms:+12672651426?body=Review:%20" onclick="this.href+='(your%20text)%20%F0%9F%98%8A';">Text It Instead</a>
+                <a class="btn alt" href="sms:+12672651426?body=Review:%20" onclick="this.href+='(your%20text)%20%F0%9F%98%8A';">Text It</a>
               </div>
-              <p id="revNote" class="muted center" style="display:none;margin-top:8px">Thanks! Review drafted to email and added here instantly.</p>
+              <p id="revNote" class="muted center" style="display:none;margin-top:8px">Thanks! Review emailed to us and added here instantly.</p>
             </form>
           </div>
         </div>
@@ -361,7 +363,6 @@
 
 <footer>
   © <span id="yr"></span> Quick Haul & Fix. All rights reserved. •
-  <!-- Footer “Get a Free Quote” also always texts 267 -->
   <a href="sms:+12672651426?body=Hi!%20Please%20quote%20my%20junk%20removal/handyman%20job.%20ZIP:%20%0APhotos:%20(attached)">Get a Free Quote</a>
 </footer>
 
@@ -389,26 +390,24 @@
     e.preventDefault();
     const f = e.target;
     const name = f.name.value.trim();
-    const area = f.area.value.trim();
     const stars = parseInt(f.stars.value,10);
-    const job = f.job.value.trim();
     const text = f.text.value.trim();
 
-    // 1) Draft email (permanent record for you)
+    // 1) Email it to you (permanent)
     const to = 'kirkcarter771@gmail.com,quickhaulandfix02@gmail.com';
     const subject = `New Review — ${name||'Customer'} (${stars}★)`;
-    const body = `Name: ${name}\nArea: ${area}\nService: ${job}\nRating: ${stars} stars\n\nReview:\n${text}`;
+    const body = `Name: ${name}\nRating: ${stars} stars\n\nReview:\n${text}`;
     const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
 
-    // 2) Add to the visible list right now
+    // 2) Show it immediately
     const rail = document.getElementById('reviewRail');
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `<div class="stars">${'★'.repeat(stars)}${'☆'.repeat(5-stars)}</div>
-      <strong>${escapeHtml(name||'Customer')}</strong> <span class="muted">• ${escapeHtml(area||'Philly')}</span>
+      <strong>${escapeHtml(name||'Customer')}</strong>
       <p>${escapeHtml(text)}</p>`;
-    rail.prepend(card); // put it up front
+    rail.prepend(card);
     document.getElementById('revNote').style.display='block';
     f.reset();
     return false;
@@ -433,7 +432,7 @@
       }
       let x = 0;
       let last = performance.now();
-      const speed = 40; // increase to 60 if you want faster
+      const speed = 40; // increase if you want faster
       function step(t){
         const dt = t - last; last = t;
         x -= (speed * dt) / 1000;
@@ -449,6 +448,7 @@
 </script>
 </body>
 </html>
+
 
 
 
