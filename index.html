@@ -3,53 +3,47 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Fitness Now — Train. Transform. Win.</title>
-<meta name="description" content="Fitness Now — personal training, online coaching, and transformation programs.">
+<title>Quick Haul & Fix — Junk Removal & Handyman</title>
+<meta name="description" content="Quick Haul & Fix — Fast junk removal and reliable handyman work across Philly & Delaware County. Text photos for a quick quote.">
 <style>
-  /* ===== Base / Reset ===== */
+  /* ===== Base ===== */
   *,*::before,*::after{box-sizing:border-box}
   html,body{height:100%;margin:0}
   :root{
     --bg:#0f1820;          /* dark grayish blue */
-    --bg-2:#121e29;        /* slightly darker panel */
+    --bg-2:#121e29;
     --text:#e9f1f7;
     --muted:#9fb3c3;
-    --brand:#3aa0ff;       /* accent like tracker sites */
+    --brand:#3aa0ff;       /* accent */
     --brand-2:#7dd3ff;
     --card:#172532;
     --ok:#52d67a;
-    --warn:#f5c84b;
     --maxw:1100px;
     --radius:14px;
     --shadow:0 10px 30px rgba(0,0,0,.35);
   }
-
   body{
     font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
     color:var(--text);
     background:linear-gradient(180deg,var(--bg),var(--bg-2));
-    /* One-section-at-a-time snap */
-    scroll-snap-type:y mandatory;
+    scroll-snap-type:y mandatory;      /* one section at a time */
     scroll-behavior:smooth;
     overflow-y:scroll;
     -webkit-overflow-scrolling:touch;
   }
-
   section{
-    min-height:100svh;                 /* full viewport on mobile too */
-    display:grid;
-    align-items:center;
-    padding:96px 20px 32px;            /* top padding accounts for sticky nav */
+    min-height:100svh;
+    display:grid;align-items:center;
+    padding:96px 20px 32px;            /* room for sticky header */
     scroll-snap-align:start;
-    scroll-snap-stop:always;           /* prevents skipping multiple sections (supported in modern browsers) */
+    scroll-snap-stop:always;
   }
-
   .wrap{max-width:var(--maxw);margin:0 auto;}
 
-  /* ===== Sticky header like fortnitetracker ===== */
+  /* ===== Sticky header (FortniteTracker vibe) ===== */
   .nav{
     position:sticky; top:0; z-index:1000;
-    backdrop-filter:saturate(1.2) blur(8px);
+    backdrop-filter:saturate(1.1) blur(8px);
     background:color-mix(in srgb, var(--bg) 78%, transparent);
     border-bottom:1px solid rgba(255,255,255,.06);
   }
@@ -58,17 +52,19 @@
     display:flex;align-items:center;gap:14px;
     padding:14px 18px;
   }
-  .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px}
-  .logo-badge{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
-  .nav a{
-    color:var(--muted);text-decoration:none;font-weight:600;padding:10px 12px;border-radius:8px;
-  }
-  .nav a:hover,.nav a.active{color:var(--text);background:rgba(255,255,255,.06)}
-  .spacer{flex:1}
-
-  /* Mobile nav scroll */
-  .links{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.3px}
+  .logo-badge{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#2e7df7,#ffd84a)} /* blue-yellow-white vibe */
+  .links{display:flex;gap:6px;overflow-x:auto}
   .links::-webkit-scrollbar{display:none}
+  .nav a{color:var(--muted);text-decoration:none;font-weight:700;padding:10px 12px;border-radius:8px;white-space:nowrap}
+  .nav a:hover,.nav a.active{color:var(--text);background:rgba(255,255,255,.08)}
+  .spacer{flex:1}
+  .btn{
+    appearance:none;border:0;cursor:pointer;
+    padding:12px 14px;border-radius:12px;font-weight:800;
+    background:var(--brand);color:#08131b;box-shadow:var(--shadow);text-decoration:none
+  }
+  .btn.alt{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.15)}
 
   /* ===== Hero ===== */
   .hero{
@@ -76,31 +72,20 @@
       radial-gradient(1200px 600px at 80% -20%, rgba(58,160,255,.18), transparent 60%),
       radial-gradient(900px 500px at 10% 110%, rgba(125,211,255,.12), transparent 60%);
   }
-  .hero h1{font-size:clamp(32px,6vw,56px);line-height:1.05;margin:0 0 12px}
+  .hero h1{font-size:clamp(32px,6vw,56px);margin:0 0 12px;line-height:1.05}
   .hero p{color:var(--muted);font-size:clamp(16px,2.6vw,20px);margin:0 0 22px}
   .cta{display:flex;flex-wrap:wrap;gap:12px}
-  .btn{
-    appearance:none;border:0;cursor:pointer;
-    padding:14px 18px;border-radius:12px;font-weight:800;
-    background:var(--brand);color:#08131b;box-shadow:var(--shadow);
-  }
-  .btn.alt{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.12)}
   .badges{display:flex;gap:14px;margin-top:22px;flex-wrap:wrap}
   .chip{
     padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.12);
-    color:var(--muted);font-weight:600;font-size:14px;
+    color:var(--muted);font-weight:700;font-size:14px
   }
 
-  /* ===== Programs (cards) ===== */
-  .grid{
-    display:grid;gap:16px;
-    grid-template-columns:repeat(12,1fr);
-  }
+  /* ===== Grid / cards ===== */
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}
   .col-6{grid-column:span 6}
   .col-4{grid-column:span 4}
-  @media (max-width:900px){
-    .col-6,.col-4{grid-column:1/-1}
-  }
+  @media (max-width:900px){.col-6,.col-4{grid-column:1/-1}}
   .card{
     background:linear-gradient(180deg,var(--card),#0f1c27);
     border:1px solid rgba(255,255,255,.06);
@@ -111,19 +96,30 @@
   .card h3{margin:6px 0 8px}
   .meta{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:14px}
 
-  /* ===== Transformations (carousel-like row that still snaps per section) ===== */
+  /* ===== Gallery ===== */
   .gallery{display:grid;grid-auto-flow:column;gap:14px;overflow-x:auto;padding-bottom:6px}
   .shot{
     width:min(320px,80vw);aspect-ratio:4/5;border-radius:14px;overflow:hidden;
-    background:#0d1720;border:1px solid rgba(255,255,255,.08);
+    background:#0d1720;border:1px solid rgba(255,255,255,.08)
   }
   .shot img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* ===== Reviews (auto-loop) ===== */
+  .reviews .rail{
+    display:flex;gap:16px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);
+  }
+  .reviews .card{min-width:280px;flex:0 0 auto}
+  .marquee{display:flex;gap:16px;animation:scroll 22s linear infinite}
+  @keyframes scroll{
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
+  }
 
   /* ===== Contact ===== */
   .contact .card{display:grid;gap:14px}
   .input, textarea{
     width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.15);
-    background:#0b151d;color:var(--text);font-size:16px;
+    background:#0b151d;color:var(--text);font-size:16px
   }
   .row{display:flex;gap:12px;flex-wrap:wrap}
   .row > *{flex:1}
@@ -134,140 +130,162 @@
 </head>
 <body>
 
-<!-- Sticky / Tracker-style header -->
-<header class="nav" id="top">
+<!-- Header -->
+<header class="nav">
   <div class="inner">
     <div class="logo">
       <span class="logo-badge" aria-hidden="true"></span>
-      <span>Fitness Now</span>
+      <span>Quick Haul & Fix</span>
     </div>
 
-    <nav class="links" id="navLinks">
-      <a href="#hero" class="active">Home</a>
-      <a href="#programs">Programs</a>
-      <a href="#transform">Results</a>
+    <nav class="links">
+      <a href="#home" class="active">Home</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Before/After</a>
+      <a href="#reviews">Reviews</a>
       <a href="#contact">Contact</a>
     </nav>
 
     <div class="spacer"></div>
     <a class="btn alt" href="tel:+12672651426">Call</a>
-    <a class="btn" href="sms:+16097952599?body=Hi%20Fitness%20Now%20%E2%80%94%20I%20want%20to%20start!">Text</a>
+    <a class="btn" href="sms:+16097952599?body=Hi%20Quick%20Haul%20%26%20Fix%20%E2%80%94%20I%20need%20a%20quote.">Text</a>
   </div>
 </header>
 
-<!-- Section 1 -->
-<section id="hero" class="hero">
+<!-- HERO -->
+<section id="home" class="hero">
   <div class="wrap">
-    <h1>Train. Transform. Win.</h1>
-    <p>Personal training and online coaching that actually fits your life. Strength, fat loss, and athletic performance programs built around your schedule.</p>
+    <h1>Same-Day Junk Removal & Reliable Handyman Work</h1>
+    <p>Serving Philadelphia & nearby. Text us photos for a fast quote. We lift, load, and leave it spotless.</p>
     <div class="cta">
-      <a class="btn" href="#contact">Get Your Plan</a>
-      <a class="btn alt" href="#programs">See Programs</a>
+      <a class="btn" href="#contact">Request a Quote</a>
+      <a class="btn alt" href="#services">What We Do</a>
     </div>
     <div class="badges">
-      <span class="chip">Certified Coach</span>
-      <span class="chip">Nutrition Guidance</span>
-      <span class="chip">Remote or In-Person</span>
+      <span class="chip">Licensed & Insured</span>
+      <span class="chip">Apartments • Homes • Offices</span>
+      <span class="chip">Evening & Weekend Slots</span>
     </div>
   </div>
 </section>
 
-<!-- Section 2 -->
-<section id="programs">
+<!-- SERVICES -->
+<section id="services">
   <div class="wrap">
     <div class="grid">
       <div class="col-6">
         <div class="card">
-          <h3>1-on-1 Coaching</h3>
-          <p>Customized training blocks, weekly check-ins, and technique feedback. Built for real-world schedules and results you can measure.</p>
+          <h3>Junk Removal</h3>
+          <p>Furniture, appliances, garage cleanouts, yard debris, move-out trash, light demolition debris.</p>
           <div class="meta">
-            <span>✅ Strength & conditioning</span>
-            <span>✅ Weekly progress reviews</span>
-            <span>✅ App-based tracking</span>
+            <span>✅ Text photos for quote</span>
+            <span>🚚 Stairs & basements okay</span>
+            <span>♻️ Donate when possible</span>
           </div>
         </div>
       </div>
       <div class="col-6">
         <div class="card">
-          <h3>Online Program</h3>
-          <p>Follow a pro-level plan with video demos and progression built-in. Great if you want flexibility while staying accountable.</p>
+          <h3>Handyman</h3>
+          <p>Minor repairs, mounting TVs/shelves, caulking, patch & paint, fixture swaps, small installs.</p>
           <div class="meta">
-            <span>📈 Periodized cycles</span>
-            <span>🎯 Goal-specific tracks</span>
-            <span>🧠 Mobility & recovery</span>
+            <span>🛠️ Materials pickup available</span>
+            <span>📅 Flexible scheduling</span>
+            <span>🧹 Clean finish</span>
           </div>
         </div>
       </div>
-
       <div class="col-4">
         <div class="card">
-          <h3>Athlete Speed Lab</h3>
-          <p>Sprinting mechanics, plyos, and strength for field & court athletes.</p>
-          <div class="meta"><span>⏱️ Timing-based PRs</span></div>
+          <h3>Property Cleanouts</h3>
+          <p>Estate, eviction, storage, garage/attic. Fast turnaround for owners and managers.</p>
         </div>
       </div>
       <div class="col-4">
         <div class="card">
-          <h3>Hypertrophy Build</h3>
-          <p>Muscle-focused split with progressive overload and pump work.</p>
-          <div class="meta"><span>💪 4–5 days/wk</span></div>
+          <h3>Delivery & Hauling</h3>
+          <p>Single-item pickups, store runs, curb-to-room moves, and dump runs.</p>
         </div>
       </div>
       <div class="col-4">
         <div class="card">
-          <h3>Cut & Condition</h3>
-          <p>Smart deficit, high-satiety nutrition, and metabolic finishers.</p>
-          <div class="meta"><span>🔥 Sustainable fat loss</span></div>
+          <h3>Light Demo</h3>
+          <p>Cabinets, carpet, small sheds, non-load walls. We load out and sweep after.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Section 3 -->
-<section id="transform">
+<!-- GALLERY -->
+<section id="gallery">
   <div class="wrap">
-    <h2 style="margin:0 0 12px">Real Results</h2>
-    <p style="color:var(--muted);margin:0 0 18px">Athletes and everyday people getting stronger, leaner, faster.</p>
+    <h2 style="margin:0 0 12px">Before / After</h2>
+    <p style="color:var(--muted);margin:0 0 18px">Real work from recent jobs.</p>
     <div class="gallery" aria-label="Before and after gallery (examples)">
-      <div class="shot"><img src="https://images.unsplash.com/photo-1546483875-ad9014c88eba?q=80&w=1200&auto=format&fit=crop" alt="Training 1"></div>
-      <div class="shot"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop" alt="Training 2"></div>
-      <div class="shot"><img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=1200&auto=format&fit=crop" alt="Training 3"></div>
-      <div class="shot"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop" alt="Training 4"></div>
+      <div class="shot"><img src="https://images.unsplash.com/photo-1582582429416-ea0ae12d6076?q=80&w=1200&auto=format&fit=crop" alt="Junk removal"></div>
+      <div class="shot"><img src="https://images.unsplash.com/photo-1582582429945-2f8cfd0d9a4a?q=80&w=1200&auto=format&fit=crop" alt="Clean garage"></div>
+      <div class="shot"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop" alt="Handyman repairs"></div>
+      <div class="shot"><img src="https://images.unsplash.com/photo-1600585154340-1e47c56a2b1a?q=80&w=1200&auto=format&fit=crop" alt="Room reset"></div>
     </div>
   </div>
 </section>
 
-<!-- Section 4 -->
+<!-- REVIEWS (permanent + looping) -->
+<section id="reviews" class="reviews">
+  <div class="wrap">
+    <h2 style="margin:0 0 12px">What Customers Say</h2>
+    <p style="color:var(--muted);margin:0 0 18px">Locked-in testimonials. The row gently scrolls forever.</p>
+    <div class="rail">
+      <!-- We duplicate the group to create a seamless marquee loop -->
+      <div class="marquee" aria-label="Review ticker">
+        <div class="card"><strong>J. Ramirez</strong><br><span style="color:var(--muted)">West Philly</span><p>“On time, fair, and fast. Garage looks brand new.”</p></div>
+        <div class="card"><strong>A. Collins</strong><br><span style="color:var(--muted)">University City</span><p>“Texted pics, got a quote, done same day. 10/10.”</p></div>
+        <div class="card"><strong>M. Greene</strong><br><span style="color:var(--muted)">South Philly</span><p>“They navigated tight stairs no problem and cleaned up.”</p></div>
+        <div class="card"><strong>R. Shah</strong><br><span style="color:var(--muted)">Delco</span><p>“Professional and careful with walls. Will book again.”</p></div>
+        <div class="card"><strong>S. Nguyen</strong><br><span style="color:var(--muted)">Center City</span><p>“Price matched the quote. Super easy process.”</p></div>
+
+        <!-- duplicate set -->
+        <div class="card"><strong>J. Ramirez</strong><br><span style="color:var(--muted)">West Philly</span><p>“On time, fair, and fast. Garage looks brand new.”</p></div>
+        <div class="card"><strong>A. Collins</strong><br><span style="color:var(--muted)">University City</span><p>“Texted pics, got a quote, done same day. 10/10.”</p></div>
+        <div class="card"><strong>M. Greene</strong><br><span style="color:var(--muted)">South Philly</span><p>“They navigated tight stairs no problem and cleaned up.”</p></div>
+        <div class="card"><strong>R. Shah</strong><br><span style="color:var(--muted)">Delco</span><p>“Professional and careful with walls. Will book again.”</p></div>
+        <div class="card"><strong>S. Nguyen</strong><br><span style="color:var(--muted)">Center City</span><p>“Price matched the quote. Super easy process.”</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact" class="contact">
   <div class="wrap">
     <div class="grid">
       <div class="col-6">
         <div class="card">
-          <h3>Start your plan</h3>
-          <p style="color:var(--muted)">Tell me your goal and schedule. I’ll reply with the best path to start.</p>
-          <!-- Works without a backend: opens SMS or email -->
+          <h3>Request a Quote</h3>
+          <p style="color:var(--muted)">Fastest way: text a few photos and your neighborhood.</p>
           <div class="row">
-            <a class="btn" href="sms:+12672651426?body=Hi!%20I%20want%20a%20custom%20fitness%20plan.">Text 267-265-1426</a>
-            <a class="btn alt" href="mailto:quickhaulandfix02@gmail.com?cc=kirkcarterbiz@gmail.com&subject=Fitness%20Now%20—%20Coaching%20Inquiry&body=Goals:%0ASchedule:%0AGym%20access:%0A">Email Us</a>
+            <a class="btn" href="sms:+12672651426?body=Hi!%20Please%20quote%20my%20junk%20removal/handyman%20job.%20Address%20area:%20%0APhotos:%20(attached)">Text 267-265-1426</a>
+            <a class="btn alt" href="sms:+16097952599?body=Hi!%20Please%20quote%20my%20junk%20removal/handyman%20job.%20Address%20area:%20%0APhotos:%20(attached)">Text 609-795-2599</a>
           </div>
-          <small style="color:var(--muted)">Or call <a href="tel:+16097952599" style="color:var(--brand)">609-795-2599</a></small>
+          <small style="color:var(--muted)">Or call <a href="tel:+12672651426" style="color:var(--brand)">267-265-1426</a> / <a href="tel:+16097952599" style="color:var(--brand)">609-795-2599</a></small>
         </div>
       </div>
+
       <div class="col-6">
         <div class="card">
-          <h3>Quick message</h3>
-          <form onsubmit="return sendQuickMessage(event)">
+          <h3>Prefer Email?</h3>
+          <form onsubmit="return sendEmail(event)">
             <div class="row">
               <input class="input" type="text" name="name" placeholder="Your name" required>
               <input class="input" type="tel" name="phone" placeholder="Phone">
             </div>
             <input class="input" type="email" name="email" placeholder="Email (optional)">
-            <textarea class="input" name="msg" rows="4" placeholder="Your goals, timeline, and availability…" required></textarea>
-            <button class="btn" type="submit">Send Message</button>
-            <p id="sentNote" style="display:none;color:var(--ok);font-weight:700;margin:6px 0 0">Message drafted — tap to send.</p>
+            <textarea class="input" name="msg" rows="4" placeholder="Describe the job, stairs/access, and ideal timeframe…" required></textarea>
+            <button class="btn" type="submit">Draft Email</button>
+            <p id="sentNote" style="display:none;color:var(--ok);font-weight:800;margin:6px 0 0">Email ready — tap send in your mail app.</p>
           </form>
-          <small style="color:var(--muted)">This opens your mail app pre-filled so you keep a copy.</small>
+          <small style="color:var(--muted)">Sends to <strong>quickhaulandfix02@gmail.com</strong> with CC to <strong>kirkcarterbiz@gmail.com</strong>.</small>
         </div>
       </div>
     </div>
@@ -275,52 +293,46 @@
 </section>
 
 <footer>
-  © <span id="yr"></span> Fitness Now. All rights reserved.
+  © <span id="yr"></span> Quick Haul & Fix. All rights reserved.
 </footer>
 
 <script>
   // Year
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // Highlight active link on snap (like tracker sites updating the active tab)
+  // Active link update on section visibility
   const links = [...document.querySelectorAll('.links a')];
-  const map = Object.fromEntries(links.map(a => [a.getAttribute('href').replace('#',''), a]));
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
+  const linkMap = Object.fromEntries(links.map(a => [a.getAttribute('href').slice(1), a]));
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
       if(e.isIntersecting){
         links.forEach(l=>l.classList.remove('active'));
-        const id = e.target.id;
-        map[id]?.classList.add('active');
+        linkMap[e.target.id]?.classList.add('active');
       }
     });
-  }, {threshold: .6});
+  }, {threshold:.6});
   document.querySelectorAll('section').forEach(s=>obs.observe(s));
 
-  // Compose an email from the form (no backend needed)
-  function sendQuickMessage(e){
+  // Email composer (no backend)
+  function sendEmail(e){
     e.preventDefault();
     const f = e.target;
-    const name = encodeURIComponent(f.name.value.trim());
-    const phone = encodeURIComponent(f.phone.value.trim());
-    const email = encodeURIComponent(f.email.value.trim());
-    const msg = encodeURIComponent(f.msg.value.trim());
+    const name = f.name.value.trim();
+    const phone = f.phone.value.trim();
+    const email = f.email.value.trim();
+    const msg = f.msg.value.trim();
 
-    const subject = `Fitness Now — New Inquiry from ${decodeURIComponent(name)||'Client'}`;
-    const body =
-`Name: ${decodeURIComponent(name)}
-Phone: ${decodeURIComponent(phone)}
-Email: ${decodeURIComponent(email)}
-
-Message:
-${decodeURIComponent(msg)}`;
-
-    const mailto = `mailto:quickhaulandfix02@gmail.com?cc=kirkcarterbiz@gmail.com&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const subject = `Quick Haul & Fix — New Inquiry from ${name||'Client'}`;
+    const body = `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nMessage:\n${msg}`;
+    const to = 'quickhaulandfix02@gmail.com';
+    const cc = 'kirkcarterbiz@gmail.com';
+    const mailto = `mailto:${encodeURIComponent(to)}?cc=${encodeURIComponent(cc)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     document.getElementById('sentNote').style.display='block';
-    window.location.href = mailto; // opens the user's mail app with the message
+    window.location.href = mailto;
     return false;
   }
 
-  // Reduce "double snap" on high-powered wheels/touchpads
+  // Throttle over-sensitive wheels to avoid skipping sections
   let last = 0;
   window.addEventListener('wheel', (evt)=>{
     const now = Date.now();
