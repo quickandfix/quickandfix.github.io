@@ -1,427 +1,89 @@
-<!-- Quick Haul & Fix — single-block site section (drop into one HTML element) -->
-<div id="qhf-root" class="qhf">
-    <style>
-  /* === Quick Haul & Fix: lighter dark gray-blue theme (Option B) === */
-  #qhf-root.qhf{
-    --bg:#374d63;        /* page background */
-    --line:#4a6075;      /* borders/dividers */
-    --accent:#2f6ea6;    /* buttons/links accent */
-  }
-  /* Header */
-  #qhf-root header{
-    background:#2e4357;
-    border-bottom:2px solid #43596e;
-  }
-  #qhf-root .brand,
-  #qhf-root nav a{color:#f6f9ff;}
+<!-- Quick Haul & Fix – One-Block Site (Revamp v2) -->
+<div id="qhf-v2" class="qhf">
+  <style>
+    /* =========================
+       Quick Haul & Fix — Revamp
+       ========================= */
+    #qhf-v2.qhf{
+      /* theme tokens */
+      --bg:#334456;           /* page background (dark gray-blue) */
+      --panel:#0f1f2d;        /* dark panels */
+      --surface:#ffffff;      /* white cards */
+      --ink:#0c2239;          /* dark ink on white */
+      --ink-invert:#eaf2ff;   /* light ink on dark */
+      --muted:#a9b7c6;        /* muted text on dark */
+      --line:#44586e;         /* lines on dark */
+      --line-light:#dee7f2;   /* lines on white */
+      --accent:#2f6ea6;       /* steel blue */
+      --accent-ink:#ffffff;   /* contrast on accent */
+      --ok:#2fbf71;
+      --warn:#ffb020;
+      --shadow:0 12px 40px rgba(0,0,0,.25);
 
-  /* Hero */
-  #qhf-root .hero{
-    background:linear-gradient(180deg,#3f566c 0%, #374d63 60%, var(--bg) 100%);
-  }
-
-  /* Badges strip */
-  #qhf-root .badges{
-    background:#2e4357;
-    border-top:2px solid #43596e;
-    border-bottom:2px solid #43596e;
-  }
-
-  /* Footer */
-  #qhf-root footer{
-    background:#2e4357;
-    border-top:2px solid #43596e;
-    color:#c5d2df;
-  }
-
-  /* Body text on dark */
-  #qhf-root section{
-    color:#e6eef7;
-  }
-  #qhf-root h2{
-    color:#ffffff;
-  }
-  #qhf-root .mini{
-    color:#cbd7e3;
-  }
-</style>
-
-    /* ====== Quick Haul & Fix (scoped styles) ====== */
-    /* Theme: dark grayish blue background, light-on-dark sections, white cards */
-    #qhf-root.qhf{
-      --bg:#1b2a38;              /* dark gray-blue */
-      --surface:#ffffff;         /* card / surfaces stay white */
-      --ink:#0b233d;             /* dark text for cards/white areas */
-      --muted:#5c6b7b;
-      --line:#2d3b49;            /* darker divider to fit dark bg */
-      --accent:#2f6ea6;          /* steel-blue accent */
-      --accent-ink:#ffffff;
-      --shadow:0 8px 30px rgba(2,40,80,.18);
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--ink); background:var(--bg); line-height:1.5
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--ink-invert);
+      line-height:1.55;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
-    #qhf-root *{box-sizing:border-box}
-    #qhf-root a{color:var(--accent); text-decoration:none}
-    #qhf-root .wrap{max-width:1120px; margin:0 auto; padding:0 20px}
-    #qhf-root .btn{display:inline-flex; gap:.5rem; align-items:center; justify-content:center; border-radius:12px; padding:.9rem 1.2rem; border:2px solid var(--accent); font-weight:700; cursor:pointer; transition:.2s ease; background:#fff}
-    #qhf-root .btn.primary{background:var(--accent); color:var(--accent-ink)}
-    #qhf-root .btn.ghost{background:transparent; color:var(--accent)}
-    #qhf-root .btn:hover{transform:translateY(-1px); box-shadow:0 6px 18px rgba(0,0,0,.18)}
-    #qhf-root header{position:relative; background:#0f1f2d; border-bottom:2px solid #233241; box-shadow:0 2px 12px rgba(0,0,0,.25)}
-    #qhf-root header .bar{display:flex; align-items:center; gap:16px; padding:14px 0}
-    #qhf-root .brand{display:flex; align-items:center; gap:10px; font-weight:900; color:#e8f1ff; letter-spacing:.2px}
-    #qhf-root .logo{width:36px; height:36px; border-radius:10px; background:var(--accent); display:flex; align-items:center; justify-content:center; color:#fff; font-size:14px; font-weight:800; gap:6px; padding:0 6px}
-    #qhf-root .logo .qf{font-size:13px; letter-spacing:.5px}
-    #qhf-root nav{margin-left:auto; display:flex; gap:18px; align-items:center; flex-wrap:wrap}
-    #qhf-root nav a{color:#e8f1ff; font-weight:700}
-    #qhf-root nav .btn{padding:.55rem .9rem; background:transparent; color:#e8f1ff; border-color:#4a7fb3}
-    #qhf-root nav .btn:hover{background:#1b2a38}
+    #qhf-v2 *{box-sizing:border-box}
+    #qhf-v2 a{color:var(--accent); text-decoration:none}
+    #qhf-v2 .wrap{max-width:1200px; margin:0 auto; padding:0 22px}
 
-    /* Hero now dark-to-darker gradient */
-    #qhf-root .hero{
-      background:linear-gradient(180deg,#1f3142 0%, #1a2a39 60%, var(--bg) 100%);
-      padding:56px 0 32px; text-align:center
+    /* Header */
+    #qhf-v2 header{position:sticky; top:0; z-index:20; background:rgba(15,31,45,.9); backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+    #qhf-v2 .bar{display:flex; align-items:center; gap:18px; padding:12px 0}
+    #qhf-v2 .brand{display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:.2px}
+    #qhf-v2 .logo{width:38px; height:38px; border-radius:10px; background:linear-gradient(180deg,#3a79bd,#2f6ea6); display:inline-grid; place-items:center; color:#fff; font-weight:900; box-shadow:0 6px 18px rgba(47,110,166,.35)}
+    #qhf-v2 .brand span{color:#fff}
+    #qhf-v2 nav{margin-left:auto; display:flex; gap:18px; align-items:center; flex-wrap:wrap}
+    #qhf-v2 nav a{color:#eaf2ff; font-weight:700; opacity:.95}
+    #qhf-v2 .btn{display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.8rem 1.1rem; border-radius:14px; border:2px solid var(--accent); background:transparent; color:#eaf2ff; font-weight:800; transition:.2s ease; cursor:pointer}
+    #qhf-v2 .btn.primary{background:var(--accent); color:var(--accent-ink)}
+    #qhf-v2 .btn:hover{transform:translateY(-1px); box-shadow:0 8px 22px rgba(0,0,0,.25)}
+
+    /* Hero */
+    #qhf-v2 .hero{
+      position:relative;
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(47,110,166,.35), transparent 60%),
+        radial-gradient(900px 500px at -10% 0%, rgba(15,31,45,.8), transparent 70%),
+        linear-gradient(180deg,#2b3c4e 0%, #2a3b4c 40%, #243444 100%);
+      padding:72px 0 46px;
+      overflow:hidden;
+      isolation:isolate;
     }
-    #qhf-root .hero h1{font-size:clamp(32px,5vw,56px); margin:0 0 10px; color:#eaf2ff}
-    #qhf-root .hero p{max-width:760px; margin:0 auto; color:#c6d4e3; font-size:clamp(15px,2.2vw,19px)}
-    #qhf-root .hero .cta{margin-top:22px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
-    #qhf-root .mini{font-size:12px; color:#a9b7c6}
+    #qhf-v2 .hero .halo{position:absolute; inset:-10% -10% auto -10%; height:220px; background:radial-gradient(60% 120% at 50% 10%, rgba(47,110,166,.35), transparent 70%); filter:blur(30px); opacity:.7; z-index:-1}
+    #qhf-v2 .kicker{display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border:1px solid var(--line); border-radius:999px; font-size:12px; color:var(--muted); background:rgba(255,255,255,.04)}
+    #qhf-v2 .hero h1{font-size:clamp(30px,5.5vw,58px); margin:12px 0 10px; letter-spacing:.2px}
+    #qhf-v2 .hero p{max-width:820px; margin:0 auto; color:#cbd7e3; font-size:clamp(15px,2.2vw,19px)}
+    #qhf-v2 .cta{margin-top:22px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+    #qhf-v2 .hero .mini{margin-top:10px; color:#a9b7c6; font-size:12px}
 
-    /* Light-on-dark section text; cards reset to dark text on white */
-    #qhf-root section{padding:42px 0; color:#e6eef7}
-    #qhf-root section a{color:#9ec3ff}
-    #qhf-root h2{font-size:28px; margin:0 0 12px; color:#d7e8ff}
+    /* Section shells */
+    #qhf-v2 section{padding:48px 0; position:relative}
+    #qhf-v2 h2{font-size:clamp(22px,3.2vw,30px); margin:0 0 12px; color:#fff}
+    #qhf-v2 .lead{color:#cbd7e3; max-width:780px}
+    #qhf-v2 .split{display:grid; grid-template-columns:1fr; gap:18px}
+    @media(min-width:960px){#qhf-v2 .split{grid-template-columns:1.1fr .9fr}}
 
-    #qhf-root .grid{display:grid; gap:16px}
-    #qhf-root .card{background:var(--surface); border:2px solid #d7e1ee; border-radius:16px; padding:18px; box-shadow:var(--shadow); color:var(--ink)}
-    #qhf-root .services{grid-template-columns:repeat(1,1fr)}
-    @media(min-width:900px){#qhf-root .services{grid-template-columns:repeat(2,1fr)}}
-    #qhf-root .kpis{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
-    @media(min-width:740px){#qhf-root .kpis{grid-template-columns:repeat(4,1fr)}}
-    #qhf-root .kpi{background:#fff; border:2px solid #d7e1ee; border-radius:14px; padding:14px; text-align:center; color:var(--ink)}
-    #qhf-root .process{grid-template-columns:repeat(1,1fr)}
-    @media(min-width:860px){#qhf-root .process{grid-template-columns:repeat(3,1fr)}}
-    #qhf-root .step .num{font:900 14px/1 monospace; background:var(--accent); color:#fff; border-radius:999px; padding:6px 10px; display:inline-block; margin-bottom:6px}
-    #qhf-root details{background:#fff; border:2px solid #d7e1ee; border-radius:12px; padding:10px 12px; color:var(--ink)}
-    #qhf-root details+details{margin-top:10px}
-    #qhf-root details summary{cursor:pointer; font-weight:700; color:var(--ink)}
+    /* Cards */
+    #qhf-v2 .card{background:var(--surface); color:var(--ink); border:1px solid var(--line-light); border-radius:18px; padding:20px; box-shadow:var(--shadow)}
+    #qhf-v2 .pill{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius:999px; background:#eef5fd; color:#245b8d; font-weight:700; font-size:12px}
 
-    /* Badges & footer blend with dark theme */
-    #qhf-root .badges{border-top:2px solid #233241; border-bottom:2px solid #233241; background:#0f1f2d}
-    #qhf-root .badge-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; padding:14px 0}
-    #qhf-root .badge{border:2px solid #2a3a49; border-radius:12px; padding:10px 12px; text-align:center; color:#c2d0de; background:#142434}
-    @media(min-width:640px){#qhf-root .badge-grid{grid-template-columns:repeat(4,1fr)}}
+    /* Badges row */
+    #qhf-v2 .badges{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--panel)}
+    #qhf-v2 .badge-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; padding:14px 0}
+    #qhf-v2 .badge{border:1px solid var(--line); border-radius:12px; padding:10px 12px; text-align:center; color:#c2d0de; background:#162534}
+    @media(min-width:640px){#qhf-v2 .badge-grid{grid-template-columns:repeat(4,1fr)}}
 
-    #qhf-root .contact{display:grid; grid-template-columns:1fr; gap:16px}
-    @media(min-width:860px){#qhf-root .contact{grid-template-columns:1.1fr .9fr}}
-    #qhf-root input, #qhf-root textarea, #qhf-root select{border:2px solid #cfd9e6; border-radius:12px; padding:12px 14px; font:inherit; background:#fff; width:100%}
-    #qhf-root input:focus, #qhf-root textarea:focus, #qhf-root select:focus{outline:3px solid rgba(47,110,166,.3); border-color:var(--accent)}
-    #qhf-root label{font-size:14px; color:#a9b7c6; display:block; margin:6px 0 4px}
+    /* Services */
+    #qhf-v2 .services{display:grid; grid-template-columns:1fr; gap:16px}
+    @media(min-width:900px){#qhf-v2 .services{grid-template-columns:repeat(3,1fr)}}
+    #qhf-v2 .service h3{margin:0 0 6px}
+    #qhf-v2 .service ul{margin:8px 0 0; padding:0 0 0 18px; color:#365b82}
 
-    #qhf-root footer{border-top:2px solid #233241; background:#0f1f2d; color:#a9b7c6; text-align:center; padding:20px}
-
-    #qhf-root .twocol{display:grid; grid-template-columns:1fr 1fr; gap:8px}
-    #qhf-root .actions{display:flex; gap:10px; flex-wrap:wrap}
-    #qhf-root .reviews{grid-template-columns:repeat(1,1fr)}
-    @media(min-width:860px){#qhf-root .reviews{grid-template-columns:repeat(2,1fr)}}
-    #qhf-root .rev .meta{font-size:12px; color:#5c6b7b}
-
-    @media (max-width: 768px){
-      #qhf-root body { font-size: 16px; padding: 10px; }
-      #qhf-root h1, #qhf-root h2, #qhf-root h3 { text-align: center; }
-      #qhf-root .button, #qhf-root .btn, #qhf-root button { width: 100%; margin-bottom: 10px; }
-      #qhf-root .services-section, #qhf-root .areas-section { padding: 10px; }
-      #qhf-root .header, #qhf-root nav { display: flex; flex-direction: column; align-items: center; }
-    }
-  </style>
-
-  <!-- HEADER -->
-  <header>
-    <div class="wrap bar">
-      <div class="brand">
-        <div class="logo" aria-hidden="true">
-          <span class="qf">QF</span>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="16" height="16">
-            <path d="M3 7h10a1 1 0 0 1 1 1v4h2.4a2 2 0 0 1 1.6.8l1.6 2.2H21v2h-1.1a2.5 2.5 0 1 1-4.9 0H9a2.5 2.5 0 1 1-4.9 0H3v-9a1 1 0 0 1 1-1Zm11 5V9H5v6h.6a2.5 2.5 0 0 1 4.8 0h5a2.5 2.5 0 0 1 4.8 0H21v-1.2l-1.3-1.8a1 1 0 0 0-.8-.4H14Z"/>
-          </svg>
-        </div>
-        <div>Quick Haul &amp; Fix</div>
-      </div>
-      <nav aria-label="Primary">
-        <a href="#qhf-services">Services</a>
-        <a href="#qhf-areas">Areas</a>
-        <a href="#qhf-faq">FAQ</a>
-        <a href="#qhf-contact" class="btn">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap">
-      <h1>Junk Removal • Cleanouts • Light Handyman</h1>
-      <p>Fast, friendly, and affordable. We haul household junk, clean out properties, remove debris, and handle light repairs &amp; maintenance. Same-day / next-day availability.</p>
-      <div class="cta">
-        <a class="btn primary" href="tel:+16097952599" aria-label="Call 609-795-2599">Call 609-795-2599</a>
-        <a class="btn ghost" href="tel:+12672651426" aria-label="Call 267-265-1426">Call 267-265-1426</a>
-        <a class="btn" href="#qhf-contact">Get a Free Quote</a>
-      </div>
-      <p class="mini" style="margin-top:8px;">Or email <a href="mailto:kirkcarter771@gmail.com">kirkcarter771@gmail.com</a> • <a href="mailto:quickhaulandfix02@gmail.com">quickhaulandfix02@gmail.com</a></p>
-    </div>
-  </section>
-
-  <!-- BADGES -->
-  <section class="badges">
-    <div class="wrap badge-grid">
-      <div class="badge">Licensed &amp; Insured</div>
-      <div class="badge">Upfront Pricing</div>
-      <div class="badge">We Do the Heavy Lifting</div>
-      <div class="badge">Sweep-Clean Finish</div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="qhf-services">
-    <div class="wrap">
-      <h2>What We Do</h2>
-      <div class="grid services">
-        <div class="card">
-          <h3>Household Junk Removal</h3>
-          <p class="mini">Furniture, appliances, mattresses, bagged trash, garage &amp; basement cleanouts.</p>
-        </div>
-        <div class="card">
-          <h3>Handyman (Light Repair)</h3>
-          <p class="mini">Minor fixes &amp; maintenance: patch/paint, fixtures, shelves, TV mounts, locks.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- AREAS -->
-  <section id="qhf-areas">
-    <div class="wrap">
-      <h2>Service Areas</h2>
-      <div class="kpis">
-        <div class="kpi"><strong>Philadelphia</strong><br><span class="mini">City &amp; surrounding</span></div>
-        <div class="kpi"><strong>Delaware County</strong><br><span class="mini">Clifton Heights, Yeadon, Upper Darby</span></div>
-        <div class="kpi"><strong>Camden County</strong><br><span class="mini">Cherry Hill &amp; nearby</span></div>
-        <div class="kpi"><strong>Bucks &amp; Montgomery</strong><br><span class="mini">By appointment</span></div>
-      </div>
-      <p class="mini" style="margin-top:10px">Not sure if we service your area? <a href="#qhf-contact">Ask us</a>.</p>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section id="qhf-process">
-    <div class="wrap">
-      <h2>How It Works</h2>
-      <div class="grid process">
-        <div class="card step">
-          <div class="num">1</div>
-          <h3>Text Photos or Call</h3>
-          <p class="mini">Send a few pictures and your zip code. We give a fast estimate and schedule.</p>
-        </div>
-        <div class="card step">
-          <div class="num">2</div>
-          <h3>Upfront Price</h3>
-          <p class="mini">We confirm final pricing on site before any work begins.</p>
-        </div>
-        <div class="card step">
-          <div class="num">3</div>
-          <h3>We Haul &amp; Sweep</h3>
-          <p class="mini">We load everything, sweep clean, and you’re done.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="qhf-faq">
-    <div class="wrap">
-      <h2>FAQ</h2>
-      <details><summary>What items can you take?</summary><p class="mini">Most household junk: furniture, appliances, mattresses, electronics, bagged trash, construction debris, yard waste, and more. We avoid hazardous materials unless pre-approved.</p></details>
-      <details><summary>Do you recycle or donate?</summary><p class="mini">Yes—when possible we divert reusable items to donation and recycle metal/cardboard.</p></details>
-      <details><summary>Are you insured?</summary><p class="mini">Yes. We’re licensed & insured for junk removal and light handyman work.</p></details>
-      <details><summary>How do I pay?</summary><p class="mini">We accept <strong>Cash App</strong>, <strong>Apple Pay</strong>, <strong>Tap Cards</strong>, and <strong>Cash</strong> on site. If you want to pay by card ahead of time, we can text you a secure link.</p></details>
-    </div>
-  </section>
-
-  <!-- REVIEWS -->
-  <section id="qhf-reviews">
-    <div class="wrap">
-      <h2>Reviews</h2>
-      <div class="card" style="max-width:780px;margin:12px auto;">
-        <div id="qhf-review-rotator">
-          <div id="qhf-rev-body" class="mini">Loading reviews…</div>
-          <div class="rev meta" id="qhf-rev-meta" style="margin-top:6px;color:#5c6b7b;"></div>
-        </div>
-        <div class="actions" style="justify-content:center;margin-top:10px;">
-          <button id="qhf-rev-prev" class="btn" type="button">◀ Prev</button>
-          <button id="qhf-rev-next" class="btn" type="button">Next ▶</button>
-        </div>
-      </div>
-
-      <div class="grid reviews" style="margin-top:12px">
-        <div class="card">
-          <form id="qhf-review-form" name="qhf-review" method="POST" data-netlify="true">
-            <input type="hidden" name="form-name" value="qhf-review">
-            <div class="twocol">
-              <div>
-                <label for="qhf-r-name">Name</label>
-                <input id="qhf-r-name" name="name" required placeholder="Your name">
-              </div>
-              <div>
-                <label for="qhf-r-rating">Rating</label>
-                <select id="qhf-r-rating" name="rating" required>
-                  <option value="">Select…</option>
-                  <option>5 - Excellent</option>
-                  <option>4 - Good</option>
-                  <option>3 - Okay</option>
-                  <option>2 - Poor</option>
-                  <option>1 - Bad</option>
-                </select>
-              </div>
-            </div>
-            <label for="qhf-r-service">Service Used</label>
-            <select id="qhf-r-service" name="service">
-              <option>Junk Removal</option>
-              <option>Handyman (Light Repair)</option>
-            </select>
-            <label for="qhf-r-text">Your Review</label>
-            <textarea id="qhf-r-text" name="review" rows="4" required placeholder="What did we do well? What could be better?"></textarea>
-            <div class="actions">
-              <button type="submit" class="btn primary">Submit Review</button>
-              <a class="btn" href="mailto:kirkcarter771@gmail.com?subject=New%20Customer%20Review%20-%20Quick%20Haul%20%26%20Fix">Email Instead</a>
-            </div>
-            <p class="mini">After you submit, your review appears here and rotates with the others.</p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="qhf-contact">
-    <div class="wrap">
-      <h2>Contact</h2>
-      <div class="grid contact">
-        <div class="card">
-          <p><strong>Call:</strong> <a href="tel:+16097952599">609-795-2599</a> • <a href="tel:+12672651426">267-265-1426</a></p>
-          <p><strong>Text for fast quote:</strong> <a href="sms:+16097952599?&body=Hi,%20I%20need%20a%20quote%20for%20[items]%20Zip%20[#####].">609-795-2599</a></p>
-          <p><strong>Email:</strong> <a href="mailto:kirkcarter771@gmail.com">kirkcarter771@gmail.com</a> • <a href="mailto:quickhaulandfix02@gmail.com">quickhaulandfix02@gmail.com</a></p>
-          <div class="actions" style="margin-top:10px;">
-            <a class="btn primary" href="sms:+16097952599?&body=Hi,%20it%E2%80%99s%20[Your%20Name].%20Zip%20[#####].%20I%20need:%20[describe%20items].">Text Photos for Quote</a>
-            <a class="btn ghost" href="tel:+16097952599">Call Now</a>
-          </div>
-        </div>
-        <div class="card">
-          <h3 style="margin-top:0;">Hours & Availability</h3>
-          <p class="mini">Mon–Sun • Same-day / next-day in many cases.</p>
-          <h3 style="margin-bottom:6px;">Payment Options</h3>
-          <p class="mini">Cash App • Apple Pay • Tap Cards • Cash (secure card link on request).</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    © <span id="qhf-year"></span> Quick Haul &amp; Fix — Junk Removal &amp; Handyman • Philadelphia, PA
-  </footer>
-
-  <script>
-    // (unchanged JS)
-    (function(){
-      const root = document.getElementById('qhf-root');
-      if(!root) return;
-
-      const y = root.querySelector('#qhf-year');
-      if(y){ y.textContent = new Date().getFullYear(); }
-
-      const ROTATE_MS = 5000;
-      let reviewsData = [];
-      let revIndex = 0;
-      let revTimer;
-
-      function formatWhen(ts){
-        try { return new Date(ts).toLocaleString(); } catch { return ''; }
-      }
-
-      const bodyEl = root.querySelector('#qhf-rev-body');
-      const metaEl = root.querySelector('#qhf-rev-meta');
-
-      function showReview(i){
-        if(!bodyEl || !metaEl) return;
-        if (!reviewsData.length){
-          bodyEl.textContent = 'No reviews yet — be the first!';
-          metaEl.textContent = '';
-          return;
-        }
-        revIndex = (i + reviewsData.length) % reviewsData.length;
-        const r = reviewsData[revIndex];
-        const name = r.name || 'Anonymous';
-        const rating = r.rating || '';
-        const service = r.service || '';
-        const when = r.created_at || r.time || Date.now();
-        const metaLine = [service, formatWhen(when)].filter(Boolean).join(' • ');
-        bodyEl.textContent = r.review || '';
-        metaEl.innerHTML = '<strong>' + name + '</strong>' + (rating ? ' — ' + rating : '') + (metaLine ? '<div>'+ metaLine +'</div>' : '');
-      }
-
-      function startRotation(){
-        clearInterval(revTimer);
-        revTimer = setInterval(() => showReview(revIndex + 1), ROTATE_MS);
-      }
-
-      function seedReviews(){
-        return [
-          {name:'K. Johnson', rating:'5 - Excellent', service:'Junk Removal', review:'Fast pickup and fair price. Will use again.', time: Date.now()-86400000},
-          {name:'M. Rivera', rating:'5 - Excellent', service:'Cleanout', review:'They cleared our garage in under an hour. Super polite.', time: Date.now()-172800000},
-          {name:'T. Williams', rating:'4 - Good', service:'Handyman', review:'Mounted TV and patched wall. Clean work.', time: Date.now()-259200000}
-        ];
-      }
-
-      function loadReviews(){
-        const localRaw = localStorage.getItem('qhfReviewsLocalNew');
-        const localList = localRaw ? JSON.parse(localRaw) : [];
-        reviewsData = [...localList.reverse(), ...seedReviews()];
-        showReview(0);
-        startRotation();
-      }
-
-      const prev = root.querySelector('#qhf-rev-prev');
-      const next = root.querySelector('#qhf-rev-next');
-      if(prev) prev.addEventListener('click', ()=>{ showReview(revIndex - 1); startRotation(); });
-      if(next) next.addEventListener('click', ()=>{ showReview(revIndex + 1); startRotation(); });
-
-      const form = root.querySelector('#qhf-review-form');
-      function encode(data){ return Object.keys(data).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(data[k])).join('&'); }
-      if(form){
-        form.addEventListener('submit', async (e)=>{
-          e.preventDefault();
-          const payload = {
-            'form-name':'qhf-review',
-            name: root.querySelector('#qhf-r-name').value.trim(),
-            rating: root.querySelector('#qhf-r-rating').value,
-            service: root.querySelector('#qhf-r-service').value,
-            review: root.querySelector('#qhf-r-text').value.trim(),
-            time: Date.now()
-          };
-          const localRaw = localStorage.getItem('qhfReviewsLocalNew');
-          const localList = localRaw ? JSON.parse(localRaw) : [];
-          localList.push(payload);
-          localStorage.setItem('qhfReviewsLocalNew', JSON.stringify(localList));
-          reviewsData.unshift(payload);
-          showReview(0);
-          startRotation();
-          form.reset();
-
-          try{
-            await fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:encode(payload) });
-          }catch(err){}
-        });
-      }
-
-      loadReviews();
-    })();
-  </script>
-</div>
+    /* Pricing */
+    #qhf-v2 .pricing{display:grid; grid-template-columns:1fr; gap:16px; align-items:stretch}
+    @media(min-width:900px){
