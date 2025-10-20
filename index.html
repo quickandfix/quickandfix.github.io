@@ -3,254 +3,256 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Quick Haul & Fix — Junk Removal & Handyman</title>
-<meta name="description" content="Quick Haul & Fix — Fast junk removal and reliable handyman work across Philly & Delaware County. Text photos for a quick quote.">
+<title>Quick Haul & Fix — Junk Removal • Cleanouts • Light Handyman</title>
+<meta name="description" content="Fast, friendly, affordable junk removal and light handyman services in Philadelphia and nearby. Same-day / next-day availability.">
 <style>
   /* ===== Base ===== */
   *,*::before,*::after{box-sizing:border-box}
   html,body{height:100%;margin:0}
   :root{
-    --bg:#0f1820;          /* dark grayish blue */
-    --bg-2:#121e29;
+    --bg:#0f1820;          /* dark gray-blue */
+    --panel:#13202c;
     --text:#e9f1f7;
-    --muted:#9fb3c3;
-    --brand:#3aa0ff;       /* accent */
-    --brand-2:#7dd3ff;
+    --muted:#a9bdcc;
+    --brand:#3aa0ff;
+    --accent:#cfe8ff;
     --card:#172532;
-    --ok:#52d67a;
-    --maxw:1100px;
-    --radius:14px;
+    --radius:16px;
     --shadow:0 10px 30px rgba(0,0,0,.35);
+    --max:1120px;
   }
   body{
-    font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+    font-family: system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;
     color:var(--text);
-    background:linear-gradient(180deg,var(--bg),var(--bg-2));
-    scroll-snap-type:y mandatory;      /* one section at a time */
-    scroll-behavior:smooth;
-    overflow-y:scroll;
-    -webkit-overflow-scrolling:touch;
+    background:linear-gradient(180deg,var(--bg),#0c1620 60%, var(--panel));
+    line-height:1.5;
   }
-  section{
-    min-height:100svh;
-    display:grid;align-items:center;
-    padding:96px 20px 32px;            /* room for sticky header */
-    scroll-snap-align:start;
-    scroll-snap-stop:always;
-  }
-  .wrap{max-width:var(--maxw);margin:0 auto;}
+  a{color:var(--accent);text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 18px}
 
-  /* ===== Sticky header (FortniteTracker vibe) ===== */
-  .nav{
-    position:sticky; top:0; z-index:1000;
-    backdrop-filter:saturate(1.1) blur(8px);
-    background:color-mix(in srgb, var(--bg) 78%, transparent);
-    border-bottom:1px solid rgba(255,255,255,.06);
+  /* ===== Topbar ===== */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,18,26,.8);backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,.07);
   }
-  .nav .inner{
-    max-width:var(--maxw);margin:0 auto;
-    display:flex;align-items:center;gap:14px;
-    padding:14px 18px;
+  .topbar .inner{
+    display:flex;align-items:center;gap:14px;padding:14px 18px
   }
-  .logo{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.3px}
-  .logo-badge{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#2e7df7,#ffd84a)} /* blue-yellow-white vibe */
-  .links{display:flex;gap:6px;overflow-x:auto}
-  .links::-webkit-scrollbar{display:none}
-  .nav a{color:var(--muted);text-decoration:none;font-weight:700;padding:10px 12px;border-radius:8px;white-space:nowrap}
-  .nav a:hover,.nav a.active{color:var(--text);background:rgba(255,255,255,.08)}
-  .spacer{flex:1}
-  .btn{
-    appearance:none;border:0;cursor:pointer;
-    padding:12px 14px;border-radius:12px;font-weight:800;
-    background:var(--brand);color:#08131b;box-shadow:var(--shadow);text-decoration:none
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+  .badge{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,#2e7df7,#ffd84a)}
+  nav{margin-left:auto;display:flex;gap:8px}
+  nav a{
+    color:var(--muted);font-weight:700;padding:8px 12px;border-radius:999px
   }
-  .btn.alt{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.15)}
+  nav a:hover{background:rgba(255,255,255,.08);color:var(--text)}
+  .cta-top{margin-left:8px;padding:8px 12px;border:1px solid rgba(255,255,255,.12);border-radius:999px;color:var(--text)}
 
   /* ===== Hero ===== */
   .hero{
     background:
       radial-gradient(1200px 600px at 80% -20%, rgba(58,160,255,.18), transparent 60%),
-      radial-gradient(900px 500px at 10% 110%, rgba(125,211,255,.12), transparent 60%);
+      radial-gradient(900px 500px at 10% 110%, rgba(125,211,255,.12), transparent 60%),
+      linear-gradient(180deg, var(--panel), transparent);
+    padding:44px 0 24px;
+    border-bottom:1px solid rgba(255,255,255,.06);
   }
-  .hero h1{font-size:clamp(32px,6vw,56px);margin:0 0 12px;line-height:1.05}
-  .hero p{color:var(--muted);font-size:clamp(16px,2.6vw,20px);margin:0 0 22px}
-  .cta{display:flex;flex-wrap:wrap;gap:12px}
-  .badges{display:flex;gap:14px;margin-top:22px;flex-wrap:wrap}
+  .hero h1{
+    font-size:clamp(28px,6vw,44px);
+    line-height:1.1;margin:6px 0 12px;text-align:left
+  }
+  .hero p{color:var(--muted);font-size:clamp(16px,2.6vw,18px);margin:0 0 18px}
+  .hero .actions{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+  .btn{
+    appearance:none;border:0;cursor:pointer;
+    padding:12px 16px;border-radius:12px;font-weight:800;
+    background:var(--brand);color:#08131b;box-shadow:var(--shadow)
+  }
+  .btn.alt{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.18)}
+  .hero small{color:var(--muted)}
+
+  /* chips under hero */
+  .chips{
+    display:flex;gap:12px;flex-wrap:wrap;
+    padding:16px 0 22px;border-top:1px solid rgba(255,255,255,.06);
+  }
   .chip{
-    padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.12);
-    color:var(--muted);font-weight:700;font-size:14px
+    padding:8px 12px;border:1px solid rgba(255,255,255,.12);
+    border-radius:999px;color:var(--muted);font-weight:700;font-size:14px;background:rgba(0,0,0,.12)
   }
 
-  /* ===== Grid / cards ===== */
+  /* ===== Sections ===== */
+  section{padding:34px 0}
+  h2{font-size:clamp(22px,4.5vw,28px);margin:0 0 14px}
+  .sub{color:var(--muted);margin:-6px 0 18px}
+
+  /* cards */
   .grid{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}
   .col-6{grid-column:span 6}
   .col-4{grid-column:span 4}
   @media (max-width:900px){.col-6,.col-4{grid-column:1/-1}}
   .card{
     background:linear-gradient(180deg,var(--card),#0f1c27);
-    border:1px solid rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
     border-radius:var(--radius);
     box-shadow:var(--shadow);
-    padding:22px;
+    padding:18px
   }
   .card h3{margin:6px 0 8px}
-  .meta{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+  .muted{color:var(--muted)}
 
-  /* ===== Gallery ===== */
-  .gallery{display:grid;grid-auto-flow:column;gap:14px;overflow-x:auto;padding-bottom:6px}
-  .shot{
-    width:min(320px,80vw);aspect-ratio:4/5;border-radius:14px;overflow:hidden;
-    background:#0d1720;border:1px solid rgba(255,255,255,.08)
-  }
-  .shot img{width:100%;height:100%;object-fit:cover;display:block}
-
-  /* ===== Reviews (auto-loop) ===== */
-  .reviews .rail{
-    display:flex;gap:16px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);
-  }
-  .reviews .card{min-width:280px;flex:0 0 auto}
-  .marquee{display:flex;gap:16px;animation:scroll 22s linear infinite}
-  @keyframes scroll{
-    from{transform:translateX(0)}
-    to{transform:translateX(-50%)}
+  /* areas as pills */
+  .areas{display:flex;gap:12px;flex-wrap:wrap}
+  .pill{
+    background:#0e1a24;border:1px solid rgba(255,255,255,.12);
+    padding:10px 14px;border-radius:12px;font-weight:800
   }
 
-  /* ===== Contact ===== */
-  .contact .card{display:grid;gap:14px}
+  /* steps */
+  .step{display:flex;gap:12px;align-items:flex-start}
+  .num{
+    width:28px;height:28px;display:grid;place-items:center;
+    font-weight:900;border-radius:999px;background:#0b151d;border:1px solid rgba(255,255,255,.18);color:var(--accent)
+  }
+
+  /* contact/footer */
+  .contact .row{display:flex;gap:12px;flex-wrap:wrap}
+  .contact .row > *{flex:1}
   .input, textarea{
     width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.15);
     background:#0b151d;color:var(--text);font-size:16px
   }
-  .row{display:flex;gap:12px;flex-wrap:wrap}
-  .row > *{flex:1}
-
-  /* ===== Footer ===== */
-  footer{padding:24px 20px;color:var(--muted);text-align:center}
+  footer{padding:26px 18px;color:var(--muted);text-align:center;border-top:1px solid rgba(255,255,255,.06)}
 </style>
 </head>
 <body>
 
-<!-- Header -->
-<header class="nav">
-  <div class="inner">
-    <div class="logo">
-      <span class="logo-badge" aria-hidden="true"></span>
+<!-- Topbar -->
+<header class="topbar">
+  <div class="wrap inner">
+    <div class="brand">
+      <span class="badge" aria-hidden="true"></span>
       <span>Quick Haul & Fix</span>
     </div>
-
-    <nav class="links">
-      <a href="#home" class="active">Home</a>
+    <nav>
       <a href="#services">Services</a>
-      <a href="#gallery">Before/After</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#contact">Contact</a>
+      <a href="#areas">Areas</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="cta-top">Contact</a>
     </nav>
-
-    <div class="spacer"></div>
-    <a class="btn alt" href="tel:+12672651426">Call</a>
-    <a class="btn" href="sms:+16097952599?body=Hi%20Quick%20Haul%20%26%20Fix%20%E2%80%94%20I%20need%20a%20quote.">Text</a>
   </div>
 </header>
 
 <!-- HERO -->
-<section id="home" class="hero">
+<div class="hero">
   <div class="wrap">
-    <h1>Same-Day Junk Removal & Reliable Handyman Work</h1>
-    <p>Serving Philadelphia & nearby. Text us photos for a fast quote. We lift, load, and leave it spotless.</p>
-    <div class="cta">
-      <a class="btn" href="#contact">Request a Quote</a>
-      <a class="btn alt" href="#services">What We Do</a>
+    <h1>Junk Removal • Cleanouts • Light Handyman</h1>
+    <p>Fast, friendly, and affordable. We haul household junk, clean out properties, remove debris, and handle light repairs & maintenance. Same-day / next-day availability.</p>
+
+    <div class="actions">
+      <a class="btn" href="tel:+16097952599">Call 609-795-2599</a>
+      <a class="btn alt" href="tel:+12672651426">Call 267-265-1426</a>
+      <a class="btn alt" href="#contact">Get a Free Quote</a>
     </div>
-    <div class="badges">
+
+    <p class="muted">Or email <a href="mailto:kirkcarter771@gmail.com">kirkcarter771@gmail.com</a> • <a href="mailto:quickhaulandfix02@gmail.com">quickhaulandfix02@gmail.com</a></p>
+
+    <div class="chips">
       <span class="chip">Licensed & Insured</span>
-      <span class="chip">Apartments • Homes • Offices</span>
-      <span class="chip">Evening & Weekend Slots</span>
+      <span class="chip">Upfront Pricing</span>
+      <span class="chip">We Do the Heavy Lifting</span>
+      <span class="chip">Sweep-Clean Finish</span>
     </div>
   </div>
-</section>
+</div>
 
 <!-- SERVICES -->
 <section id="services">
   <div class="wrap">
+    <h2>What We Do</h2>
     <div class="grid">
       <div class="col-6">
         <div class="card">
-          <h3>Junk Removal</h3>
-          <p>Furniture, appliances, garage cleanouts, yard debris, move-out trash, light demolition debris.</p>
-          <div class="meta">
-            <span>✅ Text photos for quote</span>
-            <span>🚚 Stairs & basements okay</span>
-            <span>♻️ Donate when possible</span>
-          </div>
+          <h3>Household Junk Removal</h3>
+          <p class="muted">Furniture, appliances, mattresses, bagged trash, garage & basement cleanouts.</p>
         </div>
       </div>
       <div class="col-6">
         <div class="card">
-          <h3>Handyman</h3>
-          <p>Minor repairs, mounting TVs/shelves, caulking, patch & paint, fixture swaps, small installs.</p>
-          <div class="meta">
-            <span>🛠️ Materials pickup available</span>
-            <span>📅 Flexible scheduling</span>
-            <span>🧹 Clean finish</span>
+          <h3>Handyman (Light Repair)</h3>
+          <p class="muted">Minor fixes & maintenance: patch/paint, fixtures, shelves, TV mounts, locks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section id="areas">
+  <div class="wrap">
+    <h2>Service Areas</h2>
+    <div class="areas">
+      <span class="pill">Philadelphia</span>
+      <span class="pill">Delaware County</span>
+      <span class="pill">Camden County</span>
+      <span class="pill">Bucks & Montgomery</span>
+    </div>
+    <p class="sub">Not sure if we service your area? <a href="#contact">Ask us.</a></p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="wrap">
+    <h2>How It Works</h2>
+    <div class="grid">
+      <div class="col-4">
+        <div class="card step">
+          <span class="num">1</span>
+          <div>
+            <h3>Text Photos or Call</h3>
+            <p class="muted">Send a few pictures and your ZIP code. We give a fast estimate and schedule.</p>
           </div>
         </div>
       </div>
       <div class="col-4">
-        <div class="card">
-          <h3>Property Cleanouts</h3>
-          <p>Estate, eviction, storage, garage/attic. Fast turnaround for owners and managers.</p>
+        <div class="card step">
+          <span class="num">2</span>
+          <div>
+            <h3>Upfront Price</h3>
+            <p class="muted">We confirm final pricing on site before any work begins.</p>
+          </div>
         </div>
       </div>
       <div class="col-4">
-        <div class="card">
-          <h3>Delivery & Hauling</h3>
-          <p>Single-item pickups, store runs, curb-to-room moves, and dump runs.</p>
-        </div>
-      </div>
-      <div class="col-4">
-        <div class="card">
-          <h3>Light Demo</h3>
-          <p>Cabinets, carpet, small sheds, non-load walls. We load out and sweep after.</p>
+        <div class="card step">
+          <span class="num">3</span>
+          <div>
+            <h3>We Haul & Sweep</h3>
+            <p class="muted">We load everything, sweep clean, and you’re done.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GALLERY -->
-<section id="gallery">
+<!-- FAQ (simple) -->
+<section id="faq">
   <div class="wrap">
-    <h2 style="margin:0 0 12px">Before / After</h2>
-    <p style="color:var(--muted);margin:0 0 18px">Real work from recent jobs.</p>
-    <div class="gallery" aria-label="Before and after gallery (examples)">
-      <div class="shot"><img src="https://images.unsplash.com/photo-1582582429416-ea0ae12d6076?q=80&w=1200&auto=format&fit=crop" alt="Junk removal"></div>
-      <div class="shot"><img src="https://images.unsplash.com/photo-1582582429945-2f8cfd0d9a4a?q=80&w=1200&auto=format&fit=crop" alt="Clean garage"></div>
-      <div class="shot"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop" alt="Handyman repairs"></div>
-      <div class="shot"><img src="https://images.unsplash.com/photo-1600585154340-1e47c56a2b1a?q=80&w=1200&auto=format&fit=crop" alt="Room reset"></div>
-    </div>
-  </div>
-</section>
-
-<!-- REVIEWS (permanent + looping) -->
-<section id="reviews" class="reviews">
-  <div class="wrap">
-    <h2 style="margin:0 0 12px">What Customers Say</h2>
-    <p style="color:var(--muted);margin:0 0 18px">Locked-in testimonials. The row gently scrolls forever.</p>
-    <div class="rail">
-      <!-- We duplicate the group to create a seamless marquee loop -->
-      <div class="marquee" aria-label="Review ticker">
-        <div class="card"><strong>J. Ramirez</strong><br><span style="color:var(--muted)">West Philly</span><p>“On time, fair, and fast. Garage looks brand new.”</p></div>
-        <div class="card"><strong>A. Collins</strong><br><span style="color:var(--muted)">University City</span><p>“Texted pics, got a quote, done same day. 10/10.”</p></div>
-        <div class="card"><strong>M. Greene</strong><br><span style="color:var(--muted)">South Philly</span><p>“They navigated tight stairs no problem and cleaned up.”</p></div>
-        <div class="card"><strong>R. Shah</strong><br><span style="color:var(--muted)">Delco</span><p>“Professional and careful with walls. Will book again.”</p></div>
-        <div class="card"><strong>S. Nguyen</strong><br><span style="color:var(--muted)">Center City</span><p>“Price matched the quote. Super easy process.”</p></div>
-
-        <!-- duplicate set -->
-        <div class="card"><strong>J. Ramirez</strong><br><span style="color:var(--muted)">West Philly</span><p>“On time, fair, and fast. Garage looks brand new.”</p></div>
-        <div class="card"><strong>A. Collins</strong><br><span style="color:var(--muted)">University City</span><p>“Texted pics, got a quote, done same day. 10/10.”</p></div>
-        <div class="card"><strong>M. Greene</strong><br><span style="color:var(--muted)">South Philly</span><p>“They navigated tight stairs no problem and cleaned up.”</p></div>
-        <div class="card"><strong>R. Shah</strong><br><span style="color:var(--muted)">Delco</span><p>“Professional and careful with walls. Will book again.”</p></div>
-        <div class="card"><strong>S. Nguyen</strong><br><span style="color:var(--muted)">Center City</span><p>“Price matched the quote. Super easy process.”</p></div>
+    <h2>FAQ</h2>
+    <div class="grid">
+      <div class="col-6">
+        <div class="card">
+          <h3>What can you take?</h3>
+          <p class="muted">Most household/garage items, furniture, appliances, bagged debris, yard waste. No hazardous materials.</p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card">
+          <h3>Do you do stairs/basements?</h3>
+          <p class="muted">Yes — we handle tight spaces and stairs. Just let us know access details.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -259,33 +261,31 @@
 <!-- CONTACT -->
 <section id="contact" class="contact">
   <div class="wrap">
+    <h2>Contact</h2>
+    <p class="sub">Fastest: call or text. You can also email — we reply quickly.</p>
     <div class="grid">
       <div class="col-6">
         <div class="card">
-          <h3>Request a Quote</h3>
-          <p style="color:var(--muted)">Fastest way: text a few photos and your neighborhood.</p>
           <div class="row">
-            <a class="btn" href="sms:+12672651426?body=Hi!%20Please%20quote%20my%20junk%20removal/handyman%20job.%20Address%20area:%20%0APhotos:%20(attached)">Text 267-265-1426</a>
-            <a class="btn alt" href="sms:+16097952599?body=Hi!%20Please%20quote%20my%20junk%20removal/handyman%20job.%20Address%20area:%20%0APhotos:%20(attached)">Text 609-795-2599</a>
+            <a class="btn" href="sms:+16097952599?body=Hi!%20Please%20quote%20my%20junk%20removal/handyman%20job.%20ZIP:%20%0APhotos:%20(attached)">Text 609-795-2599</a>
+            <a class="btn alt" href="sms:+12672651426?body=Hi!%20Please%20quote%20my%20junk%20removal/handyman%20job.%20ZIP:%20%0APhotos:%20(attached)">Text 267-265-1426</a>
           </div>
-          <small style="color:var(--muted)">Or call <a href="tel:+12672651426" style="color:var(--brand)">267-265-1426</a> / <a href="tel:+16097952599" style="color:var(--brand)">609-795-2599</a></small>
+          <p class="muted" style="margin-top:10px">Emails: <a href="mailto:kirkcarter771@gmail.com">kirkcarter771@gmail.com</a> • <a href="mailto:quickhaulandfix02@gmail.com">quickhaulandfix02@gmail.com</a></p>
         </div>
       </div>
 
       <div class="col-6">
         <div class="card">
-          <h3>Prefer Email?</h3>
-          <form onsubmit="return sendEmail(event)">
+          <h3>Quick Email</h3>
+          <form onsubmit="return draftEmail(event)">
             <div class="row">
               <input class="input" type="text" name="name" placeholder="Your name" required>
               <input class="input" type="tel" name="phone" placeholder="Phone">
             </div>
-            <input class="input" type="email" name="email" placeholder="Email (optional)">
-            <textarea class="input" name="msg" rows="4" placeholder="Describe the job, stairs/access, and ideal timeframe…" required></textarea>
+            <textarea class="input" name="msg" rows="4" placeholder="Describe the job, stairs/access, ideal timeframe…" required></textarea>
             <button class="btn" type="submit">Draft Email</button>
-            <p id="sentNote" style="display:none;color:var(--ok);font-weight:800;margin:6px 0 0">Email ready — tap send in your mail app.</p>
+            <p id="note" style="display:none;color:#6ee7b7;font-weight:800;margin:6px 0 0">Email ready — tap send in your mail app.</p>
           </form>
-          <small style="color:var(--muted)">Sends to <strong>quickhaulandfix02@gmail.com</strong> with CC to <strong>kirkcarterbiz@gmail.com</strong>.</small>
         </div>
       </div>
     </div>
@@ -297,48 +297,22 @@
 </footer>
 
 <script>
-  // Year
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // Active link update on section visibility
-  const links = [...document.querySelectorAll('.links a')];
-  const linkMap = Object.fromEntries(links.map(a => [a.getAttribute('href').slice(1), a]));
-  const obs = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        links.forEach(l=>l.classList.remove('active'));
-        linkMap[e.target.id]?.classList.add('active');
-      }
-    });
-  }, {threshold:.6});
-  document.querySelectorAll('section').forEach(s=>obs.observe(s));
-
-  // Email composer (no backend)
-  function sendEmail(e){
+  function draftEmail(e){
     e.preventDefault();
     const f = e.target;
     const name = f.name.value.trim();
     const phone = f.phone.value.trim();
-    const email = f.email.value.trim();
     const msg = f.msg.value.trim();
-
-    const subject = `Quick Haul & Fix — New Inquiry from ${name||'Client'}`;
-    const body = `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nMessage:\n${msg}`;
-    const to = 'quickhaulandfix02@gmail.com';
-    const cc = 'kirkcarterbiz@gmail.com';
-    const mailto = `mailto:${encodeURIComponent(to)}?cc=${encodeURIComponent(cc)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    document.getElementById('sentNote').style.display='block';
+    const subject = `Quick Haul & Fix — Inquiry from ${name||'Client'}`;
+    const body = `Name: ${name}\nPhone: ${phone}\n\nMessage:\n${msg}`;
+    const to = 'kirkcarter771@gmail.com,quickhaulandfix02@gmail.com';
+    const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    document.getElementById('note').style.display='block';
     window.location.href = mailto;
     return false;
   }
-
-  // Throttle over-sensitive wheels to avoid skipping sections
-  let last = 0;
-  window.addEventListener('wheel', (evt)=>{
-    const now = Date.now();
-    if(now - last < 350) evt.preventDefault();
-    last = now;
-  }, {passive:false});
 </script>
 </body>
 </html>
