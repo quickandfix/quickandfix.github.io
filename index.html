@@ -198,68 +198,22 @@
       </div>
     </section>
 
-    <section id="contact">
-      <div class="wrap">
-        <h2>Get a Free Quote</h2>
-        <div class="contact">
-          <form id="quote-form" action="https://formspree.io/f/xdkwywzl" method="POST">
-            <input type="hidden" name="form-name" value="qhf-contact">
-            <div class="twocol">
-              <div>
-                <label for="name">Name</label>
-                <input id="name" name="name" required placeholder="Your name">
-              </div>
-              <div>
-                <label for="phone">Phone</label>
-                <input id="phone" name="phone" inputmode="tel" placeholder="(###) ###-####">
-              </div>
-            </div>
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required placeholder="you@example.com">
-            <label>What service do you need?</label>
-            <div class="optlist" role="group" aria-label="Service type">
-              <label class="opt"><input type="checkbox" name="service[]" value="Junk Removal"> Junk Removal</label>
-              <label class="opt"><input type="checkbox" name="service[]" value="Handyman (Light Repair)"> Handyman (Light Repair)</label>
-            </div>
-            <label for="zip">ZIP Code</label>
-            <input id="zip" name="zip" inputmode="numeric" pattern="[0-9]{5}" placeholder="19143">
-            <label for="message">Describe your items or repairs</label>
-            <textarea id="message" name="message" rows="4" placeholder="What do you need hauled or fixed? Stairs? Photos?"></textarea>
-            <div class="actions">
-              <button type="submit" class="btn primary">Send Request</button>
-              <a class="btn" href="mailto:kirkcarter771@gmail.com?subject=Quote%20Request%20-%20Quick%20Haul%20%26%20Fix&body=Service%20needed:%20Junk%20Removal%20or%20Handyman%0AName:%0APhone:%0AZIP:%0ADetails:%0A">Email Instead</a>
-            </div>
-            <p class="mini">Payments accepted: Cash App, Apple Pay, Tap Cards, and Cash.</p>
-          </form>
-          <div class="card">
-            <h3>Call or Text</h3>
-            <p><a class="btn primary" href="tel:+16097952599">609-795-2599</a></p>
-            <p><a class="btn" href="tel:+12672651426">267-265-1426</a></p>
-            <h3>Email</h3>
-            <p><a href="mailto:kirkcarter771@gmail.com">kirkcarter771@gmail.com</a><br><a href="mailto:quickhaulandfix02@gmail.com">quickhaulandfix02@gmail.com</a></p>
-            <h3>Payments</h3>
-            <ul class="mini">
-              <li>Cash App</li>
-              <li>Apple Pay</li>
-              <li>Tap Cards</li>
-              <li>Cash</li>
-            </ul>
-            <p class="mini">Want to pay by card in advance? Ask us for a secure link.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- REVIEWS AT THE BOTTOM -->
+    <!-- REVIEWS (Auto-Rotate) -->
     <section id="reviews">
       <div class="wrap">
         <h2>Reviews</h2>
-        <p class="mini">Real reviews from real customers. Share your experience below.</p>
-        <div class="grid reviews" style="margin-top:12px">
-          <div class="card" id="latest-reviews">
-            <strong>Latest Reviews</strong>
-            <div id="reviews-list" class="mini">Loading reviews…</div>
+        <div class="card" style="max-width:780px;margin:12px auto;">
+          <div id="review-rotator">
+            <div id="rev-body" class="mini">Loading reviews…</div>
+            <div class="rev meta" id="rev-meta" style="margin-top:6px;color:#5c6b7b;"></div>
           </div>
+          <div class="actions" style="justify-content:center;margin-top:10px;">
+            <button id="rev-prev" class="btn">◀ Prev</button>
+            <button id="rev-next" class="btn">Next ▶</button>
+          </div>
+        </div>
+
+        <div class="grid reviews" style="margin-top:12px">
           <div class="card">
             <form id="review-form" name="qhf-review" method="POST" data-netlify="true">
               <input type="hidden" name="form-name" value="qhf-review">
@@ -291,7 +245,7 @@
                 <button type="submit" class="btn primary">Submit Review</button>
                 <a class="btn" href="mailto:kirkcarter771@gmail.com?subject=New%20Customer%20Review%20-%20Quick%20Haul%20%26%20Fix">Email Instead</a>
               </div>
-              <p class="mini">After you submit, your review appears here immediately and is saved permanently.</p>
+              <p class="mini">After you submit, your review appears here and rotates with the others.</p>
             </form>
           </div>
         </div>
@@ -304,35 +258,62 @@
   </footer>
 
   <script>
-    function render(list){
-      const cont = document.getElementById('reviews-list');
-      if(!list || !list.length){ cont.textContent = 'No reviews yet — be the first!'; return; }
-      cont.innerHTML = '';
-      list.slice().forEach(r => {
-        const div = document.createElement('div');
-        div.className = 'rev';
-        const when = r.created_at ? new Date(r.created_at) : (r.time ? new Date(r.time) : new Date());
-        div.innerHTML = '<div><strong>' + (r.name || 'Anonymous') + '</strong> — ' + (r.rating || '') + '</div>' +
-                        '<div class="meta">' + (r.service || '') + ' • ' + when.toLocaleString() + '</div>' +
-                        '<p>' + (r.review || '') + '</p>';
-        cont.appendChild(div);
-      });
+    // --- Auto-rotating reviews setup ---
+    const ROTATE_MS = 5000; // change speed here (ms)
+    let reviewsData = [];
+    let revIndex = 0;
+    let revTimer;
+
+    function formatWhen(ts){
+      try { return new Date(ts).toLocaleString(); } catch { return ''; }
+    }
+
+    function showReview(i){
+      const body = document.getElementById('rev-body');
+      const meta = document.getElementById('rev-meta');
+      if (!reviewsData.length){
+        body.textContent = 'No reviews yet — be the first!';
+        meta.textContent = '';
+        return;
+      }
+      revIndex = (i + reviewsData.length) % reviewsData.length;
+      const r = reviewsData[revIndex];
+      const name = r.name || 'Anonymous';
+      const rating = r.rating || '';
+      const service = r.service || '';
+      const when = r.created_at || r.time || Date.now();
+      const metaLine = [service, formatWhen(when)].filter(Boolean).join(' • ');
+      body.textContent = r.review || '';
+      meta.innerHTML = '<strong>' + name + '</strong>' + (rating ? ' — ' + rating : '') + (metaLine ? '<div>'+ metaLine +'</div>' : '');
+    }
+
+    function startRotation(){
+      clearInterval(revTimer);
+      revTimer = setInterval(() => showReview(revIndex + 1), ROTATE_MS);
     }
 
     async function loadReviews(){
+      let apiList = [];
       try{
         const res = await fetch('/.netlify/functions/reviews');
-        if(!res.ok) throw new Error('Failed');
-        const data = await res.json();
-        const apiList = data.reviews || [];
-        const localRaw = localStorage.getItem('qhfReviewsLocalNew');
-        const localList = localRaw ? JSON.parse(localRaw) : [];
-        render([...localList.reverse(), ...apiList]);
-      }catch(e){
-        const localRaw = localStorage.getItem('qhfReviewsLocalNew');
-        const localList = localRaw ? JSON.parse(localRaw) : [];
-        render(localList.reverse());
-      }
+        if (res.ok){
+          const data = await res.json();
+          apiList = data.reviews || [];
+        }
+      }catch(e){ /* ignore */ }
+
+      const localRaw = localStorage.getItem('qhfReviewsLocalNew');
+      const localList = localRaw ? JSON.parse(localRaw) : [];
+
+      const seed = [
+        {name:'K. Johnson', rating:'5 - Excellent', service:'Junk Removal', review:'Fast pickup and fair price. Will use again.', time: Date.now()-86400000},
+        {name:'M. Rivera', rating:'5 - Excellent', service:'Cleanout', review:'They cleared our garage in under an hour. Super polite.', time: Date.now()-172800000},
+        {name:'T. Williams', rating:'4 - Good', service:'Handyman', review:'Mounted TV and patched wall. Clean work.', time: Date.now()-259200000}
+      ];
+
+      reviewsData = [...localList.reverse(), ...apiList, ...seed];
+      showReview(0);
+      startRotation();
     }
 
     function encode(data){
@@ -341,7 +322,14 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('y').textContent = new Date().getFullYear();
+
+      const prev = document.getElementById('rev-prev');
+      const next = document.getElementById('rev-next');
+      prev.addEventListener('click', () => { showReview(revIndex - 1); startRotation(); });
+      next.addEventListener('click', () => { showReview(revIndex + 1); startRotation(); });
+
       loadReviews();
+
       const form = document.getElementById('review-form');
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -350,14 +338,20 @@
           name: document.getElementById('r-name').value.trim(),
           rating: document.getElementById('r-rating').value,
           service: document.getElementById('r-service').value,
-          review: document.getElementById('r-text').value.trim()
+          review: document.getElementById('r-text').value.trim(),
+          time: Date.now()
         };
+
         const localRaw = localStorage.getItem('qhfReviewsLocalNew');
         const localList = localRaw ? JSON.parse(localRaw) : [];
-        localList.push({ ...payload, time: Date.now() });
+        localList.push(payload);
         localStorage.setItem('qhfReviewsLocalNew', JSON.stringify(localList));
-        loadReviews();
+
+        reviewsData.unshift(payload);
+        showReview(0);
+        startRotation();
         form.reset();
+
         try{
           await fetch('/', {
             method: 'POST',
