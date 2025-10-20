@@ -1,6 +1,52 @@
 <!-- Quick Haul & Fix — single-block site section (drop into one HTML element) -->
 <div id="qhf-root" class="qhf">
   <style>
+    <style>
+  /* === Quick Haul & Fix: lighter dark gray-blue theme (Option B) === */
+  #qhf-root.qhf{
+    --bg:#374d63;        /* page background */
+    --line:#4a6075;      /* borders/dividers */
+    --accent:#2f6ea6;    /* buttons/links accent */
+  }
+  /* Header */
+  #qhf-root header{
+    background:#2e4357;
+    border-bottom:2px solid #43596e;
+  }
+  #qhf-root .brand,
+  #qhf-root nav a{color:#f6f9ff;}
+
+  /* Hero */
+  #qhf-root .hero{
+    background:linear-gradient(180deg,#3f566c 0%, #374d63 60%, var(--bg) 100%);
+  }
+
+  /* Badges strip */
+  #qhf-root .badges{
+    background:#2e4357;
+    border-top:2px solid #43596e;
+    border-bottom:2px solid #43596e;
+  }
+
+  /* Footer */
+  #qhf-root footer{
+    background:#2e4357;
+    border-top:2px solid #43596e;
+    color:#c5d2df;
+  }
+
+  /* Body text on dark */
+  #qhf-root section{
+    color:#e6eef7;
+  }
+  #qhf-root h2{
+    color:#ffffff;
+  }
+  #qhf-root .mini{
+    color:#cbd7e3;
+  }
+</style>
+
     /* ====== Quick Haul & Fix (scoped styles) ====== */
     /* Theme: dark grayish blue background, light-on-dark sections, white cards */
     #qhf-root.qhf{
