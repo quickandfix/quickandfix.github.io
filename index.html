@@ -86,4 +86,515 @@
 
     /* Pricing */
     #qhf-v2 .pricing{display:grid; grid-template-columns:1fr; gap:16px; align-items:stretch}
-    @media(min-width:900px){
+    @media(min-width:900px){#qhf-v2 .pricing{grid-template-columns:repeat(3,1fr)}}
+    #qhf-v2 .price{position:relative; overflow:hidden}
+    #qhf-v2 .price .tag{position:absolute; top:14px; right:-38px; transform:rotate(35deg); background:#e8f3ff; color:#245b8d; font-weight:900; font-size:12px; padding:6px 50px}
+    #qhf-v2 .price h3{margin:0 0 8px}
+    #qhf-v2 .price .num{font:900 28px/1 Inter, sans-serif; color:#0c2239}
+    #qhf-v2 .price small{color:#4a6075}
+    #qhf-v2 .price ul{margin:10px 0 0; padding:0 0 0 18px; color:#365b82}
+
+    /* Process */
+    #qhf-v2 .process{display:grid; grid-template-columns:1fr; gap:16px}
+    @media(min-width:880px){#qhf-v2 .process{grid-template-columns:repeat(3,1fr)}}
+    #qhf-v2 .step .num{font:900 12px/1 monospace; background:var(--accent); color:#fff; border-radius:999px; padding:6px 10px; display:inline-block; margin-bottom:6px}
+
+    /* Reviews */
+    #qhf-v2 .reviews{display:grid; grid-template-columns:1fr; gap:16px}
+    @media(min-width:900px){#qhf-v2 .reviews{grid-template-columns:repeat(2,1fr)}}
+    #qhf-v2 .rev-rotator .meta{font-size:12px; color:#5c6b7b}
+    #qhf-v2 .stars{display:inline-flex; gap:2px; vertical-align:middle}
+    #qhf-v2 .stars svg{width:14px; height:14px; color:#f5a623}
+
+    /* Contact */
+    #qhf-v2 .contact{display:grid; grid-template-columns:1fr; gap:16px}
+    @media(min-width:1000px){#qhf-v2 .contact{grid-template-columns:1.1fr .9fr}}
+    #qhf-v2 input, #qhf-v2 textarea, #qhf-v2 select{
+      border:1px solid var(--line-light); border-radius:12px; padding:12px 14px; font:inherit; background:#fff; width:100%
+    }
+    #qhf-v2 input:focus, #qhf-v2 textarea:focus, #qhf-v2 select:focus{outline:3px solid rgba(47,110,166,.28); border-color:var(--accent)}
+    #qhf-v2 label{font-size:13px; color:#365b82; display:block; margin:6px 0 4px}
+
+    /* Areas cards (dark-on-light KPI look) */
+    #qhf-v2 .kpis{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
+    @media(min-width:740px){#qhf-v2 .kpis{grid-template-columns:repeat(4,1fr)}}
+    #qhf-v2 .kpi{background:#fff; border:1px solid var(--line-light); border-radius:14px; padding:14px; text-align:center; color:#0c2239}
+
+    /* Footer */
+    #qhf-v2 footer{background:var(--panel); color:var(--muted); border-top:1px solid var(--line); text-align:center; padding:18px}
+
+    /* Sticky mobile action bar */
+    #qhf-v2 .dock{
+      position:fixed; inset:auto 0 0 0; display:none;
+      background:rgba(15,31,45,.96); border-top:1px solid var(--line); padding:10px; z-index:30;
+      backdrop-filter:blur(6px)
+    }
+    #qhf-v2 .dock .wrap{display:flex; gap:10px}
+    #qhf-v2 .dock .btn{flex:1}
+    @media(max-width:820px){#qhf-v2 .dock{display:block}}
+
+    /* Utilities */
+    #qhf-v2 .muted{color:var(--muted)}
+    #qhf-v2 .center{text-align:center}
+    #qhf-v2 .spaced{margin-top:14px}
+    #qhf-v2 .grid{display:grid; gap:16px}
+
+    /* Small screens */
+    @media (max-width: 768px){
+      #qhf-v2 nav{display:none}
+      #qhf-v2 .hero{padding:56px 0 34px}
+      #qhf-v2 .wrap{padding:0 16px}
+      #qhf-v2 .btn, #qhf-v2 button{width:100%}
+    }
+  </style>
+
+  <!-- HEADER -->
+  <header>
+    <div class="wrap bar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">QF</div>
+        <span>Quick Haul &amp; Fix</span>
+      </div>
+      <nav aria-label="Primary">
+        <a href="#v2-services">Services</a>
+        <a href="#v2-pricing">Pricing</a>
+        <a href="#v2-areas">Areas</a>
+        <a href="#v2-reviews">Reviews</a>
+        <a href="#v2-contact" class="btn">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="halo"></div>
+    <div class="wrap center">
+      <div class="kicker">Same-Day • Upfront Pricing • Licensed &amp; Insured</div>
+      <h1>Junk Removal, Cleanouts &amp; Light Handyman — Done Right.</h1>
+      <p>Fast, friendly, and affordable. Send a few photos and your zip code for a quick quote. We haul, you relax—houses, apartments, garages, basements, and more.</p>
+      <div class="cta">
+        <a class="btn primary" href="tel:+16097952599" aria-label="Call 609-795-2599">Call 609-795-2599</a>
+        <a class="btn" href="sms:+16097952599?&body=Hi,%20I%20need%20a%20quote%20for%20[items]%20Zip%20[#####].">Text Photos for Quote</a>
+        <a class="btn" href="#v2-pricing">See Pricing</a>
+      </div>
+      <p class="mini">Email <a href="mailto:quickhaulandfix02@gmail.com">quickhaulandfix02@gmail.com</a> • <a href="mailto:kirkcarter771@gmail.com">kirkcarter771@gmail.com</a></p>
+    </div>
+  </section>
+
+  <!-- BADGES -->
+  <section class="badges">
+    <div class="wrap badge-grid">
+      <div class="badge">Licensed &amp; Insured</div>
+      <div class="badge">Upfront Pricing</div>
+      <div class="badge">We Do the Heavy Lifting</div>
+      <div class="badge">Sweep-Clean Finish</div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="v2-services">
+    <div class="wrap">
+      <h2>What We Do</h2>
+      <p class="lead">We handle the tough stuff—so you don’t have to.</p>
+      <div class="services">
+        <div class="card service">
+          <span class="pill">Junk Removal</span>
+          <h3>Household &amp; Furniture</h3>
+          <p class="muted">Sofas, mattresses, appliances, bagged trash, attic/garage/basement cleanouts.</p>
+          <ul>
+            <li>Single items to full truck loads</li>
+            <li>Donation &amp; recycling when possible</li>
+            <li>Careful removal in tight spaces</li>
+          </ul>
+        </div>
+        <div class="card service">
+          <span class="pill">Cleanouts</span>
+          <h3>Property &amp; Debris</h3>
+          <p class="muted">Apartment turns, estate cleanouts, light construction debris, yard waste.</p>
+          <ul>
+            <li>Sweep-clean finish</li>
+            <li>Fair, volume-based pricing</li>
+            <li>Same-day / next-day availability</li>
+          </ul>
+        </div>
+        <div class="card service">
+          <span class="pill">Light Handyman</span>
+          <h3>Minor Repairs &amp; Installs</h3>
+          <p class="muted">Patch/paint, shelves, TV mounts, fixtures, locks, minor hardware.</p>
+          <ul>
+            <li>Clear upfront labor rates</li>
+            <li>Materials at cost</li>
+            <li>Friendly, professional service</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="v2-pricing">
+    <div class="wrap">
+      <h2>Simple Pricing</h2>
+      <p class="lead">Transparent, volume-based junk removal and fair handyman rates. Text us photos for a fast estimate.</p>
+      <div class="pricing">
+        <div class="card price">
+          <div class="tag">Popular</div>
+          <h3>Minimum Pickup</h3>
+          <div class="num">Starting at $150</div>
+          <small>1–3 bulky items</small>
+          <ul>
+            <li>Includes loading &amp; disposal</li>
+            <li>Great for single items</li>
+            <li>Confirm on site before work</li>
+          </ul>
+          <div class="spaced">
+            <a class="btn primary" href="sms:+16097952599?&body=Hi,%20I%20have%201-3%20items.%20Zip%20[#####].">Book a Pickup</a>
+          </div>
+        </div>
+        <div class="card price">
+          <h3>Half Truck Load</h3>
+          <div class="num">$300–$500</div>
+          <small>Typical apartments &amp; garages</small>
+          <ul>
+            <li>Most small cleanouts</li>
+            <li>Includes sweep-clean</li>
+            <li>Donation/recycle when possible</li>
+          </ul>
+          <div class="spaced">
+            <a class="btn" href="tel:+16097952599">Call for Slot</a>
+          </div>
+        </div>
+        <div class="card price">
+          <h3>Full Truck Load</h3>
+          <div class="num">$550–$800</div>
+          <small>Cleanouts &amp; big hauls</small>
+          <ul>
+            <li>Best value for volume</li>
+            <li>Team &amp; truck included</li>
+            <li>Before/after photos on request</li>
+          </ul>
+          <div class="spaced">
+            <a class="btn" href="#v2-contact">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+      <p class="muted spaced">*Final price depends on volume, weight, stairs, and access. We always confirm before work begins.</p>
+    </div>
+  </section>
+
+  <!-- AREAS -->
+  <section id="v2-areas">
+    <div class="wrap">
+      <h2>Service Areas</h2>
+      <div class="kpis">
+        <div class="kpi"><strong>Philadelphia</strong><br><span class="muted">City &amp; surrounding</span></div>
+        <div class="kpi"><strong>Delaware County</strong><br><span class="muted">Clifton Heights, Yeadon, Upper Darby</span></div>
+        <div class="kpi"><strong>Camden County</strong><br><span class="muted">Cherry Hill &amp; nearby</span></div>
+        <div class="kpi"><strong>Bucks &amp; Montgomery</strong><br><span class="muted">By appointment</span></div>
+      </div>
+      <p class="muted spaced">Not sure if we service your area? <a href="#v2-contact">Ask us</a>.</p>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="v2-process">
+    <div class="wrap">
+      <h2>How It Works</h2>
+      <div class="process">
+        <div class="card step">
+          <div class="num">1</div>
+          <h3>Text Photos or Call</h3>
+          <p class="muted">Send a few pictures and your zip code. We give a fast estimate and schedule.</p>
+        </div>
+        <div class="card step">
+          <div class="num">2</div>
+          <h3>Upfront Price</h3>
+          <p class="muted">We confirm final pricing on site before any work begins.</p>
+        </div>
+        <div class="card step">
+          <div class="num">3</div>
+          <h3>We Haul &amp; Sweep</h3>
+          <p class="muted">We load everything, sweep clean, and you’re done.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="v2-reviews">
+    <div class="wrap">
+      <h2>Reviews</h2>
+
+      <!-- Rotator -->
+      <div class="card rev-rotator" style="max-width:820px;margin:0 auto 12px;">
+        <div id="v2-rev-body" class="muted">Loading reviews…</div>
+        <div class="meta" id="v2-rev-meta" style="margin-top:6px;"></div>
+        <div class="spaced" style="display:flex; gap:10px; justify-content:center;">
+          <button id="v2-rev-prev" class="btn" type="button">◀ Prev</button>
+          <button id="v2-rev-next" class="btn" type="button">Next ▶</button>
+        </div>
+      </div>
+
+      <!-- Leave a review (stores locally + optional POST) -->
+      <div class="reviews">
+        <div class="card">
+          <h3 style="margin:0 0 8px;">Leave a Review</h3>
+          <form id="v2-review-form" name="qhf-review" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="qhf-review">
+            <div class="grid" style="grid-template-columns:1fr 1fr;">
+              <div>
+                <label for="v2-r-name">Name</label>
+                <input id="v2-r-name" name="name" required placeholder="Your name">
+              </div>
+              <div>
+                <label for="v2-r-rating">Rating</label>
+                <select id="v2-r-rating" name="rating" required>
+                  <option value="">Select…</option>
+                  <option>5 - Excellent</option>
+                  <option>4 - Good</option>
+                  <option>3 - Okay</option>
+                  <option>2 - Poor</option>
+                  <option>1 - Bad</option>
+                </select>
+              </div>
+            </div>
+            <label for="v2-r-service">Service Used</label>
+            <select id="v2-r-service" name="service">
+              <option>Junk Removal</option>
+              <option>Handyman (Light Repair)</option>
+              <option>Cleanout</option>
+            </select>
+            <label for="v2-r-text">Your Review</label>
+            <textarea id="v2-r-text" name="review" rows="4" required placeholder="What did we do well? What could be better?"></textarea>
+            <div class="spaced" style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button type="submit" class="btn primary">Submit Review</button>
+              <a class="btn" href="mailto:quickhaulandfix02@gmail.com?subject=New%20Customer%20Review%20-%20Quick%20Haul%20%26%20Fix">Email Instead</a>
+            </div>
+            <p class="muted" style="margin-top:8px;">After you submit, your review appears above and rotates with the others.</p>
+          </form>
+        </div>
+
+        <!-- Static examples -->
+        <div class="card">
+          <div class="stars" aria-hidden="true">
+            <!-- 5 stars -->
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
+          </div>
+          <p style="margin:.4rem 0 0;"><strong>K. Johnson</strong> — “Fast pickup and fair price. Will use again.”</p>
+          <p class="muted" style="margin:.2rem 0 0;">Junk Removal • 2 days ago</p>
+        </div>
+        <div class="card">
+          <div class="stars" aria-hidden="true">
+            <!-- 5 stars -->
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>
+          </div>
+          <p style="margin:.4rem 0 0;"><strong>M. Rivera</strong> — “They cleared our garage in under an hour. Super polite.”</p>
+          <p class="muted" style="margin:.2rem 0 0;">Cleanout • 4 days ago</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="v2-contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <div class="contact">
+        <div class="card">
+          <p><strong>Call:</strong> <a href="tel:+16097952599">609-795-2599</a> • <a href="tel:+12672651426">267-265-1426</a></p>
+          <p><strong>Text for fast quote:</strong> <a href="sms:+16097952599?&body=Hi,%20I%20need%20a%20quote%20for%20[items]%20Zip%20[#####].">609-795-2599</a></p>
+          <p><strong>Email:</strong> <a href="mailto:quickhaulandfix02@gmail.com">quickhaulandfix02@gmail.com</a> • <a href="mailto:kirkcarter771@gmail.com">kirkcarter771@gmail.com</a></p>
+          <div class="spaced" style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn primary" href="sms:+16097952599?&body=Hi,%20it%E2%80%99s%20[Your%20Name].%20Zip%20[#####].%20I%20need:%20[describe%20items].">Text Photos for Quote</a>
+            <a class="btn" href="tel:+16097952599">Call Now</a>
+          </div>
+          <p class="muted spaced">Payments: Cash App • Apple Pay • Tap Cards • Cash (secure card link on request)</p>
+        </div>
+        <div class="card">
+          <h3 style="margin:0 0 6px;">Hours &amp; Availability</h3>
+          <p class="muted">Mon–Sun • Same-day / next-day in many cases.</p>
+          <h3 style="margin:14px 0 6px;">Fast Web Form</h3>
+          <form id="v2-quote-form" name="qhf-quote" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="qhf-quote">
+            <label for="v2-q-name">Name</label>
+            <input id="v2-q-name" name="name" required placeholder="Your name">
+            <label for="v2-q-phone">Phone</label>
+            <input id="v2-q-phone" name="phone" required placeholder="Best number">
+            <label for="v2-q-zip">ZIP</label>
+            <input id="v2-q-zip" name="zip" required placeholder="e.g., 19143">
+            <label for="v2-q-notes">Items / Notes</label>
+            <textarea id="v2-q-notes" name="notes" rows="3" placeholder="List items and any stairs or access notes."></textarea>
+            <div class="spaced" style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button class="btn primary" type="submit">Request Quote</button>
+              <a class="btn" href="mailto:quickhaulandfix02@gmail.com?subject=Quote%20Request%20-%20Quick%20Haul%20%26%20Fix">Email Instead</a>
+            </div>
+            <p class="muted" style="margin-top:8px;">We’ll reply ASAP with a window and estimate.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="v2-year"></span> Quick Haul &amp; Fix • Junk Removal &amp; Handyman • Philadelphia, PA
+  </footer>
+
+  <!-- Sticky mobile action dock -->
+  <div class="dock">
+    <div class="wrap">
+      <a class="btn primary" href="tel:+16097952599">Call</a>
+      <a class="btn" href="sms:+16097952599?&body=Hi,%20Zip%20[#####].%20Items:%20[...].">Text Photos</a>
+      <a class="btn" href="#v2-pricing">Pricing</a>
+      <a class="btn" href="#v2-contact">Contact</a>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const root = document.getElementById('qhf-v2');
+      if(!root) return;
+
+      // Year
+      const y = root.querySelector('#v2-year');
+      if(y){ y.textContent = new Date().getFullYear(); }
+
+      // -------- Reviews Rotator --------
+      const ROTATE_MS = 5000;
+      let reviews = [];
+      let idx = 0;
+      let timer;
+
+      const bodyEl = root.querySelector('#v2-rev-body');
+      const metaEl = root.querySelector('#v2-rev-meta');
+      const prev = root.querySelector('#v2-rev-prev');
+      const next = root.querySelector('#v2-rev-next');
+
+      function whenFmt(ts){ try{ return new Date(ts).toLocaleString(); } catch{ return ''; } }
+
+      function seed(){
+        return [
+          {name:'K. Johnson', rating:'5 - Excellent', service:'Junk Removal', review:'Fast pickup and fair price. Will use again.', time: Date.now()-86400000*2},
+          {name:'M. Rivera', rating:'5 - Excellent', service:'Cleanout', review:'Cleared our garage in under an hour. Super polite.', time: Date.now()-86400000*4},
+          {name:'T. Williams', rating:'4 - Good', service:'Handyman', review:'Mounted TV and patched wall. Clean work.', time: Date.now()-86400000*5}
+        ];
+      }
+
+      function load(){
+        const localRaw = localStorage.getItem('qhfReviewsLocal_v2');
+        const localList = localRaw ? JSON.parse(localRaw) : [];
+        reviews = [...localList.reverse(), ...seed()];
+        show(0);
+        start();
+      }
+
+      function show(i){
+        if(!bodyEl || !metaEl) return;
+        if(!reviews.length){
+          bodyEl.textContent = 'No reviews yet — be the first!';
+          metaEl.textContent = '';
+          return;
+        }
+        idx = (i + reviews.length) % reviews.length;
+        const r = reviews[idx];
+        const metaLine = [r.service, whenFmt(r.time || r.created_at)].filter(Boolean).join(' • ');
+        bodyEl.innerHTML = `
+          <div class="stars" aria-hidden="true" style="margin-bottom:6px;">
+            ${'<svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 .9l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8l-5.2 2.7 1-5.8L1.6 7l5.8-.8L10 .9z"/></svg>'.repeat(5)}
+          </div>
+          <div style="color:#365b82;background:#eef5fd;border:1px solid #d7e1ee;border-radius:12px;padding:12px;">${(r.review||'').replace(/</g,'&lt;')}</div>`;
+        metaEl.innerHTML = `<strong>${(r.name||'Anonymous').replace(/</g,'&lt;')}</strong>${r.rating ? ' — '+r.rating : ''}${metaLine ? '<div class="muted">'+metaLine+'</div>' : ''}`;
+      }
+
+      function start(){
+        clearInterval(timer);
+        timer = setInterval(()=>show(idx+1), ROTATE_MS);
+      }
+
+      if(prev) prev.addEventListener('click',()=>{ show(idx-1); start(); });
+      if(next) next.addEventListener('click',()=>{ show(idx+1); start(); });
+
+      // Review form (local store + optional POST)
+      const form = root.querySelector('#v2-review-form');
+      function encode(data){ return Object.keys(data).map(k=>encodeURIComponent(k)+'='+encodeURIComponent(data[k])).join('&'); }
+      if(form){
+        form.addEventListener('submit', async (e)=>{
+          e.preventDefault();
+          const payload = {
+            'form-name':'qhf-review',
+            name: root.querySelector('#v2-r-name').value.trim(),
+            rating: root.querySelector('#v2-r-rating').value,
+            service: root.querySelector('#v2-r-service').value,
+            review: root.querySelector('#v2-r-text').value.trim(),
+            time: Date.now()
+          };
+          const raw = localStorage.getItem('qhfReviewsLocal_v2');
+          const list = raw ? JSON.parse(raw) : [];
+          list.push(payload);
+          localStorage.setItem('qhfReviewsLocal_v2', JSON.stringify(list));
+          reviews.unshift(payload);
+          show(0); start();
+          form.reset();
+          try{ await fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:encode(payload) }); }catch(e){}
+        });
+      }
+
+      load();
+
+      // Quote form optional POST (Netlify-style)
+      const qform = root.querySelector('#v2-quote-form');
+      if(qform){
+        qform.addEventListener('submit', async (e)=>{
+          e.preventDefault();
+          const data = {
+            'form-name':'qhf-quote',
+            name: root.querySelector('#v2-q-name')?.value || '',
+            phone: root.querySelector('#v2-q-phone')?.value || '',
+            zip: root.querySelector('#v2-q-zip')?.value || '',
+            notes: root.querySelector('#v2-q-notes')?.value || '',
+            time: Date.now()
+          };
+          try{
+            await fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:encode(data) });
+            alert('Thanks! We got your request and will reach out ASAP.');
+            qform.reset();
+          }catch(err){
+            alert('Sent locally. If this is a static host, we’ll also call/text ASAP.');
+          }
+        });
+      }
+
+      // Accessibility: allow keyboard focus on buttons-as-links
+      root.querySelectorAll('a.btn').forEach(el=>{
+        el.setAttribute('role','button'); el.setAttribute('tabindex','0');
+      });
+
+    })();
+  </script>
+
+  <!-- LocalBusiness JSON-LD for better SEO -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Quick Haul & Fix",
+    "description":"Junk removal, property cleanouts, and light handyman services in the Philadelphia area with upfront pricing and same-day availability.",
+    "areaServed":[{"@type":"Place","name":"Philadelphia"},{"@type":"Place","name":"Delaware County"},{"@type":"Place","name":"Camden County"},{"@type":"Place","name":"Bucks & Montgomery"}],
+    "telephone":"+1-609-795-2599",
+    "email":"quickhaulandfix02@gmail.com",
+    "url":"https://example.com",
+    "priceRange":"$$",
+    "openingHoursSpecification":[
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"20:00"}
+    ],
+    "sameAs":[]
+  }
+  </script>
+</div>
