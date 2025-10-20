@@ -1,25 +1,22 @@
-<!-- Quick Haul & Fix – One-Block Site (Revamp v2) -->
+<!-- Quick Haul & Fix – One-Block Site (Revamp v2 • No Pricing • 267/Email wired) -->
 <div id="qhf-v2" class="qhf">
   <style>
     /* =========================
        Quick Haul & Fix — Revamp
+       (Pricing section removed)
        ========================= */
     #qhf-v2.qhf{
-      /* theme tokens */
-      --bg:#334456;           /* page background (dark gray-blue) */
-      --panel:#0f1f2d;        /* dark panels */
-      --surface:#ffffff;      /* white cards */
-      --ink:#0c2239;          /* dark ink on white */
-      --ink-invert:#eaf2ff;   /* light ink on dark */
-      --muted:#a9b7c6;        /* muted text on dark */
-      --line:#44586e;         /* lines on dark */
-      --line-light:#dee7f2;   /* lines on white */
-      --accent:#2f6ea6;       /* steel blue */
-      --accent-ink:#ffffff;   /* contrast on accent */
-      --ok:#2fbf71;
-      --warn:#ffb020;
+      --bg:#334456;
+      --panel:#0f1f2d;
+      --surface:#ffffff;
+      --ink:#0c2239;
+      --ink-invert:#eaf2ff;
+      --muted:#a9b7c6;
+      --line:#44586e;
+      --line-light:#dee7f2;
+      --accent:#2f6ea6;
+      --accent-ink:#ffffff;
       --shadow:0 12px 40px rgba(0,0,0,.25);
-
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background:var(--bg);
       color:var(--ink-invert);
@@ -84,16 +81,6 @@
     #qhf-v2 .service h3{margin:0 0 6px}
     #qhf-v2 .service ul{margin:8px 0 0; padding:0 0 0 18px; color:#365b82}
 
-    /* Pricing */
-    #qhf-v2 .pricing{display:grid; grid-template-columns:1fr; gap:16px; align-items:stretch}
-    @media(min-width:900px){#qhf-v2 .pricing{grid-template-columns:repeat(3,1fr)}}
-    #qhf-v2 .price{position:relative; overflow:hidden}
-    #qhf-v2 .price .tag{position:absolute; top:14px; right:-38px; transform:rotate(35deg); background:#e8f3ff; color:#245b8d; font-weight:900; font-size:12px; padding:6px 50px}
-    #qhf-v2 .price h3{margin:0 0 8px}
-    #qhf-v2 .price .num{font:900 28px/1 Inter, sans-serif; color:#0c2239}
-    #qhf-v2 .price small{color:#4a6075}
-    #qhf-v2 .price ul{margin:10px 0 0; padding:0 0 0 18px; color:#365b82}
-
     /* Process */
     #qhf-v2 .process{display:grid; grid-template-columns:1fr; gap:16px}
     @media(min-width:880px){#qhf-v2 .process{grid-template-columns:repeat(3,1fr)}}
@@ -115,7 +102,7 @@
     #qhf-v2 input:focus, #qhf-v2 textarea:focus, #qhf-v2 select:focus{outline:3px solid rgba(47,110,166,.28); border-color:var(--accent)}
     #qhf-v2 label{font-size:13px; color:#365b82; display:block; margin:6px 0 4px}
 
-    /* Areas cards (dark-on-light KPI look) */
+    /* Areas cards */
     #qhf-v2 .kpis{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
     @media(min-width:740px){#qhf-v2 .kpis{grid-template-columns:repeat(4,1fr)}}
     #qhf-v2 .kpi{background:#fff; border:1px solid var(--line-light); border-radius:14px; padding:14px; text-align:center; color:#0c2239}
@@ -157,7 +144,6 @@
       </div>
       <nav aria-label="Primary">
         <a href="#v2-services">Services</a>
-        <a href="#v2-pricing">Pricing</a>
         <a href="#v2-areas">Areas</a>
         <a href="#v2-reviews">Reviews</a>
         <a href="#v2-contact" class="btn">Contact</a>
@@ -173,9 +159,9 @@
       <h1>Junk Removal, Cleanouts &amp; Light Handyman — Done Right.</h1>
       <p>Fast, friendly, and affordable. Send a few photos and your zip code for a quick quote. We haul, you relax—houses, apartments, garages, basements, and more.</p>
       <div class="cta">
-        <a class="btn primary" href="tel:+16097952599" aria-label="Call 609-795-2599">Call 609-795-2599</a>
-        <a class="btn" href="sms:+16097952599?&body=Hi,%20I%20need%20a%20quote%20for%20[items]%20Zip%20[#####].">Text Photos for Quote</a>
-        <a class="btn" href="#v2-pricing">See Pricing</a>
+        <a class="btn primary" href="tel:+12672651426" aria-label="Call 267-265-1426">Call 267-265-1426</a>
+        <a class="btn" href="sms:+12672651426?&body=Hi,%20I%20need%20a%20quote%20for%20[items].%20Zip%20[#####].">Text Photos for Quote</a>
+        <a class="btn" href="#v2-contact">Get a Quote</a>
       </div>
       <p class="mini">Email <a href="mailto:quickhaulandfix02@gmail.com">quickhaulandfix02@gmail.com</a> • <a href="mailto:kirkcarter771@gmail.com">kirkcarter771@gmail.com</a></p>
     </div>
@@ -228,57 +214,6 @@
           </ul>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section id="v2-pricing">
-    <div class="wrap">
-      <h2>Simple Pricing</h2>
-      <p class="lead">Transparent, volume-based junk removal and fair handyman rates. Text us photos for a fast estimate.</p>
-      <div class="pricing">
-        <div class="card price">
-          <div class="tag">Popular</div>
-          <h3>Minimum Pickup</h3>
-          <div class="num">Starting at $150</div>
-          <small>1–3 bulky items</small>
-          <ul>
-            <li>Includes loading &amp; disposal</li>
-            <li>Great for single items</li>
-            <li>Confirm on site before work</li>
-          </ul>
-          <div class="spaced">
-            <a class="btn primary" href="sms:+16097952599?&body=Hi,%20I%20have%201-3%20items.%20Zip%20[#####].">Book a Pickup</a>
-          </div>
-        </div>
-        <div class="card price">
-          <h3>Half Truck Load</h3>
-          <div class="num">$300–$500</div>
-          <small>Typical apartments &amp; garages</small>
-          <ul>
-            <li>Most small cleanouts</li>
-            <li>Includes sweep-clean</li>
-            <li>Donation/recycle when possible</li>
-          </ul>
-          <div class="spaced">
-            <a class="btn" href="tel:+16097952599">Call for Slot</a>
-          </div>
-        </div>
-        <div class="card price">
-          <h3>Full Truck Load</h3>
-          <div class="num">$550–$800</div>
-          <small>Cleanouts &amp; big hauls</small>
-          <ul>
-            <li>Best value for volume</li>
-            <li>Team &amp; truck included</li>
-            <li>Before/after photos on request</li>
-          </ul>
-          <div class="spaced">
-            <a class="btn" href="#v2-contact">Get a Quote</a>
-          </div>
-        </div>
-      </div>
-      <p class="muted spaced">*Final price depends on volume, weight, stairs, and access. We always confirm before work begins.</p>
     </div>
   </section>
 
@@ -335,7 +270,7 @@
         </div>
       </div>
 
-      <!-- Leave a review (stores locally + optional POST) -->
+      <!-- Leave a review -->
       <div class="reviews">
         <div class="card">
           <h3 style="margin:0 0 8px;">Leave a Review</h3>
@@ -374,7 +309,7 @@
           </form>
         </div>
 
-        <!-- Static examples -->
+        <!-- Example static reviews -->
         <div class="card">
           <div class="stars" aria-hidden="true">
             <!-- 5 stars -->
@@ -409,12 +344,12 @@
       <h2>Contact</h2>
       <div class="contact">
         <div class="card">
-          <p><strong>Call:</strong> <a href="tel:+16097952599">609-795-2599</a> • <a href="tel:+12672651426">267-265-1426</a></p>
-          <p><strong>Text for fast quote:</strong> <a href="sms:+16097952599?&body=Hi,%20I%20need%20a%20quote%20for%20[items]%20Zip%20[#####].">609-795-2599</a></p>
+          <p><strong>Call:</strong> <a href="tel:+12672651426">267-265-1426</a></p>
+          <p><strong>Text for fast quote:</strong> <a href="sms:+12672651426?&body=Hi,%20I%20need%20a%20quote%20for%20[items]%20Zip%20[#####].">267-265-1426</a></p>
           <p><strong>Email:</strong> <a href="mailto:quickhaulandfix02@gmail.com">quickhaulandfix02@gmail.com</a> • <a href="mailto:kirkcarter771@gmail.com">kirkcarter771@gmail.com</a></p>
           <div class="spaced" style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn primary" href="sms:+16097952599?&body=Hi,%20it%E2%80%99s%20[Your%20Name].%20Zip%20[#####].%20I%20need:%20[describe%20items].">Text Photos for Quote</a>
-            <a class="btn" href="tel:+16097952599">Call Now</a>
+            <a class="btn primary" href="sms:+12672651426?&body=Hi,%20it%E2%80%99s%20[Your%20Name].%20Zip%20[#####].%20I%20need:%20[describe%20items].">Text Photos for Quote</a>
+            <a class="btn" href="tel:+12672651426">Call Now</a>
           </div>
           <p class="muted spaced">Payments: Cash App • Apple Pay • Tap Cards • Cash (secure card link on request)</p>
         </div>
@@ -450,9 +385,8 @@
   <!-- Sticky mobile action dock -->
   <div class="dock">
     <div class="wrap">
-      <a class="btn primary" href="tel:+16097952599">Call</a>
-      <a class="btn" href="sms:+16097952599?&body=Hi,%20Zip%20[#####].%20Items:%20[...].">Text Photos</a>
-      <a class="btn" href="#v2-pricing">Pricing</a>
+      <a class="btn primary" href="tel:+12672651426">Call</a>
+      <a class="btn" href="sms:+12672651426?&body=Hi,%20Zip%20[#####].%20Items:%20[...].">Text Photos</a>
       <a class="btn" href="#v2-contact">Contact</a>
     </div>
   </div>
@@ -548,26 +482,33 @@
 
       load();
 
-      // Quote form optional POST (Netlify-style)
+      // Quote form — route to 267 SMS or quickhaulandfix02@gmail.com
       const qform = root.querySelector('#v2-quote-form');
       if(qform){
         qform.addEventListener('submit', async (e)=>{
           e.preventDefault();
-          const data = {
-            'form-name':'qhf-quote',
-            name: root.querySelector('#v2-q-name')?.value || '',
-            phone: root.querySelector('#v2-q-phone')?.value || '',
-            zip: root.querySelector('#v2-q-zip')?.value || '',
-            notes: root.querySelector('#v2-q-notes')?.value || '',
-            time: Date.now()
-          };
+          const name = root.querySelector('#v2-q-name')?.value || '';
+          const phone = root.querySelector('#v2-q-phone')?.value || '';
+          const zip = root.querySelector('#v2-q-zip')?.value || '';
+          const notes = root.querySelector('#v2-q-notes')?.value || '';
+          const smsMsg = `Hi, it's ${name}. Zip ${zip}. Phone ${phone}. Items: ${notes}`.trim();
+          const emailBody = `Name: ${name}%0APhone: ${phone}%0AZIP: ${zip}%0AItems/Notes:%0A${encodeURIComponent(notes)}`;
+
+          // Try Netlify-style POST for hosts that support it
           try{
-            await fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:encode(data) });
-            alert('Thanks! We got your request and will reach out ASAP.');
-            qform.reset();
-          }catch(err){
-            alert('Sent locally. If this is a static host, we’ll also call/text ASAP.');
-          }
+            await fetch('/', {
+              method:'POST',
+              headers:{'Content-Type':'application/x-www-form-urlencoded'},
+              body:`form-name=qhf-quote&name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&zip=${encodeURIComponent(zip)}&notes=${encodeURIComponent(notes)}&time=${Date.now()}`
+            });
+          }catch(err){ /* silent */ }
+
+          // Open SMS to 267 and email to quickhaulandfix02@gmail.com as fallback/notification
+          window.open(`sms:+12672651426&body=${encodeURIComponent(smsMsg)}`, '_blank');
+          window.open(`mailto:quickhaulandfix02@gmail.com?subject=Quote%20Request%20-%20Quick%20Haul%20%26%20Fix&body=${emailBody}`, '_blank');
+
+          alert('Thanks! We’re notifying 267-265-1426 and emailing quickhaulandfix02@gmail.com now.');
+          qform.reset();
         });
       }
 
@@ -587,7 +528,7 @@
     "name":"Quick Haul & Fix",
     "description":"Junk removal, property cleanouts, and light handyman services in the Philadelphia area with upfront pricing and same-day availability.",
     "areaServed":[{"@type":"Place","name":"Philadelphia"},{"@type":"Place","name":"Delaware County"},{"@type":"Place","name":"Camden County"},{"@type":"Place","name":"Bucks & Montgomery"}],
-    "telephone":"+1-609-795-2599",
+    "telephone":"+1-267-265-1426",
     "email":"quickhaulandfix02@gmail.com",
     "url":"https://example.com",
     "priceRange":"$$",
