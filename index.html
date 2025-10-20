@@ -2,60 +2,85 @@
 <div id="qhf-root" class="qhf">
   <style>
     /* ====== Quick Haul & Fix (scoped styles) ====== */
-    #qhf-root.qhf{--bg:#e3e7ec; --surface:#ffffff; --ink:#0b233d; --muted:#5c6b7b; --line:#cfd9e6;
-      --accent:#003366; --accent-ink:#ffffff; --shadow:0 8px 30px rgba(2,40,80,.08);
+    /* Theme: dark grayish blue background, light-on-dark sections, white cards */
+    #qhf-root.qhf{
+      --bg:#1b2a38;              /* dark gray-blue */
+      --surface:#ffffff;         /* card / surfaces stay white */
+      --ink:#0b233d;             /* dark text for cards/white areas */
+      --muted:#5c6b7b;
+      --line:#2d3b49;            /* darker divider to fit dark bg */
+      --accent:#2f6ea6;          /* steel-blue accent */
+      --accent-ink:#ffffff;
+      --shadow:0 8px 30px rgba(2,40,80,.18);
       font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--ink); background:var(--bg); line-height:1.5}
+      color:var(--ink); background:var(--bg); line-height:1.5
+    }
     #qhf-root *{box-sizing:border-box}
     #qhf-root a{color:var(--accent); text-decoration:none}
     #qhf-root .wrap{max-width:1120px; margin:0 auto; padding:0 20px}
     #qhf-root .btn{display:inline-flex; gap:.5rem; align-items:center; justify-content:center; border-radius:12px; padding:.9rem 1.2rem; border:2px solid var(--accent); font-weight:700; cursor:pointer; transition:.2s ease; background:#fff}
     #qhf-root .btn.primary{background:var(--accent); color:var(--accent-ink)}
     #qhf-root .btn.ghost{background:transparent; color:var(--accent)}
-    #qhf-root .btn:hover{transform:translateY(-1px); box-shadow:0 6px 18px rgba(0,0,0,.08)}
-    #qhf-root header{position:relative; background:#fff; border-bottom:2px solid var(--line); box-shadow:0 2px 10px rgba(0,0,0,.04)}
+    #qhf-root .btn:hover{transform:translateY(-1px); box-shadow:0 6px 18px rgba(0,0,0,.18)}
+    #qhf-root header{position:relative; background:#0f1f2d; border-bottom:2px solid #233241; box-shadow:0 2px 12px rgba(0,0,0,.25)}
     #qhf-root header .bar{display:flex; align-items:center; gap:16px; padding:14px 0}
-    #qhf-root .brand{display:flex; align-items:center; gap:10px; font-weight:900; color:var(--accent); letter-spacing:.2px}
+    #qhf-root .brand{display:flex; align-items:center; gap:10px; font-weight:900; color:#e8f1ff; letter-spacing:.2px}
     #qhf-root .logo{width:36px; height:36px; border-radius:10px; background:var(--accent); display:flex; align-items:center; justify-content:center; color:#fff; font-size:14px; font-weight:800; gap:6px; padding:0 6px}
     #qhf-root .logo .qf{font-size:13px; letter-spacing:.5px}
     #qhf-root nav{margin-left:auto; display:flex; gap:18px; align-items:center; flex-wrap:wrap}
-    #qhf-root nav a{color:var(--ink); font-weight:700}
-    #qhf-root nav .btn{padding:.55rem .9rem}
-    #qhf-root .hero{background:linear-gradient(180deg,#dfe6f1 0%, #e9eef7 60%, var(--bg) 100%); padding:56px 0 32px; text-align:center}
-    #qhf-root .hero h1{font-size:clamp(32px,5vw,56px); margin:0 0 10px; color:var(--ink)}
-    #qhf-root .hero p{max-width:760px; margin:0 auto; color:var(--muted); font-size:clamp(15px,2.2vw,19px)}
+    #qhf-root nav a{color:#e8f1ff; font-weight:700}
+    #qhf-root nav .btn{padding:.55rem .9rem; background:transparent; color:#e8f1ff; border-color:#4a7fb3}
+    #qhf-root nav .btn:hover{background:#1b2a38}
+
+    /* Hero now dark-to-darker gradient */
+    #qhf-root .hero{
+      background:linear-gradient(180deg,#1f3142 0%, #1a2a39 60%, var(--bg) 100%);
+      padding:56px 0 32px; text-align:center
+    }
+    #qhf-root .hero h1{font-size:clamp(32px,5vw,56px); margin:0 0 10px; color:#eaf2ff}
+    #qhf-root .hero p{max-width:760px; margin:0 auto; color:#c6d4e3; font-size:clamp(15px,2.2vw,19px)}
     #qhf-root .hero .cta{margin-top:22px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
-    #qhf-root .mini{font-size:12px; color:var(--muted)}
-    #qhf-root .badges{border-top:2px solid var(--line); border-bottom:2px solid var(--line); background:#fff}
-    #qhf-root .badge-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; padding:14px 0}
-    #qhf-root .badge{border:2px solid var(--line); border-radius:12px; padding:10px 12px; text-align:center; color:var(--muted); background:#fff}
-    @media(min-width:640px){#qhf-root .badge-grid{grid-template-columns:repeat(4,1fr)}}
-    #qhf-root section{padding:42px 0}
-    #qhf-root h2{font-size:28px; margin:0 0 12px; color:var(--accent)}
+    #qhf-root .mini{font-size:12px; color:#a9b7c6}
+
+    /* Light-on-dark section text; cards reset to dark text on white */
+    #qhf-root section{padding:42px 0; color:#e6eef7}
+    #qhf-root section a{color:#9ec3ff}
+    #qhf-root h2{font-size:28px; margin:0 0 12px; color:#d7e8ff}
+
     #qhf-root .grid{display:grid; gap:16px}
-    #qhf-root .card{background:var(--surface); border:2px solid var(--line); border-radius:16px; padding:18px; box-shadow:var(--shadow)}
+    #qhf-root .card{background:var(--surface); border:2px solid #d7e1ee; border-radius:16px; padding:18px; box-shadow:var(--shadow); color:var(--ink)}
     #qhf-root .services{grid-template-columns:repeat(1,1fr)}
     @media(min-width:900px){#qhf-root .services{grid-template-columns:repeat(2,1fr)}}
     #qhf-root .kpis{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
     @media(min-width:740px){#qhf-root .kpis{grid-template-columns:repeat(4,1fr)}}
-    #qhf-root .kpi{background:#fff; border:2px solid var(--line); border-radius:14px; padding:14px; text-align:center}
+    #qhf-root .kpi{background:#fff; border:2px solid #d7e1ee; border-radius:14px; padding:14px; text-align:center; color:var(--ink)}
     #qhf-root .process{grid-template-columns:repeat(1,1fr)}
     @media(min-width:860px){#qhf-root .process{grid-template-columns:repeat(3,1fr)}}
     #qhf-root .step .num{font:900 14px/1 monospace; background:var(--accent); color:#fff; border-radius:999px; padding:6px 10px; display:inline-block; margin-bottom:6px}
-    #qhf-root details{background:#fff; border:2px solid var(--line); border-radius:12px; padding:10px 12px}
+    #qhf-root details{background:#fff; border:2px solid #d7e1ee; border-radius:12px; padding:10px 12px; color:var(--ink)}
     #qhf-root details+details{margin-top:10px}
     #qhf-root details summary{cursor:pointer; font-weight:700; color:var(--ink)}
+
+    /* Badges & footer blend with dark theme */
+    #qhf-root .badges{border-top:2px solid #233241; border-bottom:2px solid #233241; background:#0f1f2d}
+    #qhf-root .badge-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; padding:14px 0}
+    #qhf-root .badge{border:2px solid #2a3a49; border-radius:12px; padding:10px 12px; text-align:center; color:#c2d0de; background:#142434}
+    @media(min-width:640px){#qhf-root .badge-grid{grid-template-columns:repeat(4,1fr)}}
+
     #qhf-root .contact{display:grid; grid-template-columns:1fr; gap:16px}
     @media(min-width:860px){#qhf-root .contact{grid-template-columns:1.1fr .9fr}}
-    #qhf-root input, #qhf-root textarea, #qhf-root select{border:2px solid var(--line); border-radius:12px; padding:12px 14px; font:inherit; background:#fff; width:100%}
-    #qhf-root input:focus, #qhf-root textarea:focus, #qhf-root select:focus{outline:3px solid rgba(0,51,102,.25); border-color:var(--accent)}
-    #qhf-root label{font-size:14px; color:var(--muted); display:block; margin:6px 0 4px}
-    #qhf-root footer{border-top:2px solid var(--line); background:#fff; color:var(--muted); text-align:center; padding:20px}
+    #qhf-root input, #qhf-root textarea, #qhf-root select{border:2px solid #cfd9e6; border-radius:12px; padding:12px 14px; font:inherit; background:#fff; width:100%}
+    #qhf-root input:focus, #qhf-root textarea:focus, #qhf-root select:focus{outline:3px solid rgba(47,110,166,.3); border-color:var(--accent)}
+    #qhf-root label{font-size:14px; color:#a9b7c6; display:block; margin:6px 0 4px}
+
+    #qhf-root footer{border-top:2px solid #233241; background:#0f1f2d; color:#a9b7c6; text-align:center; padding:20px}
+
     #qhf-root .twocol{display:grid; grid-template-columns:1fr 1fr; gap:8px}
     #qhf-root .actions{display:flex; gap:10px; flex-wrap:wrap}
     #qhf-root .reviews{grid-template-columns:repeat(1,1fr)}
     @media(min-width:860px){#qhf-root .reviews{grid-template-columns:repeat(2,1fr)}}
-    #qhf-root .rev .meta{font-size:12px; color:var(--muted)}
+    #qhf-root .rev .meta{font-size:12px; color:#5c6b7b}
+
     @media (max-width: 768px){
       #qhf-root body { font-size: 16px; padding: 10px; }
       #qhf-root h1, #qhf-root h2, #qhf-root h3 { text-align: center; }
@@ -259,16 +284,14 @@
   </footer>
 
   <script>
-    // ====== Quick Haul & Fix (scoped JS) ======
+    // (unchanged JS)
     (function(){
       const root = document.getElementById('qhf-root');
       if(!root) return;
 
-      // Year
       const y = root.querySelector('#qhf-year');
       if(y){ y.textContent = new Date().getFullYear(); }
 
-      // Reviews rotating + local storage capture
       const ROTATE_MS = 5000;
       let reviewsData = [];
       let revIndex = 0;
@@ -347,7 +370,6 @@
           startRotation();
           form.reset();
 
-          // Optional POST (Netlify-style)
           try{
             await fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:encode(payload) });
           }catch(err){}
@@ -358,4 +380,3 @@
     })();
   </script>
 </div>
-
