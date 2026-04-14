@@ -12,60 +12,105 @@
 body{
   font-family:Inter,sans-serif;
   margin:0;
-  background:#f6faff;
+  background:linear-gradient(180deg,#f6faff,#eaf2ff);
   color:#0b1620;
 }
 
+/* HEADER */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 20px;
+  background:#fff;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+}
+
+.brand img{
+  height:55px;
+}
+
+/* LAYOUT */
 .wrap{
   max-width:1100px;
   margin:auto;
   padding:20px;
 }
 
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px;
-  background:#fff;
-  border-bottom:1px solid #eee;
-}
-
-.brand img{
-  height:65px;
-}
-
 .hero{
   text-align:center;
-  padding:40px 20px;
+  padding:50px 20px;
 }
 
+.hero h1{
+  font-size:38px;
+  font-weight:800;
+}
+
+.hero p{
+  color:#555;
+}
+
+/* BUTTONS */
 .btn{
-  padding:12px 16px;
+  padding:12px 18px;
   border-radius:10px;
   text-decoration:none;
   font-weight:700;
-  display:inline-block;
   margin:5px;
+  display:inline-block;
+  background:#123A7A;
+  color:#fff;
+  transition:0.2s;
 }
 
-.btn{background:#123A7A;color:#fff}
-.btn.alt{background:#fff;color:#123A7A;border:1px solid #ccc}
+.btn:hover{
+  transform:translateY(-2px);
+}
 
+.btn.alt{
+  background:#fff;
+  color:#123A7A;
+  border:2px solid #123A7A;
+}
+
+/* CARDS */
 .card{
   background:#fff;
   padding:20px;
-  border-radius:12px;
-  border:1px solid #eee;
-  margin-top:10px;
+  border-radius:14px;
+  border:1px solid #e6eef6;
+  margin-top:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.05);
+  transition:0.2s;
+}
+
+.card:hover{
+  transform:translateY(-3px);
 }
 
 .grid{
   display:grid;
   grid-template-columns:1fr 1fr 1fr;
-  gap:10px;
+  gap:12px;
 }
 
+/* TITLES */
+h2{
+  text-align:center;
+  position:relative;
+}
+
+h2::after{
+  content:"";
+  display:block;
+  width:40px;
+  height:3px;
+  background:#e11d48;
+  margin:6px auto;
+}
+
+/* PILLS */
 .pill{
   padding:8px 12px;
   border:1px solid #ccc;
@@ -74,12 +119,16 @@ body{
   display:inline-block;
 }
 
+/* FORM */
 input, textarea, select{
   width:100%;
   padding:10px;
   margin:5px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
 }
 
+/* CALL BAR */
 .callbar{
   position:fixed;
   bottom:0;
@@ -99,7 +148,12 @@ input, textarea, select{
 <!-- HEADER -->
 <div class="topbar">
   <div class="brand">
-    <img src="logo.png" alt="Logo">
+    <img src="logo.png">
+  </div>
+
+  <div>
+    <a class="btn" href="tel:+13027952377">Call 302</a>
+    <a class="btn alt" href="tel:+16097952599">Call 609</a>
   </div>
 </div>
 
@@ -150,41 +204,39 @@ input, textarea, select{
     </div>
   </div>
 
-  <p>Final price confirmed on-site before work begins.</p>
+  <p style="text-align:center;">Final price confirmed on-site before work begins.</p>
 </div>
 
 <!-- AREAS -->
 <div class="wrap">
   <h2>Service Areas</h2>
 
-  <span class="pill">Pennsylvania</span>
-  <span class="pill">Delaware</span>
-  <span class="pill">Maryland</span>
-  <span class="pill">New Jersey</span>
+  <div style="text-align:center;">
+    <span class="pill">Pennsylvania</span>
+    <span class="pill">Delaware</span>
+    <span class="pill">Maryland</span>
+    <span class="pill">New Jersey</span>
+  </div>
 </div>
 
 <!-- REVIEWS -->
 <div class="wrap">
   <h2>Reviews</h2>
 
-  <!-- FORM -->
   <div class="card">
     <h3>Leave a Review</h3>
 
     <input id="name" placeholder="Your name">
-
     <select id="rating">
-      <option value="★★★★★">★★★★★</option>
-      <option value="★★★★">★★★★</option>
-      <option value="★★★">★★★</option>
+      <option>★★★★★</option>
+      <option>★★★★</option>
+      <option>★★★</option>
     </select>
-
     <textarea id="reviewText" placeholder="Your review..."></textarea>
 
     <button class="btn" onclick="addReview()">Submit Review</button>
   </div>
 
-  <!-- REVIEWS SHOW HERE -->
   <div id="reviewsList"></div>
 </div>
 
@@ -192,11 +244,13 @@ input, textarea, select{
 <div class="wrap">
   <h2>Contact</h2>
 
-  <a class="btn" href="sms:+13027952377">Text 302-795-2377</a>
-  <a class="btn alt" href="sms:+16097952599">Text 609-795-2599</a>
+  <div style="text-align:center;">
+    <a class="btn" href="sms:+13027952377">Text 302-795-2377</a>
+    <a class="btn alt" href="sms:+16097952599">Text 609-795-2599</a>
+  </div>
 
-  <p>New Castle, DE</p>
-  <p><strong>Open Daily: 9:00 AM – 5:00 PM</strong></p>
+  <p style="text-align:center;">New Castle, DE</p>
+  <p style="text-align:center;"><strong>Open Daily: 9:00 AM – 5:00 PM</strong></p>
 </div>
 
 <!-- CALL BAR -->
