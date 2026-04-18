@@ -1,225 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Quick Haul & Fix</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-  margin:0;
-  font-family:Inter,sans-serif;
-  background:linear-gradient(180deg,#ffffff,#f7fbff);
-  color:#0b1620;
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f7fbff;
+  color: #0b1620;
+  padding-bottom: 90px;
 }
 
 /* HEADER */
 
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:14px 24px;
-  background:#fff;
-  box-shadow:0 4px 14px rgba(0,0,0,0.05);
-  position:sticky;
-  top:0;
-  z-index:1000;
+.topbar {
+  background: #ffffff;
+  padding: 15px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.brand img{
-  height:60px;
+.brand img {
+  height: 58px;
 }
 
-/* MAIN WRAP */
+/* WRAPPER */
 
-.wrap{
-  max-width:1100px;
-  margin:auto;
-  padding:30px 20px;
+.wrap {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px 20px;
 }
 
 /* HERO */
 
-.hero{
-  text-align:center;
-  padding:70px 20px 50px;
+.hero {
+  text-align: center;
+  padding: 70px 20px 40px;
 }
 
-.hero h1{
-  font-size:42px;
-  font-weight:800;
-  margin-bottom:12px;
+.hero h1 {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 15px;
 }
 
-.hero p{
-  color:#555;
-  font-size:17px;
-  margin-bottom:18px;
+.hero p {
+  font-size: 17px;
+  color: #555;
+  margin-bottom: 20px;
 }
 
 /* BUTTONS */
 
-.btn{
-  display:inline-block;
-  padding:13px 22px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:700;
-  margin:6px;
-  background:#ff7a00;
-  color:#fff;
-  transition:0.2s;
+.btn {
+  display: inline-block;
+  padding: 13px 22px;
+  margin: 6px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  background: #ff7a00;
+  color: white;
+  transition: 0.2s;
 }
 
-.btn:hover{
-  transform:translateY(-2px);
+.btn:hover {
+  transform: translateY(-2px);
 }
 
-.btn.alt{
-  background:#123A7A;
-  border:2px solid #123A7A;
-  color:#fff;
+.btn.alt {
+  background: #123A7A;
 }
 
 /* TITLES */
 
-h2{
-  text-align:center;
-  font-size:30px;
-  margin-bottom:25px;
-  position:relative;
+.section-title {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 25px;
+  font-weight: 800;
 }
 
-h2::after{
-  content:"";
-  display:block;
-  width:50px;
-  height:4px;
-  background:#ff7a00;
-  margin:8px auto 0;
-  border-radius:20px;
+.section-title::after {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 4px;
+  background: #ff7a00;
+  margin: 10px auto 0;
+  border-radius: 20px;
 }
 
-/* CARDS */
+/* GRID */
 
-.card{
-  background:#fff;
-  border:1px solid #e7edf5;
-  border-radius:16px;
-  padding:24px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.05);
-  transition:0.2s;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
 }
 
-.card:hover{
-  transform:translateY(-3px);
+/* CARD */
+
+.card {
+  background: white;
+  border: 1px solid #e4ebf2;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.04);
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:16px;
+.card h3 {
+  margin-bottom: 10px;
 }
 
-/* PILLS */
+/* SERVICE AREA PILLS */
 
-.pill{
-  display:inline-block;
-  padding:10px 16px;
-  border:1px solid #d8dfe8;
-  border-radius:30px;
-  margin:6px;
-  background:#fff;
-  font-weight:600;
+.pills {
+  text-align: center;
+}
+
+.pill {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 1px solid #d8dfe7;
+  border-radius: 30px;
+  margin: 6px;
+  background: white;
+  font-weight: 600;
 }
 
 /* REVIEWS */
 
-.reviews-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:16px;
+.review-box {
+  background: white;
+  border: 2px solid #123A7A;
+  border-radius: 16px;
+  padding: 22px;
 }
 
-.review-box{
-  background:#fff;
-  border:2px solid #123A7A;
-  border-radius:16px;
-  padding:22px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.05);
-}
-
-.review-box strong{
-  color:#ff7a00;
-  display:block;
-  margin-bottom:8px;
+.review-box strong {
+  color: #ff7a00;
+  display: block;
+  margin-bottom: 10px;
 }
 
 /* FORM */
 
 input,
 textarea,
-select{
-  width:100%;
-  padding:12px;
-  border:1px solid #d6dce4;
-  border-radius:10px;
-  margin:8px 0;
-  font-family:Inter,sans-serif;
+select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #d7dde5;
+  border-radius: 10px;
+  font-family: inherit;
 }
 
-textarea{
-  min-height:120px;
-  resize:vertical;
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+button {
+  border: none;
+  cursor: pointer;
 }
 
 /* CONTACT */
 
-.contact-center{
-  text-align:center;
+.contact {
+  text-align: center;
 }
 
-/* BOTTOM CALL BAR */
+/* FIXED CALL BAR */
 
-.callbar{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  display:flex;
-  gap:10px;
-  justify-content:center;
-  padding:12px;
-  background:#fff;
-  border-top:1px solid #eee;
-  z-index:999;
+.callbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  border-top: 1px solid #eee;
 }
 
 /* MOBILE */
 
-@media(max-width:768px){
-
-  .topbar{
-    flex-direction:column;
-    gap:12px;
+@media (max-width: 768px) {
+  .topbar {
+    flex-direction: column;
+    gap: 12px;
   }
 
-  .hero h1{
-    font-size:32px;
+  .hero h1 {
+    font-size: 32px;
   }
 
-  .callbar{
-    flex-direction:column;
+  .callbar {
+    flex-direction: column;
   }
-
 }
 </style>
 </head>
@@ -234,71 +237,67 @@ textarea{
   </div>
 
   <div>
-    <a class="btn" href="tel:+13026092377">Call 302</a>
-    <a class="btn alt" href="tel:+16097952599">Call 609</a>
+    <a href="tel:+13026092377" class="btn">Call 302</a>
+    <a href="tel:+16097952599" class="btn alt">Call 609</a>
   </div>
 </div>
 
 <!-- HERO -->
 
-<div class="hero">
+<section class="hero">
   <h1>Junk Removal • Cleanouts • Light Handyman</h1>
 
-  <p>
-    Fast, Affordable, Same-Day Service Available
-  </p>
+  <p>Same-Day Service Available — Fast, Reliable & Affordable</p>
 
-  <a class="btn" href="tel:+13026092377">
+  <a href="tel:+13026092377" class="btn">
     Call 302-609-2377
   </a>
 
-  <a class="btn alt" href="tel:+16097952599">
+  <a href="tel:+16097952599" class="btn alt">
     Call 609-795-2599
   </a>
 
-  <p>
-    <strong>Open Daily: 9:00 AM – 5:00 PM</strong>
-  </p>
-</div>
+  <p><strong>Open Daily: 9:00 AM – 5:00 PM</strong></p>
+</section>
 
 <!-- SERVICES -->
 
-<div class="wrap">
-  <h2>Services</h2>
+<section class="wrap">
+  <h2 class="section-title">Services</h2>
 
   <div class="grid">
 
     <div class="card">
-      <h3>Residential & Commercial Junk Removal</h3>
+      <h3>Junk Removal</h3>
       <p>
-        Furniture, appliances, office cleanouts,
-        garages, sheds, construction debris and more.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Light Handyman Services</h3>
-      <p>
-        Mounting, patch & paint, installs,
-        minor repairs and general maintenance.
+        Furniture, appliances, garages,
+        construction debris and more.
       </p>
     </div>
 
     <div class="card">
       <h3>Property Cleanouts</h3>
       <p>
-        Full home, rental, eviction and estate cleanouts
-        done quickly and professionally.
+        Estate cleanouts, evictions,
+        rentals and full-home cleanouts.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Light Handyman</h3>
+      <p>
+        Mounting, patch & paint,
+        installs and minor repairs.
       </p>
     </div>
 
   </div>
-</div>
+</section>
 
 <!-- PRICING -->
 
-<div class="wrap">
-  <h2>Pricing</h2>
+<section class="wrap">
+  <h2 class="section-title">Pricing</h2>
 
   <div class="grid">
 
@@ -320,16 +319,16 @@ textarea{
   </div>
 
   <p style="text-align:center; margin-top:20px;">
-    Final pricing is confirmed on-site before work begins.
+    Final price confirmed before work begins.
   </p>
-</div>
+</section>
 
 <!-- REVIEWS -->
 
-<div class="wrap">
-  <h2>Customer Reviews</h2>
+<section class="wrap">
+  <h2 class="section-title">Customer Reviews</h2>
 
-  <div class="reviews-grid">
+  <div class="grid">
 
     <div class="review-box">
       <strong>★★★★★ Mike T.</strong>
@@ -342,43 +341,43 @@ textarea{
     <div class="review-box">
       <strong>★★★★★ Sarah J.</strong>
       <p>
-        Same-day junk removal and excellent
-        customer service.
+        Same-day service and excellent customer support.
       </p>
     </div>
 
     <div class="review-box">
       <strong>★★★★★ David R.</strong>
       <p>
-        Very reliable handyman work.
+        Reliable handyman work.
         Will definitely use again.
       </p>
     </div>
 
   </div>
-</div>
+</section>
 
 <!-- SERVICE AREAS -->
 
-<div class="wrap">
-  <h2>Service Areas</h2>
+<section class="wrap">
+  <h2 class="section-title">Service Areas</h2>
 
-  <div style="text-align:center;">
+  <div class="pills">
     <span class="pill">Pennsylvania</span>
     <span class="pill">Delaware</span>
     <span class="pill">Maryland</span>
     <span class="pill">New Jersey</span>
   </div>
-</div>
+</section>
 
 <!-- LEAVE REVIEW -->
 
-<div class="wrap">
-  <h2>Leave a Review</h2>
+<section class="wrap">
+  <h2 class="section-title">Leave a Review</h2>
 
   <div class="card">
 
     <input
+      type="text"
       id="name"
       placeholder="Your Name"
     >
@@ -391,7 +390,7 @@ textarea{
 
     <textarea
       id="reviewText"
-      placeholder="Your Review..."
+      placeholder="Your Review"
     ></textarea>
 
     <button
@@ -404,59 +403,58 @@ textarea{
   </div>
 
   <div id="reviewsList" style="margin-top:20px;"></div>
-</div>
+</section>
 
 <!-- CONTACT -->
 
-<div class="wrap">
-  <h2>Contact</h2>
+<section class="wrap">
+  <h2 class="section-title">Contact</h2>
 
-  <div class="contact-center">
+  <div class="contact">
 
-    <a class="btn" href="sms:+13026092377">
+    <a href="sms:+13026092377" class="btn">
       Text 302-609-2377
     </a>
 
-    <a class="btn alt" href="sms:+16097952599">
+    <a href="sms:+16097952599" class="btn alt">
       Text 609-795-2599
     </a>
 
-    <p>New Castle, Delaware</p>
+    <p style="margin-top:20px;">New Castle, Delaware</p>
 
-    <p>
+    <p style="margin-top:10px;">
       <strong>Open Daily: 9:00 AM – 5:00 PM</strong>
     </p>
 
   </div>
-</div>
+</section>
 
-<!-- FIXED CALL BAR -->
+<!-- FIXED BOTTOM BAR -->
 
 <div class="callbar">
-  <a class="btn" href="tel:+13026092377">Call 302</a>
-  <a class="btn alt" href="tel:+16097952599">Call 609</a>
+  <a href="tel:+13026092377" class="btn">Call 302</a>
+  <a href="tel:+16097952599" class="btn alt">Call 609</a>
 </div>
 
 <script>
-function addReview(){
+function addReview() {
   const name = document.getElementById("name").value;
   const rating = document.getElementById("rating").value;
   const text = document.getElementById("reviewText").value;
 
-  if(!name || !text){
+  if (!name || !text) {
     alert("Please fill everything out");
     return;
   }
 
-  const review = `
-    <div class="card">
-      <strong>${name}</strong>
-      <p>${rating}</p>
-      <p>${text}</p>
-    </div>
-  `;
+  const reviewHTML =
+    '<div class="card">' +
+    '<strong>' + name + '</strong>' +
+    '<p>' + rating + '</p>' +
+    '<p>' + text + '</p>' +
+    '</div>';
 
-  document.getElementById("reviewsList").innerHTML += review;
+  document.getElementById("reviewsList").innerHTML += reviewHTML;
 
   document.getElementById("name").value = "";
   document.getElementById("reviewText").value = "";
