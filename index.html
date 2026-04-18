@@ -12,7 +12,7 @@
 body{
   font-family:Inter,sans-serif;
   margin:0;
-  background:linear-gradient(180deg,#f6faff,#eaf2ff);
+  background:linear-gradient(180deg,#ffffff,#f7fbff);
   color:#0b1620;
 }
 
@@ -59,7 +59,7 @@ body{
   font-weight:700;
   margin:5px;
   display:inline-block;
-  background:#123A7A;
+  background:#ff7a00; /* ORANGE */
   color:#fff;
   transition:0.2s;
 }
@@ -69,8 +69,8 @@ body{
 }
 
 .btn.alt{
-  background:#fff;
-  color:#123A7A;
+  background:#123A7A; /* BLUE */
+  color:#fff;
   border:2px solid #123A7A;
 }
 
@@ -106,7 +106,7 @@ h2::after{
   display:block;
   width:40px;
   height:3px;
-  background:#e11d48;
+  background:#ff7a00;
   margin:6px auto;
 }
 
@@ -140,6 +140,33 @@ input, textarea, select{
   background:#fff;
   border-top:1px solid #eee;
 }
+
+/* FLOATING REVIEWS */
+.floating-reviews{
+  position:fixed;
+  right:20px;
+  top:120px;
+  width:300px;
+  z-index:999;
+}
+
+.review-box{
+  background:#fff;
+  border:2px solid #123A7A;
+  border-radius:14px;
+  padding:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  margin-bottom:12px;
+}
+
+.review-box h3{
+  margin-top:0;
+  color:#123A7A;
+}
+
+.review-box strong{
+  color:#ff7a00;
+}
 </style>
 </head>
 
@@ -152,7 +179,7 @@ input, textarea, select{
   </div>
 
   <div>
-    <a class="btn" href="tel:+13027952377">Call 302</a>
+    <a class="btn" href="tel:+13026092377">Call 302</a>
     <a class="btn alt" href="tel:+16097952599">Call 609</a>
   </div>
 </div>
@@ -162,7 +189,7 @@ input, textarea, select{
   <h1>Junk Removal • Cleanouts • Light Handyman</h1>
   <p>Same-Day Service Available — Call Now</p>
 
-  <a class="btn" href="tel:+13027952377">Call 302-795-2377</a>
+  <a class="btn" href="tel:+13026092377">Call 302-609-2377</a>
   <a class="btn alt" href="tel:+16097952599">Call 609-795-2599</a>
 
   <p><strong>Open Daily: 9:00 AM – 5:00 PM</strong></p>
@@ -204,7 +231,9 @@ input, textarea, select{
     </div>
   </div>
 
-  <p style="text-align:center;">Final price confirmed on-site before work begins.</p>
+  <p style="text-align:center;">
+    Final price confirmed on-site before work begins.
+  </p>
 </div>
 
 <!-- AREAS -->
@@ -219,22 +248,48 @@ input, textarea, select{
   </div>
 </div>
 
+<!-- FLOATING REVIEWS -->
+<div class="floating-reviews">
+
+  <div class="review-box">
+    <h3>Latest Reviews</h3>
+    <strong>★★★★★ Mike T.</strong>
+    <p>Fast, professional, and affordable. Highly recommend!</p>
+  </div>
+
+  <div class="review-box">
+    <strong>★★★★★ Sarah J.</strong>
+    <p>Same-day junk removal and excellent customer service.</p>
+  </div>
+
+  <div class="review-box">
+    <strong>★★★★★ David R.</strong>
+    <p>Very reliable handyman work. Will definitely use again.</p>
+  </div>
+
+</div>
+
 <!-- REVIEWS -->
 <div class="wrap">
-  <h2>Reviews</h2>
+  <h2>Leave a Review</h2>
 
   <div class="card">
-    <h3>Leave a Review</h3>
-
     <input id="name" placeholder="Your name">
+
     <select id="rating">
       <option>★★★★★</option>
       <option>★★★★</option>
       <option>★★★</option>
     </select>
-    <textarea id="reviewText" placeholder="Your review..."></textarea>
 
-    <button class="btn" onclick="addReview()">Submit Review</button>
+    <textarea
+      id="reviewText"
+      placeholder="Your review..."
+    ></textarea>
+
+    <button class="btn" onclick="addReview()">
+      Submit Review
+    </button>
   </div>
 
   <div id="reviewsList"></div>
@@ -245,21 +300,27 @@ input, textarea, select{
   <h2>Contact</h2>
 
   <div style="text-align:center;">
-    <a class="btn" href="sms:+13027952377">Text 302-795-2377</a>
-    <a class="btn alt" href="sms:+16097952599">Text 609-795-2599</a>
+    <a class="btn" href="sms:+13026092377">
+      Text 302-609-2377
+    </a>
+
+    <a class="btn alt" href="sms:+16097952599">
+      Text 609-795-2599
+    </a>
   </div>
 
   <p style="text-align:center;">New Castle, DE</p>
-  <p style="text-align:center;"><strong>Open Daily: 9:00 AM – 5:00 PM</strong></p>
+  <p style="text-align:center;">
+    <strong>Open Daily: 9:00 AM – 5:00 PM</strong>
+  </p>
 </div>
 
 <!-- CALL BAR -->
 <div class="callbar">
-  <a class="btn" href="tel:+13027952377">Call 302</a>
+  <a class="btn" href="tel:+13026092377">Call 302</a>
   <a class="btn alt" href="tel:+16097952599">Call 609</a>
 </div>
 
-<!-- SCRIPT -->
 <script>
 function addReview(){
   const name = document.getElementById("name").value;
